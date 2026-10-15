@@ -91,6 +91,7 @@ function plural(n, one, few, many) {
 function tzLabel(tz, date) {
   if (tz === HOME_TZ) return "по Бишкеку";
   if (tz === "Asia/Tokyo") return "JST";
+  if (tz === "America/New_York") return "ET (Нью-Йорк)";
   const h = Math.round(tzOffsetMs(date.getTime(), tz) / 3600000);
   if (tz.startsWith("Europe/") && (h === 1 || h === 2)) return h === 1 ? "CET" : "CEST";
   return h === 0 ? "UTC" : `GMT${h > 0 ? "+" : ""}${h}`;
@@ -127,10 +128,12 @@ async function loadData() {
     if (r.headers.get("X-From-Cache")) state.fromCache = r.headers.get("X-From-Cache");  // ответ service worker без сети
     return r.json();
   });
-  const [programs, changelog, st, src] = await Promise.all([
+  const [programs, changelog, st, src, ev] = await Promise.all([
     get("programs.json"), get("changelog.json"),
     get("state.json").catch(() => ({ sources: {} })), get("sources.json").catch(() => ({ sources: [] })),
+    get("events.json").catch(() => ({ events: [] })),
   ]);
+  state.events = ev.events || [];
   state.sourceList = src.sources || [];
   state.whitelist = state.sourceList.filter((s) => s.enabled && s.url).map((s) => s.url);
   state.programs = programs.programs;
@@ -470,8 +473,49 @@ function fmtValue(field, v) {
 }
 
 /* ---------- экраны ---------- */
+/* ---------- экзамены ---------- */
+function eventCountdown(when) {
+  const n = daysLeft(when);
+  if (n === null) return `<div class="count none"><div class="n">—</div><div class="u">нет даты</div></div>`;
+  if (n < 0) return `<div class="count none"><div class="n">прошло</div><div class="u"></div></div>`;
+  return `<div class="count ${n <= 7 ? "urgent" : n <= 30 ? "soon" : ""}"><div class="n">${n}</div><div class="u">${plural(n, "день", "дня", "дней")}</div></div>`;
+}
+
+function viewEvents() {
+  const key = (e) => {
+    const r = e.registration?.date && daysLeft(e.registration) >= 0 ? deadlineDate(e.registration) : null;
+    const d = e.date && daysLeft({ date: e.date }) >= 0 ? deadlineDate({ date: e.date }) : null;
+    return (r || d || new Date(8.64e15)).getTime();
+  };
+  const list = (state.events || []).slice().sort((a, b) => key(a) - key(b));
+  return list.map((e) => {
+    const reg = e.registration?.date ? e.registration : null;
+    const regOpen = reg && daysLeft(reg) >= 0;
+    const progs = (e.related_programs || []).map(programById).filter(Boolean);
+    return `<div class="card">
+      <div class="prog">
+        <div><h3>${esc(e.name)}</h3>
+          <div class="muted small">${e.date ? "Экзамен: " + esc(fmtDeadline({ date: e.date, timezone: HOME_TZ })) : "Дата экзамена не назначена"}</div>
+          ${reg ? `<div class="small">${regOpen ? "Регистрация до" : "Регистрация закрыта"}: <b>${esc(fmtDeadline(reg))}</b>${fmtDeadlineHome(reg) ? ` <span class="muted">(${esc(fmtDeadlineHome(reg))} по Бишкеку)</span>` : ""}</div>` : ""}
+        </div>
+        ${eventCountdown(regOpen ? reg : e.date ? { date: e.date } : null)}
+        <div class="meta">${statusBadge({ deadline_status: e.status })}${regOpen ? `<span class="badge review">⏳ идёт регистрация</span>` : ""}</div>
+      </div>
+      ${e.notes ? `<p class="small">${esc(e.notes)}</p>` : ""}
+      ${progs.length ? `<div class="small muted">Нужно для: ${progs.map((p) => `<a href="#/p/${encodeURIComponent(p.id)}">${esc(p.name)}</a>`).join(", ")}</div>` : ""}
+      ${quoteBlock({ quote: e.quote, source_url: e.source_url })}
+    </div>`;
+  }).join("") || `<p class="muted center">Экзаменов нет</p>`;
+}
+
 function viewHome() {
-  const filters = [["all", "Все"], ["active", "Активные"], ["стипендия", "Стипендии"], ["вуз", "Вузы"]];
+  const filters = [["all", "Все"], ["active", "Активные"], ["exams", "📝 Экзамены"], ["стипендия", "Стипендии"], ["вуз", "Вузы"]];
+  if (state.filter === "exams") {
+    return `<div class="chips" role="group" aria-label="Фильтр">
+      ${filters.map(([v, l]) => `<button class="chip" data-filter="${v}" aria-pressed="${state.filter === v}">${l}</button>`).join("")}
+    </div>${viewEvents()}
+    <p class="muted small center">Отсчёт — до конца регистрации, а если она закрыта — до экзамена. Даты есть и в <a href="data/deadlines.ics" download="deadlines.ics">календаре</a>.</p>`;
+  }
   const list = state.programs
     .filter((p) => state.filter === "all" || (state.filter === "active" ? ACTIVE_STAGES.includes(appStatus(p).stage) : p.type === state.filter))
     .map((p) => ({ p, n: deadlineDate(p.deadline), done: appStatus(p).stage === "result" }))
@@ -573,6 +617,14 @@ function viewProgram(id) {
           <span>${esc(c.title)}${c.url ? ` <a href="${esc(safeUrl(c.url))}" target="_blank" rel="noopener" class="small" title="Открыть форму / страницу">📎</a>` : ""}</span>
         </label>`).join("") : `<span class="empty">Чек-лист пуст — добавьте пункты в programs.json</span>`}
     </div>
+
+    ${(() => {
+      const ev = (state.events || []).filter((e) => (e.related_programs || []).includes(p.id));
+      return ev.length ? `<h2>Экзамены</h2><div class="card">${ev.map((e) => `<div class="field"><b>${esc(e.name)}</b>
+        ${e.registration?.date ? `<div class="small">регистрация до ${esc(fmtDeadline(e.registration))}</div>` : ""}
+        ${e.notes ? `<div class="small muted">${esc(e.notes)}</div>` : ""}</div>`).join("")}
+        <p class="small"><a href="#/" data-goto-exams="1">Все экзамены →</a></p></div>` : "";
+    })()}
 
     ${recsBlock(p)}
 
@@ -816,6 +868,7 @@ async function onCheck(programId, itemId, done) {
 }
 
 document.addEventListener("click", (ev) => {
+  if (ev.target.closest("[data-goto-exams]")) { state.filter = "exams"; }
   const t = ev.target.closest("button");
   if (!t) return;
   if (t.dataset.filter) { state.filter = t.dataset.filter; render(); }

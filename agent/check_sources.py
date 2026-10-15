@@ -307,10 +307,11 @@ def check_catalog(src, ctx, html, text, stamp):
 def check_source(src, ctx, args):
     programs, changelog, state = ctx["programs"], ctx["changelog"], ctx["state"]
     is_catalog = src.get("kind") == "catalog"
-    program = None if is_catalog else program_by_id(programs, src["program_id"])
-    if program is None and not is_catalog:
+    is_event = src.get("kind") == "event"
+    program = None if (is_catalog or is_event) else program_by_id(programs, src["program_id"])
+    if program is None and not (is_catalog or is_event):
         raise RuntimeError(f"программа {src['program_id']} не найдена в programs.json")
-    label = "Каталог конкурсов" if is_catalog else program["name"]
+    label = "Каталог конкурсов" if is_catalog else src.get("label", "Даты экзаменов") if is_event else program["name"]
 
     stamp = now_iso()
     st = state["sources"].setdefault(src["id"], {})
@@ -352,6 +353,10 @@ def check_source(src, ctx, args):
             )
         if not args.dry_run:
             snapshot.write_text(text, encoding="utf-8", newline="\n")
+
+    if is_event:
+        # Страницы с датами экзаменов: уведомляем об изменении, даты в events.json правятся вручную.
+        return messages
 
     # Флаг снимается только после успешного ответа LLM: если LLM упала или ключа нет,
     # следующий запуск повторит извлечение, даже если страница не изменилась.

@@ -247,6 +247,26 @@
       "url": "https://nyuad.nyu.edu/en/apply/undergraduate/scholarships-and-financial-aid.html",
       "selector": null,
       "enabled": true
+    },
+    {
+      "id": "sat-dates",
+      "kind": "event",
+      "label": "Даты SAT (College Board)",
+      "program_id": null,
+      "url": "https://satsuite.collegeboard.org/sat/dates-deadlines",
+      "selector": null,
+      "enabled": true,
+      "note": "Только отслеживание изменений: даты в data/events.json правятся вручную"
+    },
+    {
+      "id": "ielts-kg",
+      "kind": "event",
+      "label": "IELTS в Кыргызстане (British Council)",
+      "program_id": null,
+      "url": "https://takeielts.britishcouncil.org/kyrgyz-republic",
+      "selector": null,
+      "enabled": false,
+      "note": "Сайт British Council не отвечает агенту (таймаут) — проверять вручную"
     }
   ]
 }

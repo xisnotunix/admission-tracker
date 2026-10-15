@@ -10,10 +10,12 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from common import (  # noqa: E402
-    PROGRAMS_FILE, days_left, format_deadline, format_deadline_home, html_escape, load_json, send_telegram, site_url,
+    PROGRAMS_FILE, days_left, format_deadline, format_deadline_home, html_escape, load_events, load_json,
+    plural_days, send_telegram, site_url,
 )
 
 REMIND_DAYS = (60, 30, 14, 7, 1)
+EVENT_REMIND_DAYS = (30, 14, 7, 3, 1)
 STATUS_LABELS = {
     "confirmed": "✅ подтверждён",
     "expected": "🟡 ожидается (не подтверждён)",
@@ -47,6 +49,32 @@ def build_messages(programs, today=None):
     return out
 
 
+def build_event_messages(events, today=None):
+    """Напоминания о регистрации на экзамен и о самом экзамене."""
+    out = []
+    for e in events:
+        reg = e.get("registration") or {}
+        checks = [("регистрации", reg)] if reg.get("date") else []
+        if e.get("date"):
+            checks.append(("экзамена", {"date": e["date"], "time": None, "timezone": "Asia/Bishkek"}))
+        for what, when in checks:
+            n = days_left(when, today)
+            if n not in EVENT_REMIND_DAYS:
+                continue
+            status = "" if e.get("status") == "confirmed" else " (дата ожидается, не подтверждена)"
+            msg = (f"📝 <b>{html_escape(e['name'])}</b>: до {what} {n} {plural_days(n)}{status}\n"
+                   f"{'Регистрация до' if what == 'регистрации' else 'Экзамен'}: {html_escape(format_deadline(when))}")
+            home = format_deadline_home(when)
+            if home:
+                msg += f"\nПо Бишкеку: {home}"
+            if e.get("notes"):
+                msg += f"\n{html_escape(e['notes'])}"
+            if e.get("source_url"):
+                msg += f"\n{html_escape(e['source_url'])}"
+            out.append(msg)
+    return out
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--dry-run", action="store_true")
@@ -54,7 +82,7 @@ def main():
     args = parser.parse_args()
     today = date.fromisoformat(args.today) if args.today else None
 
-    messages = build_messages(load_json(PROGRAMS_FILE), today)
+    messages = build_messages(load_json(PROGRAMS_FILE), today) + build_event_messages(load_events(), today)
     for m in messages:
         if args.dry_run:
             print("---\n" + m)

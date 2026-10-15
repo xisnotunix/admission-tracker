@@ -7,7 +7,7 @@ X-WR-CALNAME:Дедлайны поступления
 X-WR-TIMEZONE:Asia/Bishkek
 BEGIN:VEVENT
 UID:stipendium-hungaricum-deadline@admission-tracker
-DTSTAMP:20261015T140025Z
+DTSTAMP:20261015T140951Z
 DTSTART:20270115T130000Z
 DURATION:PT1H
 SUMMARY:Дедлайн: Stipendium Hungaricum 2027/28 (ожидается)
@@ -31,7 +31,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:turkiye-burslari-deadline@admission-tracker
-DTSTAMP:20261015T140025Z
+DTSTAMP:20261015T140951Z
 DTSTART;VALUE=DATE:20270220
 DTEND;VALUE=DATE:20270221
 SUMMARY:Дедлайн: Türkiye Bursları 2027 (ожидается)
@@ -54,7 +54,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:russia-quota-deadline@admission-tracker
-DTSTAMP:20261015T140025Z
+DTSTAMP:20261015T140951Z
 DTSTART;VALUE=DATE:20270115
 DTEND;VALUE=DATE:20270116
 SUMMARY:Дедлайн: Квота Правительства РФ 2027/28
@@ -79,15 +79,15 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:china-csc-deadline@admission-tracker
-DTSTAMP:20261015T140025Z
+DTSTAMP:20261015T140951Z
 DTSTART:20270131T175900Z
 DURATION:PT1H
 SUMMARY:Дедлайн: Стипендия Правительства Ки
  тая (через министерство КР) (ожидается)
 DESCRIPTION:Статус даты: ожидается (по прошлым
-  годам)\nДедлайн: 31.01.2027\, 23:59 +06\nВ прошлом 
- цикле срок был 23:59\, 31 января 2026 (15 мест). Д
- ата 2027 — по аналогии.
+  годам)\nДедлайн: 31.01.2027\, 23:59 по Бишкеку\nВ 
+ прошлом цикле срок был 23:59\, 31 января 2026 (1
+ 5 мест). Дата 2027 — по аналогии.
 URL:https://weproject.media/articles/detail/15-kyrgyzstantsev-smogut-bespl
  atno-uchitsya-v-kitae-v-2026-godu/
 BEGIN:VALARM
@@ -107,7 +107,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:uca-deadline@admission-tracker
-DTSTAMP:20261015T140025Z
+DTSTAMP:20261015T140951Z
 DTSTART;VALUE=DATE:20270214
 DTEND;VALUE=DATE:20270215
 SUMMARY:Дедлайн: University of Central Asia (UCA) (ожидаетс
@@ -133,16 +133,16 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:auca-deadline@admission-tracker
-DTSTAMP:20261015T140025Z
+DTSTAMP:20261015T140951Z
 DTSTART:20270612T110000Z
 DURATION:PT1H
 SUMMARY:Дедлайн: American University of Central Asia (AUCA) (ожи
  дается)
 DESCRIPTION:Статус даты: ожидается (по прошлым
-  годам)\nДедлайн: 12.06.2027\, 17:00 +06\nВ 2026 заявк
- и и запросы на финпомощь — до 12 июня 2026\, 
- 17:00 (1-й раунд был 10 апреля). Даты 2027 — по а
- налогии.
+  годам)\nДедлайн: 12.06.2027\, 17:00 по Бишкеку\nВ 
+ 2026 заявки и запросы на финпомощь — до 12 
+ июня 2026\, 17:00 (1-й раунд был 10 апреля). Даты 
+ 2027 — по аналогии.
 URL:https://auca.kg/en/auca_exams_view/
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -159,13 +159,14 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:harvard-deadline@admission-tracker
-DTSTAMP:20261015T140025Z
+DTSTAMP:20261015T140951Z
 DTSTART:20270101T175900Z
 DURATION:PT1H
 SUMMARY:Дедлайн: Harvard College
 DESCRIPTION:Статус даты: подтверждён\nДедлайн:
-  01.01.2027\, 23:59 +06\nRegular Decision\; 23:59 по вашему ме
- стному времени. Restrictive Early Action — 1 ноября.
+  01.01.2027\, 23:59 по Бишкеку\nRegular Decision\; 23:59 по в
+ ашему местному времени. Restrictive Early Action — 
+ 1 ноября.
 URL:https://college.harvard.edu/admissions/apply/first-year-applicants
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -180,7 +181,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:yale-deadline@admission-tracker
-DTSTAMP:20261015T140025Z
+DTSTAMP:20261015T140951Z
 DTSTART;VALUE=DATE:20270102
 DTEND;VALUE=DATE:20270103
 SUMMARY:Дедлайн: Yale College
@@ -201,7 +202,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:princeton-deadline@admission-tracker
-DTSTAMP:20261015T140025Z
+DTSTAMP:20261015T140951Z
 DTSTART;VALUE=DATE:20270101
 DTEND;VALUE=DATE:20270102
 SUMMARY:Дедлайн: Princeton University (ожидается)
@@ -224,7 +225,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:mit-deadline@admission-tracker
-DTSTAMP:20261015T140025Z
+DTSTAMP:20261015T140951Z
 DTSTART;VALUE=DATE:20270104
 DTEND;VALUE=DATE:20270105
 SUMMARY:Дедлайн: MIT
@@ -246,7 +247,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:dartmouth-deadline@admission-tracker
-DTSTAMP:20261015T140025Z
+DTSTAMP:20261015T140951Z
 DTSTART;VALUE=DATE:20270102
 DTEND;VALUE=DATE:20270103
 SUMMARY:Дедлайн: Dartmouth College
@@ -268,7 +269,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:amherst-deadline@admission-tracker
-DTSTAMP:20261015T140025Z
+DTSTAMP:20261015T140951Z
 DTSTART;VALUE=DATE:20270105
 DTEND;VALUE=DATE:20270106
 SUMMARY:Дедлайн: Amherst College (ожидается)
@@ -292,7 +293,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:nyuad-deadline@admission-tracker
-DTSTAMP:20261015T140025Z
+DTSTAMP:20261015T140951Z
 DTSTART:20270106T045900Z
 DURATION:PT1H
 SUMMARY:Дедлайн: NYU Abu Dhabi
@@ -312,6 +313,169 @@ BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:Дедлайн: NYU Abu Dhabi
 TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:sat-2026-11-registration@admission-tracker
+DTSTAMP:20261015T140951Z
+DTSTART:20261024T035900Z
+DURATION:PT1H
+SUMMARY:Регистрация: SAT — 7 ноября 2026
+DESCRIPTION:Результаты успевают к ранним и об
+ ычным раундам. Если нужен ноутбук от Colleg
+ e Board — запросить минимум за 30 дней до эк
+ замена.
+URL:https://satsuite.collegeboard.org/sat/dates-deadlines
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Регистрация: SAT — 7 ноября 2026
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Регистрация: SAT — 7 ноября 2026
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:sat-2026-11-exam@admission-tracker
+DTSTAMP:20261015T140951Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:Экзамен: SAT — 7 ноября 2026
+DESCRIPTION:Результаты успевают к ранним и об
+ ычным раундам. Если нужен ноутбук от Colleg
+ e Board — запросить минимум за 30 дней до эк
+ замена.
+URL:https://satsuite.collegeboard.org/sat/dates-deadlines
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Экзамен: SAT — 7 ноября 2026
+TRIGGER:-P3D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:sat-2026-12-registration@admission-tracker
+DTSTAMP:20261015T140951Z
+DTSTART:20261121T045900Z
+DURATION:PT1H
+SUMMARY:Регистрация: SAT — 5 декабря 2026
+DESCRIPTION:Последняя реалистичная дата для Re
+ gular Decision (MIT: тесты до 31 декабря). Harvard сове
+ тует ноябрь или раньше\, но принимает де
+ кабрь.
+URL:https://satsuite.collegeboard.org/sat/dates-deadlines
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Регистрация: SAT — 5 декабря 2026
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Регистрация: SAT — 5 декабря 2026
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:sat-2026-12-exam@admission-tracker
+DTSTAMP:20261015T140951Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+SUMMARY:Экзамен: SAT — 5 декабря 2026
+DESCRIPTION:Последняя реалистичная дата для Re
+ gular Decision (MIT: тесты до 31 декабря). Harvard сове
+ тует ноябрь или раньше\, но принимает де
+ кабрь.
+URL:https://satsuite.collegeboard.org/sat/dates-deadlines
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Экзамен: SAT — 5 декабря 2026
+TRIGGER:-P3D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:sat-2027-03-registration@admission-tracker
+DTSTAMP:20261015T140951Z
+DTSTART:20270220T045900Z
+DURATION:PT1H
+SUMMARY:Регистрация: SAT — 6 марта 2027
+DESCRIPTION:Для вузов США цикла 2027 — уже поздн
+ о. Подходит для UCA (тест UCA или SAT\, в 2026 — 7
+ –8 марта).
+URL:https://satsuite.collegeboard.org/sat/dates-deadlines
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Регистрация: SAT — 6 марта 2027
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Регистрация: SAT — 6 марта 2027
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:sat-2027-03-exam@admission-tracker
+DTSTAMP:20261015T140951Z
+DTSTART;VALUE=DATE:20270306
+DTEND;VALUE=DATE:20270307
+SUMMARY:Экзамен: SAT — 6 марта 2027
+DESCRIPTION:Для вузов США цикла 2027 — уже поздн
+ о. Подходит для UCA (тест UCA или SAT\, в 2026 — 7
+ –8 марта).
+URL:https://satsuite.collegeboard.org/sat/dates-deadlines
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Экзамен: SAT — 6 марта 2027
+TRIGGER:-P3D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ort-2027-registration@admission-tracker
+DTSTAMP:20261015T140951Z
+DTSTART;VALUE=DATE:20270402
+DTEND;VALUE=DATE:20270403
+SUMMARY:Регистрация: ОРТ 2027 (основной тест) (
+ ожидается)
+DESCRIPTION:Даты по аналогии с ОРТ 2026: регистр
+ ация на testing.kg примерно с февраля до 2 апр
+ еля\, основной тест — с 17 мая\, поздний эт
+ ап — июнь. Взнос в 2026 — 470 сомов. Официал
+ ьные даты 2027 — на testing.kg.
+URL:https://24.kg/obschestvo/362756_ort-2026_kak_zaregistrirovatsya_natest
+ _ikakie_novshestva_jdut_abiturientov/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Регистрация: ОРТ 2027 (основной тест
+ ) (ожидается)
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Регистрация: ОРТ 2027 (основной тест
+ ) (ожидается)
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ort-2027-exam@admission-tracker
+DTSTAMP:20261015T140951Z
+DTSTART;VALUE=DATE:20270517
+DTEND;VALUE=DATE:20270518
+SUMMARY:Экзамен: ОРТ 2027 (основной тест) (ожид
+ ается)
+DESCRIPTION:Даты по аналогии с ОРТ 2026: регистр
+ ация на testing.kg примерно с февраля до 2 апр
+ еля\, основной тест — с 17 мая\, поздний эт
+ ап — июнь. Взнос в 2026 — 470 сомов. Официал
+ ьные даты 2027 — на testing.kg.
+URL:https://24.kg/obschestvo/362756_ort-2026_kak_zaregistrirovatsya_natest
+ _ikakie_novshestva_jdut_abiturientov/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Экзамен: ОРТ 2027 (основной тест) (ож
+ идается)
+TRIGGER:-P3D
 END:VALARM
 END:VEVENT
 END:VCALENDAR

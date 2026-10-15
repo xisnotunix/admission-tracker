@@ -1,0 +1,77 @@
+{
+  "_comment": "Экзамены и регистрации. date — день экзамена, registration — последний день регистрации. status: confirmed / expected / unknown.",
+  "events": [
+    {
+      "id": "sat-2026-11",
+      "name": "SAT — 7 ноября 2026",
+      "kind": "exam",
+      "date": "2026-11-07",
+      "registration": { "date": "2026-10-23", "time": "23:59", "timezone": "America/New_York" },
+      "status": "confirmed",
+      "source_url": "https://satsuite.collegeboard.org/sat/dates-deadlines",
+      "quote": "These test dates and deadlines apply to all students—U.S. and international—taking the SAT:",
+      "related_programs": ["harvard", "yale", "princeton", "mit", "dartmouth", "uca", "auca"],
+      "notes": "Результаты успевают к ранним и обычным раундам. Если нужен ноутбук от College Board — запросить минимум за 30 дней до экзамена."
+    },
+    {
+      "id": "sat-2026-12",
+      "name": "SAT — 5 декабря 2026",
+      "kind": "exam",
+      "date": "2026-12-05",
+      "registration": { "date": "2026-11-20", "time": "23:59", "timezone": "America/New_York" },
+      "status": "confirmed",
+      "source_url": "https://satsuite.collegeboard.org/sat/dates-deadlines",
+      "quote": "These test dates and deadlines apply to all students—U.S. and international—taking the SAT:",
+      "related_programs": ["harvard", "yale", "princeton", "mit", "dartmouth"],
+      "notes": "Последняя реалистичная дата для Regular Decision (MIT: тесты до 31 декабря). Harvard советует ноябрь или раньше, но принимает декабрь."
+    },
+    {
+      "id": "sat-2027-03",
+      "name": "SAT — 6 марта 2027",
+      "kind": "exam",
+      "date": "2027-03-06",
+      "registration": { "date": "2027-02-19", "time": "23:59", "timezone": "America/New_York" },
+      "status": "confirmed",
+      "source_url": "https://satsuite.collegeboard.org/sat/dates-deadlines",
+      "quote": "These test dates and deadlines apply to all students—U.S. and international—taking the SAT:",
+      "related_programs": ["uca"],
+      "notes": "Для вузов США цикла 2027 — уже поздно. Подходит для UCA (тест UCA или SAT, в 2026 — 7–8 марта)."
+    },
+    {
+      "id": "ort-2027",
+      "name": "ОРТ 2027 (основной тест)",
+      "kind": "exam",
+      "date": "2027-05-17",
+      "registration": { "date": "2027-04-02", "time": null, "timezone": "Asia/Bishkek" },
+      "status": "expected",
+      "source_url": "https://24.kg/obschestvo/362756_ort-2026_kak_zaregistrirovatsya_natest_ikakie_novshestva_jdut_abiturientov/",
+      "quote": null,
+      "related_programs": ["auca", "ala-too"],
+      "notes": "Даты по аналогии с ОРТ 2026: регистрация на testing.kg примерно с февраля до 2 апреля, основной тест — с 17 мая, поздний этап — июнь. Взнос в 2026 — 470 сомов. Официальные даты 2027 — на testing.kg."
+    },
+    {
+      "id": "ielts",
+      "name": "IELTS в Бишкеке (выбрать дату)",
+      "kind": "exam",
+      "date": null,
+      "registration": null,
+      "status": "unknown",
+      "source_url": "https://takeielts.britishcouncil.org/kyrgyz-republic",
+      "quote": null,
+      "related_programs": ["stipendium-hungaricum", "yale", "mit", "auca", "nyuad"],
+      "notes": "Экзамен в Бишкеке через партнёра British Council (Academic Education Center); даты — в системе регистрации British Council. Для Regular Decision в США результат нужен к январю (MIT — английский тест до 31 января). Результат компьютерного IELTS — обычно за несколько дней."
+    },
+    {
+      "id": "mext-embassy-exam",
+      "name": "Письменные экзамены MEXT в посольстве Японии",
+      "kind": "exam",
+      "date": null,
+      "registration": null,
+      "status": "unknown",
+      "source_url": "https://www.studyinjapan.go.jp/en/smap-stopj-applications-undergraduate.html",
+      "quote": "First screening is conducted between May and August by the Japanese Embassies or Consulates General.",
+      "related_programs": ["mext-undergraduate"],
+      "notes": "Набор 2028: первый отбор (экзамены и собеседование) — между маем и августом 2027. Дату объявит посольство."
+    }
+  ]
+}

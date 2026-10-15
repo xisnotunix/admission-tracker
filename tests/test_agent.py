@@ -106,6 +106,28 @@ class DiscoveryTests(unittest.TestCase):
         self.assertEqual(programs["programs"][-1]["deadline_status"], "unknown")
 
 
+class EventTests(unittest.TestCase):
+    EVENTS = [{"id": "sat", "name": "SAT", "date": "2026-11-07", "status": "confirmed",
+               "registration": {"date": "2026-10-23", "time": "23:59", "timezone": "America/New_York"}},
+              {"id": "ielts", "name": "IELTS", "date": None, "registration": None, "status": "unknown"}]
+
+    def test_event_reminders(self):
+        from notify_deadlines import build_event_messages
+        # 23:59 по Нью-Йорку 23.10 = 09:59 по Бишкеку 24.10 → за 7 дней это 17.10
+        msgs = build_event_messages(self.EVENTS, today=date(2026, 10, 17))
+        self.assertEqual(len(msgs), 1)
+        self.assertIn("до регистрации 7 дней", msgs[0])
+        self.assertIn("По Бишкеку: 24.10.2026, 09:59", msgs[0])
+        self.assertIn("до экзамена 3 дня", build_event_messages(self.EVENTS, today=date(2026, 11, 4))[0])
+
+    def test_events_in_calendar(self):
+        from calendar_ics import build_ics
+        ics = build_ics({"programs": []}, events=self.EVENTS)
+        self.assertIn("UID:sat-registration@admission-tracker", ics)
+        self.assertIn("UID:sat-exam@admission-tracker", ics)
+        self.assertEqual(ics.count("BEGIN:VEVENT"), 2)
+
+
 class DigestTests(unittest.TestCase):
     def test_build_digest(self):
         from weekly_digest import build_digest

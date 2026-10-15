@@ -7,7 +7,7 @@ const CACHE = "tracker-v1";
 const PRECACHE = [
   "./", "index.html", "manifest.webmanifest", "assets/app.js", "assets/style.css",
   "assets/icon.svg", "assets/icon-192.png", "assets/icon-512.png",
-  "data/programs.json", "data/changelog.json", "data/state.json", "data/sources.json",
+  "data/programs.json", "data/changelog.json", "data/state.json", "data/sources.json", "data/events.json",
 ];
 
 self.addEventListener("install", (event) => {

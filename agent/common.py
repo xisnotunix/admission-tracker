@@ -14,6 +14,7 @@ DATA = ROOT / "data"
 PROGRAMS_FILE = DATA / "programs.json"
 SOURCES_FILE = DATA / "sources.json"
 CHANGELOG_FILE = DATA / "changelog.json"
+EVENTS_FILE = DATA / "events.json"
 STATE_FILE = DATA / "state.json"
 SNAPSHOTS = DATA / "snapshots"
 
@@ -66,6 +67,22 @@ def days_left(deadline, today=None):
         return None
     today = today or today_home()
     return (dt.astimezone(HOME_TZ).date() - today).days
+
+
+def plural_days(n):
+    n = abs(n)
+    if n % 10 == 1 and n % 100 != 11:
+        return "день"
+    if 2 <= n % 10 <= 4 and not 12 <= n % 100 <= 14:
+        return "дня"
+    return "дней"
+
+
+def load_events():
+    try:
+        return load_json(EVENTS_FILE).get("events", [])
+    except FileNotFoundError:
+        return []
 
 
 def format_deadline(deadline):
