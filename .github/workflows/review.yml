@@ -1,0 +1,68 @@
+name: Review change
+
+# Ручное подтверждение изменений, найденных агентом, и отметки чек-листа.
+# Запуск: вкладка Actions -> Review change -> Run workflow (или кнопка в приложении).
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: "Что сделать"
+        type: choice
+        options: [approve, reject, checklist]
+        required: true
+      change_id:
+        description: "ID изменения из журнала (для approve/reject)"
+        required: false
+        default: ""
+      program_id:
+        description: "ID программы (для checklist)"
+        required: false
+        default: ""
+      item_id:
+        description: "ID пункта чек-листа (для checklist)"
+        required: false
+        default: ""
+      done:
+        description: "Готово? (для checklist)"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: data-write
+  cancel-in-progress: false
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r agent/requirements.txt
+      - name: Apply decision
+        env:
+          ACTION: ${{ inputs.action }}
+          CHANGE_ID: ${{ inputs.change_id }}
+          PROGRAM_ID: ${{ inputs.program_id }}
+          ITEM_ID: ${{ inputs.item_id }}
+          DONE: ${{ inputs.done }}
+        run: |
+          if [ "$ACTION" = "checklist" ]; then
+            python agent/review.py checklist "$PROGRAM_ID" "$ITEM_ID" "$DONE"
+            MSG="checklist: $PROGRAM_ID/$ITEM_ID = $DONE"
+          else
+            python agent/review.py "$ACTION" "$CHANGE_ID"
+            MSG="review: $ACTION $CHANGE_ID"
+          fi
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+          git add data
+          git diff --cached --quiet && exit 0
+          git commit -m "$MSG"
+          git pull --rebase
+          git push

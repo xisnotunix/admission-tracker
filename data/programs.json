@@ -1,0 +1,216 @@
+{
+  "updated": "2026-10-15",
+  "programs": [
+    {
+      "id": "stipendium-hungaricum",
+      "name": "Stipendium Hungaricum 2027/28",
+      "country": "Венгрия",
+      "type": "стипендия",
+      "priority": "high",
+      "official_urls": [
+        "https://stipendiumhungaricum.hu/",
+        "https://apply.stipendiumhungaricum.hu/"
+      ],
+      "nominating_body": {
+        "value": null,
+        "source_url": null,
+        "quote": null,
+        "note": "Национальный партнёр в Кыргызстане — уточнить. У него может быть свой, более ранний дедлайн."
+      },
+      "opens": {
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "text": "ожидается в ноябре 2026",
+        "status": "expected",
+        "source_url": null,
+        "quote": null
+      },
+      "deadline": {
+        "date": "2027-01-15",
+        "time": "14:00",
+        "timezone": "Europe/Budapest",
+        "source_url": null,
+        "quote": null,
+        "note": "Официального call на 2027/28 ещё нет. Дата по аналогии с прошлыми годами."
+      },
+      "deadline_status": "expected",
+      "requirements": {
+        "language": { "value": null, "source_url": null, "quote": null },
+        "exams": { "value": null, "source_url": null, "quote": null },
+        "documents": { "value": null, "source_url": null, "quote": null },
+        "min_grades": { "value": null, "source_url": null, "quote": null }
+      },
+      "documents_checklist": [
+        { "id": "passport", "title": "Загранпаспорт (скан)", "done": false },
+        { "id": "transcript", "title": "Табель / аттестат с оценками", "done": false },
+        { "id": "translation", "title": "Нотариальный перевод табеля на английский", "done": false },
+        { "id": "language", "title": "Языковой сертификат (IELTS / TOEFL)", "done": false },
+        { "id": "motivation", "title": "Мотивационное письмо", "done": false },
+        { "id": "recommendation", "title": "Рекомендательные письма", "done": false },
+        { "id": "medical", "title": "Медицинская справка", "done": false },
+        { "id": "partner", "title": "Документы для национального партнёра КР", "done": false }
+      ],
+      "last_checked": null,
+      "last_changed": null,
+      "notes": "Чек-лист типовой — сверить с официальным call, когда он выйдет. Портал подачи: apply.stipendiumhungaricum.hu."
+    },
+    {
+      "id": "mext-undergraduate",
+      "name": "MEXT (бакалавриат), набор 2027",
+      "country": "Япония",
+      "type": "стипендия",
+      "priority": "high",
+      "official_urls": [
+        "https://www.studyinjapan.go.jp/en/smap-stopj-applications-undergraduate.html"
+      ],
+      "nominating_body": {
+        "value": "Посольство Японии в Кыргызстане (рекомендация посольства)",
+        "source_url": null,
+        "quote": null,
+        "note": "Добавить страницу посольства в sources.json, когда найдёте объявление о наборе."
+      },
+      "opens": {
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "text": "неизвестно; в других странах приём на 2027 шёл в мае–июне 2026",
+        "status": "unknown",
+        "source_url": null,
+        "quote": null
+      },
+      "deadline": {
+        "date": null,
+        "time": null,
+        "timezone": "Asia/Bishkek",
+        "source_url": null,
+        "quote": null,
+        "note": "Дедлайн для Кыргызстана неизвестен — следить за сайтом посольства."
+      },
+      "deadline_status": "unknown",
+      "requirements": {
+        "language": { "value": null, "source_url": null, "quote": null },
+        "exams": {
+          "value": "Японский, английский, математика (социальные науки). Для естественных наук добавляются химия и физика или биология.",
+          "source_url": "https://www.studyinjapan.go.jp/en/smap-stopj-applications-undergraduate.html",
+          "quote": null
+        },
+        "documents": { "value": null, "source_url": null, "quote": null },
+        "min_grades": { "value": null, "source_url": null, "quote": null }
+      },
+      "documents_checklist": [
+        { "id": "passport", "title": "Загранпаспорт (скан)", "done": false },
+        { "id": "transcript", "title": "Табель / аттестат с оценками", "done": false },
+        { "id": "translation", "title": "Нотариальный перевод табеля", "done": false },
+        { "id": "application", "title": "Анкета MEXT (Application form)", "done": false },
+        { "id": "placement", "title": "Анкета выбора направления (Placement preference)", "done": false },
+        { "id": "recommendation", "title": "Рекомендация директора школы", "done": false },
+        { "id": "medical", "title": "Медицинская справка (форма MEXT)", "done": false },
+        { "id": "photo", "title": "Фото 4,5×3,5 см", "done": false },
+        { "id": "exam-prep", "title": "Подготовка к экзаменам: японский, английский, математика", "done": false }
+      ],
+      "last_checked": null,
+      "last_changed": null,
+      "notes": "Отбор через посольство: письменные экзамены + собеседование. Чек-лист типовой — сверить с объявлением посольства."
+    },
+    {
+      "id": "daad",
+      "name": "DAAD",
+      "country": "Германия",
+      "type": "стипендия",
+      "priority": "low",
+      "official_urls": [],
+      "nominating_body": { "value": null, "source_url": null, "quote": null },
+      "opens": { "date": null, "time": null, "timezone": null, "text": null, "status": "unknown", "source_url": null, "quote": null },
+      "deadline": { "date": null, "time": null, "timezone": null, "source_url": null, "quote": null },
+      "deadline_status": "unknown",
+      "requirements": {
+        "language": { "value": null, "source_url": null, "quote": null },
+        "exams": { "value": null, "source_url": null, "quote": null },
+        "documents": { "value": null, "source_url": null, "quote": null },
+        "min_grades": { "value": null, "source_url": null, "quote": null }
+      },
+      "documents_checklist": [],
+      "last_checked": null,
+      "last_changed": null,
+      "notes": "Полных стипендий на бакалавриат почти нет — низкий приоритет. Источник добавить вручную (official_urls и sources.json)."
+    },
+    {
+      "id": "uca",
+      "name": "University of Central Asia (UCA)",
+      "country": "Кыргызстан",
+      "type": "вуз",
+      "priority": "medium",
+      "official_urls": [],
+      "nominating_body": { "value": null, "source_url": null, "quote": null },
+      "opens": { "date": null, "time": null, "timezone": null, "text": null, "status": "unknown", "source_url": null, "quote": null },
+      "deadline": { "date": null, "time": null, "timezone": "Asia/Bishkek", "source_url": null, "quote": null },
+      "deadline_status": "unknown",
+      "requirements": {
+        "language": { "value": null, "source_url": null, "quote": null },
+        "exams": { "value": null, "source_url": null, "quote": null },
+        "documents": { "value": null, "source_url": null, "quote": null },
+        "min_grades": { "value": null, "source_url": null, "quote": null }
+      },
+      "documents_checklist": [
+        { "id": "transcript", "title": "Табель / аттестат", "done": false },
+        { "id": "language", "title": "Языковой сертификат (если нужен)", "done": false },
+        { "id": "essay", "title": "Эссе / мотивационное письмо", "done": false }
+      ],
+      "last_checked": null,
+      "last_changed": null,
+      "notes": "Страницу admissions добавить вручную (official_urls и sources.json)."
+    },
+    {
+      "id": "auca",
+      "name": "American University of Central Asia (AUCA)",
+      "country": "Кыргызстан",
+      "type": "вуз",
+      "priority": "medium",
+      "official_urls": [],
+      "nominating_body": { "value": null, "source_url": null, "quote": null },
+      "opens": { "date": null, "time": null, "timezone": null, "text": null, "status": "unknown", "source_url": null, "quote": null },
+      "deadline": { "date": null, "time": null, "timezone": "Asia/Bishkek", "source_url": null, "quote": null },
+      "deadline_status": "unknown",
+      "requirements": {
+        "language": { "value": null, "source_url": null, "quote": null },
+        "exams": { "value": null, "source_url": null, "quote": null },
+        "documents": { "value": null, "source_url": null, "quote": null },
+        "min_grades": { "value": null, "source_url": null, "quote": null }
+      },
+      "documents_checklist": [
+        { "id": "transcript", "title": "Табель / аттестат", "done": false },
+        { "id": "ort", "title": "Сертификат ОРТ (если требуется)", "done": false },
+        { "id": "language", "title": "Языковой сертификат (если требуется)", "done": false }
+      ],
+      "last_checked": null,
+      "last_changed": null,
+      "notes": "Страницу admissions добавить вручную (official_urls и sources.json)."
+    },
+    {
+      "id": "ala-too",
+      "name": "International Ala-Too University",
+      "country": "Кыргызстан",
+      "type": "вуз",
+      "priority": "medium",
+      "official_urls": [],
+      "nominating_body": { "value": null, "source_url": null, "quote": null },
+      "opens": { "date": null, "time": null, "timezone": null, "text": null, "status": "unknown", "source_url": null, "quote": null },
+      "deadline": { "date": null, "time": null, "timezone": "Asia/Bishkek", "source_url": null, "quote": null },
+      "deadline_status": "unknown",
+      "requirements": {
+        "language": { "value": null, "source_url": null, "quote": null },
+        "exams": { "value": null, "source_url": null, "quote": null },
+        "documents": { "value": null, "source_url": null, "quote": null },
+        "min_grades": { "value": null, "source_url": null, "quote": null }
+      },
+      "documents_checklist": [
+        { "id": "transcript", "title": "Табель / аттестат", "done": false },
+        { "id": "ort", "title": "Сертификат ОРТ (если требуется)", "done": false }
+      ],
+      "last_checked": null,
+      "last_changed": null,
+      "notes": "Страницу admissions добавить вручную (official_urls и sources.json)."
+    }
+  ]
+}

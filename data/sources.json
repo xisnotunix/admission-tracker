@@ -1,0 +1,58 @@
+{
+  "_comment": "Белый список. Агент скачивает ТОЛЬКО эти URL и не переходит по ссылкам. enabled=false — источник пропускается. selector — необязательный CSS-селектор основной части страницы (меньше шума — меньше ложных срабатываний).",
+  "sources": [
+    {
+      "id": "sh-main",
+      "program_id": "stipendium-hungaricum",
+      "url": "https://stipendiumhungaricum.hu/",
+      "selector": null,
+      "enabled": true
+    },
+    {
+      "id": "sh-apply",
+      "program_id": "stipendium-hungaricum",
+      "url": "https://apply.stipendiumhungaricum.hu/",
+      "selector": null,
+      "enabled": true
+    },
+    {
+      "id": "mext-undergrad",
+      "program_id": "mext-undergraduate",
+      "url": "https://www.studyinjapan.go.jp/en/smap-stopj-applications-undergraduate.html",
+      "selector": null,
+      "enabled": true
+    },
+    {
+      "id": "daad",
+      "program_id": "daad",
+      "url": "",
+      "selector": null,
+      "enabled": false,
+      "note": "Добавить URL вручную"
+    },
+    {
+      "id": "uca-admissions",
+      "program_id": "uca",
+      "url": "",
+      "selector": null,
+      "enabled": false,
+      "note": "Добавить URL страницы admissions вручную"
+    },
+    {
+      "id": "auca-admissions",
+      "program_id": "auca",
+      "url": "",
+      "selector": null,
+      "enabled": false,
+      "note": "Добавить URL страницы admissions вручную"
+    },
+    {
+      "id": "alatoo-admissions",
+      "program_id": "ala-too",
+      "url": "",
+      "selector": null,
+      "enabled": false,
+      "note": "Добавить URL страницы admissions вручную"
+    }
+  ]
+}

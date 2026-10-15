@@ -1,0 +1,37 @@
+name: Deadline reminders
+
+on:
+  schedule:
+    # Каждый день в 03:00 UTC = 09:00 по Бишкеку
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+    inputs:
+      today:
+        description: "Проверить как будто сегодня YYYY-MM-DD (пусто = сегодня)"
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+jobs:
+  remind:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r agent/requirements.txt
+      - name: Send reminders
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TODAY: ${{ inputs.today }}
+        run: |
+          if [ -n "$TODAY" ]; then
+            python agent/notify_deadlines.py --today "$TODAY"
+          else
+            python agent/notify_deadlines.py
+          fi

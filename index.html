@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1f5fbf">
+  <title>Трекер поступления</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icon.svg">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a href="#/" class="brand">🎓 Трекер поступления</a>
+  </header>
+
+  <main id="app" aria-live="polite">
+    <p class="muted center">Загрузка…</p>
+  </main>
+
+  <nav class="tabbar" aria-label="Разделы">
+    <a href="#/" data-tab="home"><span>📅</span>Дедлайны</a>
+    <a href="#/log" data-tab="log"><span>📝</span>Журнал<b id="pending-badge" hidden></b></a>
+    <a href="#/settings" data-tab="settings"><span>⚙️</span>Настройки</a>
+  </nav>
+
+  <div id="toast" class="toast" hidden></div>
+  <script src="assets/app.js"></script>
+</body>
+</html>
