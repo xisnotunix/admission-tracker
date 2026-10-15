@@ -4,7 +4,7 @@
 "use strict";
 
 const HOME_TZ = "Asia/Bishkek";
-const LS = { checklist: "tracker.checklist", settings: "tracker.settings", sent: "tracker.sent", profile: "tracker.profile", chat: "tracker.chat", status: "tracker.status" };
+const LS = { checklist: "tracker.checklist", settings: "tracker.settings", sent: "tracker.sent", profile: "tracker.profile", chat: "tracker.chat", status: "tracker.status", recs: "tracker.recs" };
 const STATUS = {
   confirmed: { label: "подтверждён", cls: "confirmed", icon: "✓" },
   expected: { label: "ожидается", cls: "expected", icon: "~" },
@@ -143,6 +143,109 @@ const sourceErrors = (p) => Object.values(state.sources).filter((s) => s.error &
 
 /** Чек-лист с учётом локальных отметок поверх данных репозитория. */
 const profile = () => lsGet(LS.profile, {});
+
+/* ---------- подразделы «Профиля» ---------- */
+const SUBPAGES = [["#/profile", "👤 Профиль"], ["#/recs", "✉️ Рекомендации"]];
+function subnav() {
+  const h = location.hash || "#/";
+  return `<div class="chips" role="group" aria-label="Разделы профиля">${SUBPAGES.map(([href, l]) =>
+    `<a class="chip" href="${href}" aria-pressed="${h === href}">${l}</a>`).join("")}</div>`;
+}
+const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+const todayStr = () => ymd(new Date(), HOME_TZ);
+const dayNum = (iso) => { const [y, m, d] = iso.split("-").map(Number); return Date.UTC(y, m - 1, d) / 86400000; };
+const daysUntil = (iso) => dayNum(iso) - dayNum(todayStr());
+
+/* ---------- рекомендатели ---------- */
+const REC_STATUS = { asked: "🙏 Попросил(а)", writing: "✍️ Пишет", received: "📥 Получено", submitted: "✅ Отправлено" };
+const recs = () => lsGet(LS.recs, []);
+
+function recsFor(pid) { return recs().filter((r) => (r.programs || []).includes(pid)); }
+
+/** Рекомендация «горит»: до дедлайна программы < 14 дней, а письма ещё нет. */
+function recAtRisk(r, p) {
+  const n = daysLeft(p.deadline);
+  return n !== null && n >= 0 && n < 14 && !["received", "submitted"].includes(r.status);
+}
+
+function recsBlock(p) {
+  const list = recsFor(p.id);
+  return `<h2>Рекомендации</h2>
+    <div class="card">
+      ${list.length ? list.map((r) => `<div class="field">
+        <b>${esc(r.name)}</b> <span class="muted small">${esc(r.role || "")}</span> · ${REC_STATUS[r.status] || ""}
+        ${recAtRisk(r, p) ? `<div class="small" style="color:var(--red)">⚠ До дедлайна меньше 14 дней, а рекомендации ещё нет</div>` : ""}
+      </div>`).join("") : `<span class="empty">Никто не привязан к этой программе.</span>`}
+      <p class="small"><a href="#/recs">Управлять рекомендателями →</a></p>
+    </div>`;
+}
+
+function viewRecs() {
+  const list = recs(), edit = list.find((r) => r.id === state.editRec) || null;
+  const f = edit || { status: "asked", programs: [] };
+  const progs = state.programs.slice().sort((a, b) => a.name.localeCompare(b.name));
+  return `${subnav()}
+    <h1>Рекомендатели</h1>
+    <p class="small muted">Хранится только в этом браузере.</p>
+    ${list.map((r) => {
+      const linked = state.programs.filter((p) => (r.programs || []).includes(p.id));
+      const risk = linked.filter((p) => recAtRisk(r, p));
+      return `<div class="card">
+        <div class="entry"><div class="head"><b>${esc(r.name)}</b><span class="badge ${r.status === "submitted" || r.status === "received" ? "confirmed" : "review"}">${REC_STATUS[r.status]}</span></div></div>
+        <div class="small muted">${esc(r.role || "")}${r.contact ? " · " + esc(r.contact) : ""}</div>
+        <div class="small">Программы: ${linked.map((p) => `<a href="#/p/${encodeURIComponent(p.id)}">${esc(p.name)}</a>`).join(", ") || "—"}</div>
+        <div class="small muted">Попросил(а): ${esc(r.asked || "—")} · нужна к: ${esc(r.due || "—")}${r.due && !["received", "submitted"].includes(r.status) && daysUntil(r.due) < 0 ? ` <b style="color:var(--red)">просрочено</b>` : ""}</div>
+        ${risk.length ? `<div class="small" style="color:var(--red)">⚠ Скоро дедлайн: ${risk.map((p) => esc(p.name)).join(", ")}</div>` : ""}
+        ${r.notes ? `<div class="small">${esc(r.notes)}</div>` : ""}
+        <div class="actions"><button class="btn small" data-edit-rec="${esc(r.id)}">Изменить</button></div>
+      </div>`;
+    }).join("") || `<p class="muted">Пока никого. Обычно нужны 1–2 учителя и директор/классный руководитель.</p>`}
+    <h2>${edit ? "Изменить" : "Добавить"} рекомендателя</h2>
+    <div class="card">
+      <label class="input"><span>Имя</span><input id="rec-name" value="${esc(f.name || "")}"></label>
+      <label class="input"><span>Роль</span><input id="rec-role" value="${esc(f.role || "")}" placeholder="учитель математики / директор"></label>
+      <label class="input"><span>Контакт</span><input id="rec-contact" value="${esc(f.contact || "")}" placeholder="email или телефон"></label>
+      <label class="input"><span>Статус</span><select id="rec-status">${Object.entries(REC_STATUS).map(([k, l]) => `<option value="${k}" ${f.status === k ? "selected" : ""}>${l}</option>`).join("")}</select></label>
+      <label class="input"><span>Когда попросил(а)</span><input id="rec-asked" type="date" value="${esc(f.asked || "")}"></label>
+      <label class="input"><span>Нужна к дате</span><input id="rec-due" type="date" value="${esc(f.due || "")}"></label>
+      <div class="input"><span class="small muted">Для каких программ</span>
+        <div class="checks">${progs.map((p) => `<label><input type="checkbox" class="rec-prog" value="${esc(p.id)}" ${(f.programs || []).includes(p.id) ? "checked" : ""}> ${esc(p.name)}</label>`).join("")}</div></div>
+      <label class="input"><span>Заметки</span><textarea id="rec-notes" rows="2">${esc(f.notes || "")}</textarea></label>
+      <div class="actions">
+        <button class="btn primary" id="rec-save">${edit ? "Сохранить" : "Добавить"}</button>
+        ${edit ? `<button class="btn" id="rec-cancel">Отмена</button><button class="btn danger" id="rec-del">Удалить</button>` : ""}
+      </div>
+    </div>`;
+}
+
+function saveRec() {
+  const name = $("#rec-name").value.trim();
+  if (!name) { toast("Укажите имя"); return; }
+  const item = {
+    id: state.editRec || uid(), name, role: $("#rec-role").value.trim(), contact: $("#rec-contact").value.trim(),
+    status: $("#rec-status").value, asked: $("#rec-asked").value, due: $("#rec-due").value,
+    programs: [...document.querySelectorAll(".rec-prog:checked")].map((x) => x.value), notes: $("#rec-notes").value.trim(),
+  };
+  const list = recs().filter((r) => r.id !== item.id);
+  lsSet(LS.recs, [...list, item]); state.editRec = null; toast("Сохранено"); render();
+}
+
+/* ---------- резервная копия личных данных ---------- */
+const PERSONAL_KEYS = () => [LS.profile, LS.status, LS.checklist, LS.recs, LS.budget, LS.essays, LS.chat].filter(Boolean);
+function exportPersonal() {
+  const data = { exported: new Date().toISOString() };
+  for (const k of PERSONAL_KEYS()) data[k] = lsGet(k, null);
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+  const a = Object.assign(document.createElement("a"), { href: URL.createObjectURL(blob), download: `tracker-backup-${todayStr()}.json` });
+  a.click(); URL.revokeObjectURL(a.href);
+}
+async function importPersonal(file) {
+  try {
+    const data = JSON.parse(await file.text());
+    for (const k of PERSONAL_KEYS()) if (k in data && data[k] !== null) lsSet(k, data[k]);
+    toast("Данные восстановлены"); render();
+  } catch (err) { toast("Не удалось прочитать файл: " + err.message, 6000); }
+}
 
 /* ---------- статус заявки ---------- */
 const STAGES = [
@@ -383,6 +486,8 @@ function viewProgram(id) {
         </label>`).join("") : `<span class="empty">Чек-лист пуст — добавьте пункты в programs.json</span>`}
     </div>
 
+    ${recsBlock(p)}
+
     ${(p.files || []).length ? `<h2>Формы и официальные документы</h2>
     <div class="card">${p.files.map((f) => `<div class="field">📄 <a href="${esc(safeUrl(f.url))}" target="_blank" rel="noopener">${esc(f.title)}</a></div>`).join("")}</div>` : ""}
 
@@ -534,6 +639,15 @@ function viewSettings() {
       </div>
     </div>
 
+    <h2>Резервная копия личных данных</h2>
+    <div class="card">
+      <p class="small muted" style="margin-top:0">Профиль, статусы, чек-листы, рекомендатели, бюджет, эссе и чат хранятся только в этом браузере. Сохраните файл, чтобы перенести их на другое устройство. Ключи и токены в копию не попадают.</p>
+      <div class="actions">
+        <button class="btn primary" id="backup-export">Скачать копию</button>
+        <label class="btn">Восстановить из файла<input type="file" id="backup-import" accept="application/json" hidden></label>
+      </div>
+    </div>
+
     <h2>Состояние агента</h2>
     <div class="card">
       ${Object.entries(state.sources).map(([id, s]) => `<div class="field"><b>${esc(id)}</b>
@@ -549,7 +663,7 @@ function viewProfile() {
     ? `<textarea id="pf-${f.key}" rows="3">${esc(pr[f.key] || "")}</textarea>`
     : `<input id="pf-${f.key}" type="${f.type}" ${f.step ? `step="${f.step}" inputmode="decimal"` : ""} value="${esc(pr[f.key] ?? "")}" placeholder="${esc(f.placeholder || "")}">`;
   const rows = state.programs.map((p) => ({ p, m: profileMatch(p).filter((x) => x.mine !== null) })).filter((x) => x.m.length);
-  return `
+  return `${subnav()}
     <h1>Мой профиль</h1>
     <p class="small muted">Хранится только в этом браузере и не попадает в публичный репозиторий. Используется для сравнения с требованиями и в чате.</p>
     <div class="card">
@@ -570,6 +684,7 @@ function render() {
   else if (hash === "#/log") { html = viewLog(); tab = "log"; }
   else if (hash === "#/settings") { html = viewSettings(); tab = "settings"; }
   else if (hash === "#/profile") { html = viewProfile(); tab = "profile"; }
+  else if (hash === "#/recs") { html = viewRecs(); tab = "profile"; }
   else html = viewHome();
   $("#app").innerHTML = html + (hash.startsWith("#/p/") ? "" : `<button class="chat-fab" data-chat="all" aria-label="Задать вопрос">💬</button>`);
   document.querySelectorAll(".tabbar a").forEach((a) => a.classList.toggle("active", a.dataset.tab === tab));
@@ -638,6 +753,11 @@ document.addEventListener("click", (ev) => {
   else if (t.id === "pf-export") {
     navigator.clipboard?.writeText(JSON.stringify(profile(), null, 2)).then(() => toast("Скопировано"), () => toast("Не удалось скопировать"));
   }
+  else if (t.id === "rec-save") saveRec();
+  else if (t.id === "rec-cancel") { state.editRec = null; render(); }
+  else if (t.id === "rec-del" && confirm("Удалить рекомендателя?")) { lsSet(LS.recs, recs().filter((r) => r.id !== state.editRec)); state.editRec = null; render(); }
+  else if (t.dataset.editRec) { state.editRec = t.dataset.editRec; render(); window.scrollTo(0, document.body.scrollHeight); }
+  else if (t.id === "backup-export") exportPersonal();
   else if (t.dataset.stage) setStatus(t.dataset.program, { stage: t.dataset.stage });
   else if (t.dataset.outcome) setStatus(t.dataset.program, { outcome: t.dataset.outcome });
   else if (t.dataset.chat) openChat(t.dataset.chat);
@@ -655,6 +775,7 @@ document.addEventListener("click", (ev) => {
 document.addEventListener("change", (ev) => {
   const el = ev.target;
   if (el.matches("input[data-check]")) onCheck(el.dataset.program, el.dataset.check, el.checked);
+  if (el.id === "backup-import" && el.files[0]) importPersonal(el.files[0]);
   if (el.id === "status-note") setStatus(el.dataset.program, { note: el.value.trim() });
 });
 

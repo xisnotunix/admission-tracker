@@ -190,3 +190,9 @@ label.input input, textarea {
 .stage span { font-size: 1.1rem; }
 .stage[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
 .btn { text-decoration: none; display: inline-block; }
+
+/* ---------- формы с отметками ---------- */
+.checks { display: grid; gap: 6px; max-height: 220px; overflow-y: auto; padding: 8px; border: 1px solid var(--border); border-radius: 10px; background: var(--bg); }
+.checks label { display: flex; gap: 8px; align-items: center; font-size: .9rem; }
+select { width: 100%; font: inherit; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg); color: var(--text); }
+a.chip { text-decoration: none; }
