@@ -179,3 +179,13 @@ label.input input, textarea {
 .msg.sys { align-self: center; max-width: 100%; color: var(--muted); font-size: .85rem; text-align: center; }
 .chat-form { display: flex; gap: 8px; padding: 10px; border-top: 1px solid var(--border); }
 .chat-form textarea { flex: 1; resize: none; min-height: 40px; max-height: 120px; }
+
+/* ---------- этапы заявки ---------- */
+.stages { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
+.stage {
+  display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 8px 2px;
+  border: 1px solid var(--border); border-radius: 10px; background: var(--bg); color: var(--text);
+  font: inherit; font-size: .72rem; line-height: 1.15; cursor: pointer; text-align: center;
+}
+.stage span { font-size: 1.1rem; }
+.stage[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }

@@ -8,7 +8,7 @@ on:
       action:
         description: "Что сделать"
         type: choice
-        options: [approve, reject, checklist]
+        options: [approve, reject, checklist, status]
         required: true
       change_id:
         description: "ID изменения из журнала (для approve/reject)"
@@ -19,7 +19,7 @@ on:
         required: false
         default: ""
       item_id:
-        description: "ID пункта чек-листа (для checklist)"
+        description: "ID пункта чек-листа (checklist) или этап (status: idea/preparing/submitted/interview/result[:accepted|rejected|waitlist])"
         required: false
         default: ""
       done:
@@ -52,7 +52,10 @@ jobs:
           ITEM_ID: ${{ inputs.item_id }}
           DONE: ${{ inputs.done }}
         run: |
-          if [ "$ACTION" = "checklist" ]; then
+          if [ "$ACTION" = "status" ]; then
+            python agent/review.py status "$PROGRAM_ID" "$ITEM_ID"
+            MSG="status: $PROGRAM_ID = $ITEM_ID"
+          elif [ "$ACTION" = "checklist" ]; then
             python agent/review.py checklist "$PROGRAM_ID" "$ITEM_ID" "$DONE"
             MSG="checklist: $PROGRAM_ID/$ITEM_ID = $DONE"
           else

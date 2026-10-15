@@ -3,6 +3,7 @@
   python agent/review.py approve 2026-11-03-002
   python agent/review.py reject  2026-11-03-002
   python agent/review.py checklist stipendium-hungaricum transcript true
+  python agent/review.py status mit submitted          (или result:accepted)
 
 approve — переносит предложенное значение в programs.json (с source_url и цитатой),
 для дедлайна ставит deadline_status=confirmed (цитата с официальной страницы + ваша проверка).
@@ -115,9 +116,29 @@ def set_checklist(program_id, item_id, done):
     print(f"{program_id}/{item_id}: done={done}")
 
 
+STAGES = ("idea", "preparing", "submitted", "interview", "result")
+OUTCOMES = ("accepted", "rejected", "waitlist")
+
+
+def set_status(program_id, value):
+    """value: «stage» или «result:outcome»."""
+    stage, _, outcome = value.partition(":")
+    if stage not in STAGES or (outcome and outcome not in OUTCOMES):
+        raise SystemExit(f"Неверный статус: {value}")
+    programs = load_json(PROGRAMS_FILE)
+    program = program_by_id(programs, program_id)
+    if program is None:
+        raise SystemExit(f"Программа {program_id} не найдена")
+    program["application_status"] = {"stage": stage, "outcome": outcome or None, "updated": now_iso()}
+    save_json(PROGRAMS_FILE, programs)
+    print(f"{program_id}: {value}")
+
+
 def main(argv):
     if len(argv) >= 2 and argv[0] in ("approve", "reject"):
         resolve(argv[0], argv[1])
+    elif len(argv) == 3 and argv[0] == "status":
+        set_status(argv[1], argv[2])
     elif len(argv) == 4 and argv[0] == "checklist":
         set_checklist(argv[1], argv[2], argv[3].lower() in ("true", "1", "yes", "да"))
     else:

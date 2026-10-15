@@ -4,7 +4,7 @@
 "use strict";
 
 const HOME_TZ = "Asia/Bishkek";
-const LS = { checklist: "tracker.checklist", settings: "tracker.settings", sent: "tracker.sent", profile: "tracker.profile", chat: "tracker.chat" };
+const LS = { checklist: "tracker.checklist", settings: "tracker.settings", sent: "tracker.sent", profile: "tracker.profile", chat: "tracker.chat", status: "tracker.status" };
 const STATUS = {
   confirmed: { label: "подтверждён", cls: "confirmed", icon: "✓" },
   expected: { label: "ожидается", cls: "expected", icon: "~" },
@@ -144,6 +144,61 @@ const sourceErrors = (p) => Object.values(state.sources).filter((s) => s.error &
 /** Чек-лист с учётом локальных отметок поверх данных репозитория. */
 const profile = () => lsGet(LS.profile, {});
 
+/* ---------- статус заявки ---------- */
+const STAGES = [
+  { key: "idea", label: "Изучаю", icon: "🔍" },
+  { key: "preparing", label: "Готовлю", icon: "🛠" },
+  { key: "submitted", label: "Подано", icon: "📨" },
+  { key: "interview", label: "Экзамен / интервью", icon: "🎤" },
+  { key: "result", label: "Результат", icon: "🏁" },
+];
+const OUTCOMES = { accepted: "✅ Приняли", rejected: "❌ Отказ", waitlist: "⏳ Лист ожидания" };
+const ACTIVE_STAGES = ["preparing", "submitted", "interview"];
+
+/** Статус: локальный (этот браузер) поверх сохранённого в репозитории. */
+function appStatus(p) {
+  const local = lsGet(LS.status, {})[p.id];
+  return { stage: "idea", outcome: null, note: "", ...(p.application_status || {}), ...(local || {}) };
+}
+
+function stageBadge(p) {
+  const st = appStatus(p);
+  if (st.stage === "idea") return "";
+  const s = STAGES.find((x) => x.key === st.stage);
+  const text = st.stage === "result" && st.outcome ? OUTCOMES[st.outcome] : `${s.icon} ${s.label}`;
+  const cls = st.outcome === "accepted" ? "confirmed" : st.outcome === "rejected" ? "unknown" : "review";
+  return `<span class="badge ${cls}">${esc(text)}</span>`;
+}
+
+function statusBlock(p) {
+  const st = appStatus(p);
+  return `<h2>Моя заявка</h2>
+    <div class="card">
+      <div class="stages" role="group" aria-label="Этап заявки">
+        ${STAGES.map((s) => `<button class="stage" data-stage="${s.key}" data-program="${esc(p.id)}" aria-pressed="${st.stage === s.key}">
+          <span>${s.icon}</span>${esc(s.label)}</button>`).join("")}
+      </div>
+      ${st.stage === "result" ? `<div class="actions">${Object.entries(OUTCOMES).map(([k, l]) =>
+        `<button class="chip" data-outcome="${k}" data-program="${esc(p.id)}" aria-pressed="${st.outcome === k}">${l}</button>`).join("")}</div>` : ""}
+      <label class="input"><span>Заметка (номер заявки, логин портала без пароля, что дальше)</span>
+        <textarea id="status-note" data-program="${esc(p.id)}" rows="2">${esc(st.note || "")}</textarea></label>
+      ${st.updated ? `<p class="small muted">Обновлено: ${fmtStamp(st.updated)}</p>` : ""}
+    </div>`;
+}
+
+async function setStatus(pid, patch) {
+  const all = lsGet(LS.status, {});
+  const cur = appStatus(programById(pid));
+  const next = { ...cur, ...patch, updated: new Date().toISOString() };
+  if (patch.stage && patch.stage !== "result") next.outcome = null;
+  all[pid] = next; lsSet(LS.status, all); render();
+  if (patch.note !== undefined) return;  // заметки остаются только на устройстве
+  try {
+    const value = next.stage + (next.outcome ? ":" + next.outcome : "");
+    if (await dispatchReview({ action: "status", program_id: pid, item_id: value })) toast("Статус сохранён в репозиторий");
+  } catch (err) { toast("Сохранено только на устройстве: " + err.message, 6000); }
+}
+
 /** Сравнение профиля с числовыми порогами программы. */
 function profileMatch(p) {
   const pr = profile(), out = [];
@@ -225,11 +280,12 @@ function fmtValue(field, v) {
 
 /* ---------- экраны ---------- */
 function viewHome() {
-  const filters = [["all", "Все"], ["стипендия", "Стипендии"], ["вуз", "Вузы"]];
+  const filters = [["all", "Все"], ["active", "Активные"], ["стипендия", "Стипендии"], ["вуз", "Вузы"]];
   const list = state.programs
-    .filter((p) => state.filter === "all" || p.type === state.filter)
-    .map((p) => ({ p, n: deadlineDate(p.deadline) }))
+    .filter((p) => state.filter === "all" || (state.filter === "active" ? ACTIVE_STAGES.includes(appStatus(p).stage) : p.type === state.filter))
+    .map((p) => ({ p, n: deadlineDate(p.deadline), done: appStatus(p).stage === "result" }))
     .sort((a, b) => {
+      if (a.done !== b.done) return a.done ? 1 : -1;     // с результатом — вниз
       const pa = a.n && a.n >= Date.now(), pb = b.n && b.n >= Date.now();
       if (pa !== pb) return pa ? -1 : 1;               // будущие дедлайны — сверху
       if (a.n && b.n) return a.n - b.n;
@@ -256,6 +312,7 @@ function viewHome() {
         ${countdown(p)}
         <div class="meta">
           ${statusBadge(p)}
+          ${stageBadge(p)}
           ${pend ? `<span class="badge review">⚑ требует проверки</span>` : ""}
           ${errs ? `<span class="badge error">ошибка источника</span>` : ""}
           ${p.priority === "low" ? `<span class="badge plain">низкий приоритет</span>` : ""}
@@ -263,7 +320,7 @@ function viewHome() {
         </div>
         ${cl.length ? `<div class="progress"><i style="width:${(done / cl.length) * 100}%"></i></div>` : ""}
       </a>`;
-    }).join("") || `<p class="muted center">Нет программ</p>`}
+    }).join("") || `<p class="muted center">${state.filter === "active" ? "Нет программ в работе — отметьте этап на карточке программы" : "Нет программ"}</p>`}
     <p class="muted small center">Данные загружены ${fmtStamp(state.loadedAt.toISOString())}</p>`;
 }
 
@@ -292,6 +349,8 @@ function viewProgram(id) {
       ${p.deadline?.note ? `<p class="small muted">${esc(p.deadline.note)}</p>` : ""}
       ${quoteBlock(p.deadline)}
     </div>
+
+    ${statusBlock(p)}
 
     <h2>Основное</h2>
     <div class="card">
@@ -492,6 +551,7 @@ function viewProfile() {
 
 /* ---------- роутер и события ---------- */
 function render() {
+  if (!state.loadedAt) return;  // данные ещё грузятся
   const hash = location.hash || "#/";
   let html, tab = "home";
   if (hash.startsWith("#/p/")) html = viewProgram(decodeURIComponent(hash.slice(4)));
@@ -563,6 +623,8 @@ document.addEventListener("click", (ev) => {
   else if (t.id === "pf-export") {
     navigator.clipboard?.writeText(JSON.stringify(profile(), null, 2)).then(() => toast("Скопировано"), () => toast("Не удалось скопировать"));
   }
+  else if (t.dataset.stage) setStatus(t.dataset.program, { stage: t.dataset.stage });
+  else if (t.dataset.outcome) setStatus(t.dataset.program, { outcome: t.dataset.outcome });
   else if (t.dataset.chat) openChat(t.dataset.chat);
   else if (t.id === "chat-close") closeChat();
   else if (t.id === "chat-clear") { chatHistory(chat.pid, []); renderChat(); }
@@ -578,6 +640,7 @@ document.addEventListener("click", (ev) => {
 document.addEventListener("change", (ev) => {
   const el = ev.target;
   if (el.matches("input[data-check]")) onCheck(el.dataset.program, el.dataset.check, el.checked);
+  if (el.id === "status-note") setStatus(el.dataset.program, { note: el.value.trim() });
 });
 
 window.addEventListener("hashchange", () => { closeChat(); render(); window.scrollTo(0, 0); });

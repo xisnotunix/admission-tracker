@@ -106,6 +106,24 @@ class DiscoveryTests(unittest.TestCase):
         self.assertEqual(programs["programs"][-1]["deadline_status"], "unknown")
 
 
+class StatusTests(unittest.TestCase):
+    def test_set_status(self):
+        import review
+        saved = {}
+        data = {"programs": [{"id": "mit", "name": "MIT"}]}
+        orig = (review.load_json, review.save_json)
+        review.load_json = lambda path: data
+        review.save_json = lambda path, d: saved.update(d)
+        try:
+            review.set_status("mit", "result:accepted")
+            st = saved["programs"][0]["application_status"]
+            self.assertEqual((st["stage"], st["outcome"]), ("result", "accepted"))
+            with self.assertRaises(SystemExit):
+                review.set_status("mit", "won")
+        finally:
+            review.load_json, review.save_json = orig
+
+
 class LlmRobustnessTests(unittest.TestCase):
     def test_pick_gemini_model(self):
         from llm import pick_gemini_model
