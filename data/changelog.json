@@ -199,6 +199,26 @@
       "quote": "including:\nCompleted Stage 1 Application Form\nA clear copy of a government-issued photo ID or Passport\nOne photograph on a white background showing the applicant’s face, taken during the last three months.",
       "status": "pending",
       "resolved": null
+    },
+    {
+      "id": "2026-10-15-017",
+      "created": "2026-10-15T13:27:08+00:00",
+      "kind": "field",
+      "program_id": "mext-undergraduate",
+      "source_id": "mext-undergrad",
+      "source_url": "https://www.studyinjapan.go.jp/en/smap-stopj-applications-undergraduate.html",
+      "field": "requirements.documents",
+      "old": {
+        "value": "Анкета, табели за все годы, аттестат или справка о предстоящем окончании, рекомендация учителя/директора, медсправка по форме, языковые сертификаты (если есть). Два комплекта: оригиналы и копии. Всё на японском или английском либо с переводом."
+      },
+      "new": {
+        "value": "Формы заявлений, медицинская справка и рекомендательное письмо",
+        "quote": "Application Forms along with Certificate of Health, and Recommendation Letter should be submitted to the Japanese embassy or consulate general in your country.",
+        "source_url": "https://www.studyinjapan.go.jp/en/smap-stopj-applications-undergraduate.html"
+      },
+      "quote": "Application Forms along with Certificate of Health, and Recommendation Letter should be submitted to the Japanese embassy or consulate general in your country.",
+      "status": "pending",
+      "resolved": null
     }
   ]
 }
