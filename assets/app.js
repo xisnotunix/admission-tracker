@@ -321,7 +321,8 @@ function viewHome() {
         ${cl.length ? `<div class="progress"><i style="width:${(done / cl.length) * 100}%"></i></div>` : ""}
       </a>`;
     }).join("") || `<p class="muted center">${state.filter === "active" ? "Нет программ в работе — отметьте этап на карточке программы" : "Нет программ"}</p>`}
-    <p class="muted small center">Данные загружены ${fmtStamp(state.loadedAt.toISOString())}</p>`;
+    <p class="muted small center">Данные загружены ${fmtStamp(state.loadedAt.toISOString())} ·
+      <a href="data/deadlines.ics" download="deadlines.ics">📅 Скачать в календарь</a> · <a href="#/settings">подписка</a></p>`;
 }
 
 function viewProgram(id) {
@@ -505,6 +506,17 @@ function viewSettings() {
       <button class="btn primary" id="s-save">Сохранить</button>
     </div>
 
+    <h2>Календарь дедлайнов</h2>
+    <div class="card">
+      <p class="small muted" style="margin-top:0">Подпишитесь — и дедлайны появятся в календаре телефона, а при изменениях обновятся сами (Google обновляет раз в несколько часов). Напоминания за 7 и 1 день.</p>
+      <label class="input"><span>Адрес календаря</span><input id="ics-url" readonly value="${esc(new URL("data/deadlines.ics", location.href.split("#")[0]).href)}"></label>
+      <div class="actions">
+        <button class="btn primary" id="ics-copy">Скопировать адрес</button>
+        <a class="btn" href="data/deadlines.ics" download="deadlines.ics">Скачать .ics</a>
+      </div>
+      <p class="small muted">Google Календарь (на компьютере): «Другие календари» → «＋» → «Добавить по URL» → вставить адрес. iPhone: Настройки → Календарь → Учётные записи → Добавить → Другое → «Подписной календарь». Подписка работает только с адресом сайта на GitHub Pages, не с localhost.</p>
+    </div>
+
     <h2>Чат-помощник (Gemini)</h2>
     <div class="card">
       <p class="small muted" style="margin-top:0">Ключ бесплатный: <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com/apikey</a>. Хранится только в этом браузере, запросы идут напрямую в Google. Лучше создать отдельный ключ и ограничить его адресом вашего сайта.</p>
@@ -610,6 +622,9 @@ document.addEventListener("click", (ev) => {
       branch: $("#s-branch").value.trim(), token: $("#s-token").value.trim(),
     });
     toast("Сохранено"); render();
+  }
+  else if (t.id === "ics-copy") {
+    navigator.clipboard?.writeText($("#ics-url").value).then(() => toast("Адрес скопирован"), () => toast("Не удалось скопировать"));
   }
   else if (t.id === "s-ai-save") {
     lsSet(LS.settings, { ...lsGet(LS.settings, {}), gemini: $("#s-gemini").value.trim(), model: $("#s-model").value.trim() });

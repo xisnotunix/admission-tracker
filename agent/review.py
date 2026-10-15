@@ -15,6 +15,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from calendar_ics import write_ics  # noqa: E402
 from common import (  # noqa: E402
     CHANGELOG_FILE, PROGRAMS_FILE, SOURCES_FILE, load_json, now_iso, program_by_id, save_json,
 )
@@ -97,6 +98,7 @@ def resolve(decision, change_id):
             raise SystemExit(f"Программа {entry['program_id']} не найдена")
         apply_change(program, entry)
         save_json(PROGRAMS_FILE, programs)
+        write_ics(programs)
     entry["status"] = "approved" if decision == "approve" else "rejected"
     entry["resolved"] = now_iso()
     save_json(CHANGELOG_FILE, changelog)

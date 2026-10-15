@@ -189,3 +189,4 @@ label.input input, textarea {
 }
 .stage span { font-size: 1.1rem; }
 .stage[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn { text-decoration: none; display: inline-block; }

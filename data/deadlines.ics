@@ -1,0 +1,317 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//admission-tracker//RU
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Дедлайны поступления
+X-WR-TIMEZONE:Asia/Bishkek
+BEGIN:VEVENT
+UID:stipendium-hungaricum-deadline@admission-tracker
+DTSTAMP:20261015T140025Z
+DTSTART:20270115T130000Z
+DURATION:PT1H
+SUMMARY:Дедлайн: Stipendium Hungaricum 2027/28 (ожидается)
+DESCRIPTION:Статус даты: ожидается (по прошлым
+  годам)\nДедлайн: 15.01.2027\, 14:00 CET\nCall на 2027/28 
+ ещё не опубликован. В цикле 2026/27 срок был
+  «15th January 2026\, 2 pm (CET)» — дата по аналогии.
+URL:https://stipendiumhungaricum.hu/apply/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Дедлайн: Stipendium Hungaricum 2027/28 (ожидает
+ ся)
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Дедлайн: Stipendium Hungaricum 2027/28 (ожидает
+ ся)
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:turkiye-burslari-deadline@admission-tracker
+DTSTAMP:20261015T140025Z
+DTSTART;VALUE=DATE:20270220
+DTEND;VALUE=DATE:20270221
+SUMMARY:Дедлайн: Türkiye Bursları 2027 (ожидается)
+DESCRIPTION:Статус даты: ожидается (по прошлым
+  годам)\nДедлайн: 20.02.2027\nВ 2026 приём шёл 10 я
+ нваря – 20 февраля. Дата 2027 — по аналогии
+ .
+URL:https://turkiyeburslari.gov.tr/duyurular/turkiye-burslari-2026-basvuru
+ lari-121
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Дедлайн: Türkiye Bursları 2027 (ожидается)
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Дедлайн: Türkiye Bursları 2027 (ожидается)
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:russia-quota-deadline@admission-tracker
+DTSTAMP:20261015T140025Z
+DTSTART;VALUE=DATE:20270115
+DTEND;VALUE=DATE:20270116
+SUMMARY:Дедлайн: Квота Правительства РФ 2027/28
+  (ожидается)
+DESCRIPTION:Статус даты: ожидается (по прошлым
+  годам)\nДедлайн: 15.01.2027\nВ цикле 2026/27 заяв
+ ки принимались до 15 января 2026. Дата 2027 — 
+ по аналогии.
+URL:https://misis.ru/events/6552/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Дедлайн: Квота Правительства РФ 202
+ 7/28 (ожидается)
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Дедлайн: Квота Правительства РФ 202
+ 7/28 (ожидается)
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:china-csc-deadline@admission-tracker
+DTSTAMP:20261015T140025Z
+DTSTART:20270131T175900Z
+DURATION:PT1H
+SUMMARY:Дедлайн: Стипендия Правительства Ки
+ тая (через министерство КР) (ожидается)
+DESCRIPTION:Статус даты: ожидается (по прошлым
+  годам)\nДедлайн: 31.01.2027\, 23:59 +06\nВ прошлом 
+ цикле срок был 23:59\, 31 января 2026 (15 мест). Д
+ ата 2027 — по аналогии.
+URL:https://weproject.media/articles/detail/15-kyrgyzstantsev-smogut-bespl
+ atno-uchitsya-v-kitae-v-2026-godu/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Дедлайн: Стипендия Правительства 
+ Китая (через министерство КР) (ожидается
+ )
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Дедлайн: Стипендия Правительства 
+ Китая (через министерство КР) (ожидается
+ )
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:uca-deadline@admission-tracker
+DTSTAMP:20261015T140025Z
+DTSTART;VALUE=DATE:20270214
+DTEND;VALUE=DATE:20270215
+SUMMARY:Дедлайн: University of Central Asia (UCA) (ожидаетс
+ я)
+DESCRIPTION:Статус даты: ожидается (по прошлым
+  годам)\nДедлайн: 14.02.2027\nЭтап 1 (анкета и д
+ окументы) в цикле 2026 — до 14 февраля 2026\; э
+ тап 2 — тест UCA или SAT 7–8 марта. Даты 2027 — 
+ по аналогии.
+URL:https://admissions.ucentralasia.org/apply/stage-1/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Дедлайн: University of Central Asia (UCA) (ожидае
+ тся)
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Дедлайн: University of Central Asia (UCA) (ожидае
+ тся)
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:auca-deadline@admission-tracker
+DTSTAMP:20261015T140025Z
+DTSTART:20270612T110000Z
+DURATION:PT1H
+SUMMARY:Дедлайн: American University of Central Asia (AUCA) (ожи
+ дается)
+DESCRIPTION:Статус даты: ожидается (по прошлым
+  годам)\nДедлайн: 12.06.2027\, 17:00 +06\nВ 2026 заявк
+ и и запросы на финпомощь — до 12 июня 2026\, 
+ 17:00 (1-й раунд был 10 апреля). Даты 2027 — по а
+ налогии.
+URL:https://auca.kg/en/auca_exams_view/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Дедлайн: American University of Central Asia (AUCA) (о
+ жидается)
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Дедлайн: American University of Central Asia (AUCA) (о
+ жидается)
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:harvard-deadline@admission-tracker
+DTSTAMP:20261015T140025Z
+DTSTART:20270101T175900Z
+DURATION:PT1H
+SUMMARY:Дедлайн: Harvard College
+DESCRIPTION:Статус даты: подтверждён\nДедлайн:
+  01.01.2027\, 23:59 +06\nRegular Decision\; 23:59 по вашему ме
+ стному времени. Restrictive Early Action — 1 ноября.
+URL:https://college.harvard.edu/admissions/apply/first-year-applicants
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Дедлайн: Harvard College
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Дедлайн: Harvard College
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:yale-deadline@admission-tracker
+DTSTAMP:20261015T140025Z
+DTSTART;VALUE=DATE:20270102
+DTEND;VALUE=DATE:20270103
+SUMMARY:Дедлайн: Yale College
+DESCRIPTION:Статус даты: подтверждён\nДедлайн:
+  02.01.2027\nRegular Decision. Single-Choice Early Action — 1 нояб
+ ря.
+URL:https://admissions.yale.edu/application-deadlines
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Дедлайн: Yale College
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Дедлайн: Yale College
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:princeton-deadline@admission-tracker
+DTSTAMP:20261015T140025Z
+DTSTART;VALUE=DATE:20270101
+DTEND;VALUE=DATE:20270102
+SUMMARY:Дедлайн: Princeton University (ожидается)
+DESCRIPTION:Статус даты: ожидается (по прошлым
+  годам)\nДедлайн: 01.01.2027\nRegular Decision — «Jan. 1»
+  в таблице на официальной странице\; фин
+ помощь — Feb. 1. Single-choice early action — 1 ноября.
+URL:https://admission.princeton.edu/apply/first-year-application-dates-dea
+ dlines
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Дедлайн: Princeton University (ожидается)
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Дедлайн: Princeton University (ожидается)
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mit-deadline@admission-tracker
+DTSTAMP:20261015T140025Z
+DTSTART;VALUE=DATE:20270104
+DTEND;VALUE=DATE:20270105
+SUMMARY:Дедлайн: MIT
+DESCRIPTION:Статус даты: подтверждён\nДедлайн:
+  04.01.2027\nRegular Action. Early Action (не обязывающий) 
+ — 1 ноября. Финпомощь: CSS Profile до 15 феврал
+ я.
+URL:https://mitadmissions.org/apply/firstyear/deadlines-requirements/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Дедлайн: MIT
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Дедлайн: MIT
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:dartmouth-deadline@admission-tracker
+DTSTAMP:20261015T140025Z
+DTSTART;VALUE=DATE:20270102
+DTEND;VALUE=DATE:20270103
+SUMMARY:Дедлайн: Dartmouth College
+DESCRIPTION:Статус даты: подтверждён\nДедлайн:
+  02.01.2027\nНа той же странице встречается и 
+ «by January 1» — подавайте до 1 января. Early Decisi
+ on (обязывающий) — 1 ноября.
+URL:https://admissions.dartmouth.edu/apply-dartmouth
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Дедлайн: Dartmouth College
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Дедлайн: Dartmouth College
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:amherst-deadline@admission-tracker
+DTSTAMP:20261015T140025Z
+DTSTART;VALUE=DATE:20270105
+DTEND;VALUE=DATE:20270106
+SUMMARY:Дедлайн: Amherst College (ожидается)
+DESCRIPTION:Статус даты: ожидается (по прошлым
+  годам)\nДедлайн: 05.01.2027\nДата с официальн
+ ой страницы (по результатам поиска\; сай
+ т блокирует прямое чтение — сверьте вру
+ чную). Финпомощь RD — до 15 января 2027. Early Dec
+ ision — 9 ноября 2026 (обязывающий).
+URL:https://www.amherst.edu/admission/apply
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Дедлайн: Amherst College (ожидается)
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Дедлайн: Amherst College (ожидается)
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:nyuad-deadline@admission-tracker
+DTSTAMP:20261015T140025Z
+DTSTART:20270106T045900Z
+DURATION:PT1H
+SUMMARY:Дедлайн: NYU Abu Dhabi
+DESCRIPTION:Статус даты: подтверждён\nДедлайн:
+  05.01.2027\, 23:59 EST\nRegular Decision — 5 января (табли
+ ца на официальной странице). Early Decision I — 
+ 1 ноября\, ED II — 1 января. CSS Profile для RD — до
+  1 февраля.
+URL:https://nyuad.nyu.edu/en/apply/undergraduate/apply/key-dates-and-deadl
+ ines.html
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Дедлайн: NYU Abu Dhabi
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Дедлайн: NYU Abu Dhabi
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

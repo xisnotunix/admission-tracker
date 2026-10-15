@@ -34,6 +34,7 @@ from common import (  # noqa: E402
     save_json, send_telegram, site_url, today_home,
 )
 import llm  # noqa: E402
+from calendar_ics import write_ics  # noqa: E402
 
 USER_AGENT = "AdmissionTrackerBot/1.0 (personal deadline tracker; weekly check)"
 MAX_REDIRECTS = 5
@@ -451,6 +452,7 @@ def main():
     save_json(PROGRAMS_FILE, ctx["programs"])
     save_json(CHANGELOG_FILE, ctx["changelog"])
     save_json(STATE_FILE, ctx["state"])
+    write_ics(ctx["programs"])
     if messages:
         link = site_url()
         send_telegram("\n\n".join(messages) + (f"\n\n<a href=\"{link}#/log\">Открыть журнал</a>" if link else ""))

@@ -106,6 +106,24 @@ class DiscoveryTests(unittest.TestCase):
         self.assertEqual(programs["programs"][-1]["deadline_status"], "unknown")
 
 
+class CalendarTests(unittest.TestCase):
+    def test_build_ics(self):
+        from calendar_ics import build_ics
+        programs = {"programs": [
+            {"id": "sh", "name": "Stipendium Hungaricum, 2027", "deadline_status": "expected",
+             "deadline": {"date": "2027-01-15", "time": "14:00", "timezone": "Europe/Budapest"}},
+            {"id": "yale", "name": "Yale", "deadline_status": "confirmed",
+             "deadline": {"date": "2027-01-02", "time": None, "timezone": "America/New_York"}},
+            {"id": "x", "name": "Без даты", "deadline": {"date": None}},
+        ]}
+        ics = build_ics(programs)
+        self.assertEqual(ics.count("BEGIN:VEVENT"), 2)
+        self.assertIn("DTSTART:20270115T130000Z", ics)          # 14:00 CET = 13:00 UTC
+        self.assertIn("DTSTART;VALUE=DATE:20270102", ics)
+        self.assertIn("SUMMARY:Дедлайн: Stipendium Hungaricum\\, 2027 (ожидается)", ics.replace("\r\n ", ""))
+        self.assertTrue(all(len(line.encode()) <= 75 for line in ics.split("\r\n")))
+
+
 class StatusTests(unittest.TestCase):
     def test_set_status(self):
         import review
