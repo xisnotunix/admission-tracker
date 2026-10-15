@@ -4,12 +4,31 @@
 "use strict";
 
 const HOME_TZ = "Asia/Bishkek";
-const LS = { checklist: "tracker.checklist", settings: "tracker.settings", sent: "tracker.sent" };
+const LS = { checklist: "tracker.checklist", settings: "tracker.settings", sent: "tracker.sent", profile: "tracker.profile", chat: "tracker.chat" };
 const STATUS = {
   confirmed: { label: "подтверждён", cls: "confirmed", icon: "✓" },
   expected: { label: "ожидается", cls: "expected", icon: "~" },
   unknown: { label: "не проверено", cls: "unknown", icon: "?" },
 };
+/* Профиль абитуриента. Хранится только в этом браузере — репозиторий публичный. */
+const PROFILE_FIELDS = [
+  { key: "gpa", label: "Средний балл (5-балльная шкала)", type: "number", step: "0.01", placeholder: "4.8" },
+  { key: "gpa_percent", label: "Средний балл в % (если просят)", type: "number", step: "1", placeholder: "92" },
+  { key: "ielts", label: "IELTS (общий)", type: "number", step: "0.5", placeholder: "6.5", cmp: "ielts" },
+  { key: "toefl_ibt", label: "TOEFL iBT", type: "number", step: "1", placeholder: "90", cmp: "toefl_ibt" },
+  { key: "duolingo", label: "Duolingo English Test", type: "number", step: "5", placeholder: "120", cmp: "duolingo" },
+  { key: "sat", label: "SAT", type: "number", step: "10", placeholder: "1350", cmp: "sat" },
+  { key: "ort", label: "ОРТ (основной тест)", type: "number", step: "1", placeholder: "180", cmp: "ort" },
+  { key: "jlpt", label: "JLPT (уровень)", type: "text", placeholder: "N4" },
+  { key: "birth_date", label: "Дата рождения", type: "date" },
+  { key: "graduation", label: "Окончание школы", type: "text", placeholder: "июнь 2027" },
+  { key: "majors", label: "Направления", type: "text", placeholder: "Computer Science, Social Studies" },
+  { key: "olympiads", label: "Олимпиады и награды", type: "textarea" },
+  { key: "activities", label: "Внеучебная деятельность", type: "textarea" },
+  { key: "notes", label: "Заметки", type: "textarea" },
+];
+const THRESHOLD_LABELS = { ielts: "IELTS", toefl_ibt: "TOEFL iBT", duolingo: "Duolingo", sat: "SAT", ort: "ОРТ", gpa_percent: "Средний балл, %", age_min: "Возраст" };
+
 const REQ_LABELS = { language: "Язык", exams: "Экзамены", documents: "Документы", min_grades: "Минимальные оценки" };
 const FIELD_LABELS = { deadline: "Дедлайн", opens: "Открытие приёма", ...Object.fromEntries(
   Object.entries(REQ_LABELS).map(([k, v]) => ["requirements." + k, v])) };
@@ -110,7 +129,8 @@ async function loadData() {
     get("programs.json"), get("changelog.json"),
     get("state.json").catch(() => ({ sources: {} })), get("sources.json").catch(() => ({ sources: [] })),
   ]);
-  state.whitelist = (src.sources || []).filter((s) => s.enabled && s.url).map((s) => s.url);
+  state.sourceList = src.sources || [];
+  state.whitelist = state.sourceList.filter((s) => s.enabled && s.url).map((s) => s.url);
   state.programs = programs.programs;
   state.changelog = changelog.entries || [];
   state.sources = st.sources || {};
@@ -122,6 +142,23 @@ const pendingFor = (pid) => state.changelog.filter((e) => e.status === "pending"
 const sourceErrors = (p) => Object.values(state.sources).filter((s) => s.error && (p.official_urls || []).includes(s.url));
 
 /** Чек-лист с учётом локальных отметок поверх данных репозитория. */
+const profile = () => lsGet(LS.profile, {});
+
+/** Сравнение профиля с числовыми порогами программы. */
+function profileMatch(p) {
+  const pr = profile(), out = [];
+  for (const [k, t] of Object.entries(p.thresholds || {})) {
+    if (typeof t?.value !== "number") continue;
+    let mine = null;
+    if (k === "age_min" && pr.birth_date) {
+      const b = new Date(pr.birth_date), ref = new Date(new Date().getFullYear() + 1, 7, 31); // 31 августа следующего года
+      mine = ref.getFullYear() - b.getFullYear() - (ref < new Date(ref.getFullYear(), b.getMonth(), b.getDate()) ? 1 : 0);
+    } else if (pr[k] !== undefined && pr[k] !== "") mine = Number(pr[k]);
+    out.push({ key: k, label: THRESHOLD_LABELS[k] || k, need: t.value, mine, ok: mine === null ? null : mine >= t.value, t });
+  }
+  return out;
+}
+
 function checklist(p) {
   const local = lsGet(LS.checklist, {})[p.id] || {};
   return (p.documents_checklist || []).map((c) => ({ ...c, done: c.id in local ? local[c.id] : !!c.done }));
@@ -266,6 +303,8 @@ function viewProgram(id) {
       </dl>
     </div>
 
+    ${matchBlock(p)}
+
     <h2>Требования</h2>
     <div class="card">
       ${Object.entries(REQ_LABELS).map(([k, label]) => {
@@ -280,9 +319,12 @@ function viewProgram(id) {
       ${cl.length ? cl.map((c) => `
         <label class="check ${c.done ? "done" : ""}">
           <input type="checkbox" data-check="${esc(c.id)}" data-program="${esc(p.id)}" ${c.done ? "checked" : ""}>
-          <span>${esc(c.title)}</span>
+          <span>${esc(c.title)}${c.url ? ` <a href="${esc(safeUrl(c.url))}" target="_blank" rel="noopener" class="small" title="Открыть форму / страницу">📎</a>` : ""}</span>
         </label>`).join("") : `<span class="empty">Чек-лист пуст — добавьте пункты в programs.json</span>`}
     </div>
+
+    ${(p.files || []).length ? `<h2>Формы и официальные документы</h2>
+    <div class="card">${p.files.map((f) => `<div class="field">📄 <a href="${esc(safeUrl(f.url))}" target="_blank" rel="noopener">${esc(f.title)}</a></div>`).join("")}</div>` : ""}
 
     <h2>Официальные источники</h2>
     <div class="card">
@@ -294,7 +336,25 @@ function viewProgram(id) {
       }).join("") : `<span class="empty">Не добавлены — внесите в programs.json и data/sources.json</span>`}
     </div>
 
-    ${p.notes ? `<h2>Заметки</h2><div class="card">${esc(p.notes)}</div>` : ""}`;
+    ${p.notes ? `<h2>Заметки</h2><div class="card">${esc(p.notes)}</div>` : ""}
+    ${p.reviewed ? `<p class="small muted center">Данные вручную сверены с источниками: ${esc(p.reviewed)}</p>` : ""}
+    <button class="chat-fab" data-chat="${esc(p.id)}" aria-label="Задать вопрос по программе">💬</button>`;
+}
+
+function matchBlock(p) {
+  const m = profileMatch(p);
+  if (!m.length) return "";
+  const filled = m.some((x) => x.mine !== null);
+  return `<h2>Мои баллы vs требования</h2>
+    <div class="card">
+      ${m.map((x) => `<div class="field">
+        <div class="label">${esc(x.label)}</div>
+        <div>минимум <b>${esc(x.need)}</b> · у меня ${x.mine === null ? `<span class="empty">не указано</span>`
+          : `<b>${esc(x.mine)}</b> ${x.ok ? `<span class="badge confirmed">✓ проходит</span>` : `<span class="badge error">✕ не хватает</span>`}`}</div>
+        ${x.t.note ? `<div class="small muted">${esc(x.t.note)}</div>` : ""}${quoteBlock(x.t)}
+      </div>`).join("")}
+      ${filled ? "" : `<p class="small muted">Заполните <a href="#/profile">профиль</a>, чтобы увидеть сравнение.</p>`}
+    </div>`;
 }
 
 function entryCard(e) {
@@ -307,7 +367,24 @@ function entryCard(e) {
     info: `<span class="badge plain">страница</span>`,
   };
   let body = "";
-  if (e.kind === "field") {
+  if (e.kind === "new_program") {
+    const n = e.new || {};
+    body = `<dl class="change">
+      <dt>Новая программа</dt><dd><b>${esc(n.name)}</b></dd>
+      ${n.country ? `<dt>Страна</dt><dd>${esc(n.country)}</dd>` : ""}
+      ${n.level ? `<dt>Уровень</dt><dd>${esc(n.level)}</dd>` : ""}
+      ${n.deadline_text ? `<dt>Срок</dt><dd>${esc(n.deadline_text)}</dd>` : ""}
+      ${n.url ? `<dt>Ссылка</dt><dd><a href="${esc(safeUrl(n.url))}" target="_blank" rel="noopener">${esc(n.url)}</a></dd>` : ""}
+    </dl>${quoteBlock({ quote: e.quote, source_url: e.source_url })}`;
+    if (e.status === "pending") {
+      body += sent
+        ? `<p class="small muted">Отправлено: ${sent === "approve" ? "добавить" : "отклонить"}.</p>`
+        : `<div class="actions">
+            <button class="btn primary" data-review="approve" data-id="${esc(e.id)}">＋ Добавить в трекер</button>
+            <button class="btn danger" data-review="reject" data-id="${esc(e.id)}">✕ Не интересно</button>
+          </div>`;
+    }
+  } else if (e.kind === "field") {
     body = `<dl class="change">
       <dt>Поле</dt><dd><b>${esc(FIELD_LABELS[e.field] || e.field)}</b></dd>
       <dt>Было</dt><dd>${fmtValue(e.field, e.old)}</dd>
@@ -331,7 +408,7 @@ function entryCard(e) {
       </ul></details>` : ""}`;
   }
   return `<div class="card entry">
-    <div class="head"><b>${esc(p ? p.name : e.program_id)}</b>${statusBadges[e.status] || ""}</div>
+    <div class="head"><b>${esc(p ? p.name : e.kind === "new_program" ? "Поиск программ" : (e.program_id || "Каталог конкурсов"))}</b>${statusBadges[e.status] || ""}</div>
     <div class="muted small">${fmtStamp(e.created)} · ID ${esc(e.id)}${e.resolved ? ` · решено ${fmtStamp(e.resolved)}` : ""}</div>
     ${body}
   </div>`;
@@ -340,7 +417,7 @@ function entryCard(e) {
 function viewLog() {
   const filters = [["pending", "Требуют проверки"], ["field", "Изменения данных"], ["all", "Всё"]];
   const list = state.changelog.filter((e) =>
-    state.logFilter === "all" || (state.logFilter === "pending" ? e.status === "pending" : e.kind === "field"))
+    state.logFilter === "all" || (state.logFilter === "pending" ? e.status === "pending" : e.kind !== "page"))
     .slice().reverse();
   return `
     <h1 style="margin-bottom:12px">Журнал изменений</h1>
@@ -369,6 +446,14 @@ function viewSettings() {
       <button class="btn primary" id="s-save">Сохранить</button>
     </div>
 
+    <h2>Чат-помощник (Gemini)</h2>
+    <div class="card">
+      <p class="small muted" style="margin-top:0">Ключ бесплатный: <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com/apikey</a>. Хранится только в этом браузере, запросы идут напрямую в Google. Лучше создать отдельный ключ и ограничить его адресом вашего сайта.</p>
+      <label class="input"><span>Gemini API key</span><input id="s-gemini" type="password" value="${esc(s.gemini || "")}" placeholder="AIza…" autocomplete="off"></label>
+      <label class="input"><span>Модель</span><input id="s-model" value="${esc(s.model || "")}" placeholder="gemini-2.5-flash" autocapitalize="off"></label>
+      <button class="btn primary" id="s-ai-save">Сохранить</button>
+    </div>
+
     <h2>Чек-листы на этом устройстве</h2>
     <div class="card">
       <p class="small muted" style="margin-top:0">Локальных отметок: ${localCount}. Они хранятся в браузере и показываются поверх данных репозитория.</p>
@@ -387,6 +472,24 @@ function viewSettings() {
     </div>`;
 }
 
+function viewProfile() {
+  const pr = profile();
+  const input = (f) => f.type === "textarea"
+    ? `<textarea id="pf-${f.key}" rows="3">${esc(pr[f.key] || "")}</textarea>`
+    : `<input id="pf-${f.key}" type="${f.type}" ${f.step ? `step="${f.step}" inputmode="decimal"` : ""} value="${esc(pr[f.key] ?? "")}" placeholder="${esc(f.placeholder || "")}">`;
+  const rows = state.programs.map((p) => ({ p, m: profileMatch(p).filter((x) => x.mine !== null) })).filter((x) => x.m.length);
+  return `
+    <h1>Мой профиль</h1>
+    <p class="small muted">Хранится только в этом браузере и не попадает в публичный репозиторий. Используется для сравнения с требованиями и в чате.</p>
+    <div class="card">
+      ${PROFILE_FIELDS.map((f) => `<label class="input"><span>${esc(f.label)}</span>${input(f)}</label>`).join("")}
+      <div class="actions"><button class="btn primary" id="pf-save">Сохранить</button><button class="btn" id="pf-export">Скопировать JSON</button></div>
+    </div>
+    ${rows.length ? `<h2>Сравнение с требованиями</h2>
+      <div class="card">${rows.map(({ p, m }) => `<div class="field"><a href="#/p/${encodeURIComponent(p.id)}"><b>${esc(p.name)}</b></a>
+        <div class="small">${m.map((x) => `${esc(x.label)}: ${esc(x.mine)} / мин. ${esc(x.need)} ${x.ok ? "✓" : "✕"}`).join(" · ")}</div></div>`).join("")}</div>` : ""}`;
+}
+
 /* ---------- роутер и события ---------- */
 function render() {
   const hash = location.hash || "#/";
@@ -394,8 +497,9 @@ function render() {
   if (hash.startsWith("#/p/")) html = viewProgram(decodeURIComponent(hash.slice(4)));
   else if (hash === "#/log") { html = viewLog(); tab = "log"; }
   else if (hash === "#/settings") { html = viewSettings(); tab = "settings"; }
+  else if (hash === "#/profile") { html = viewProfile(); tab = "profile"; }
   else html = viewHome();
-  $("#app").innerHTML = html;
+  $("#app").innerHTML = html + (hash.startsWith("#/p/") ? "" : `<button class="chat-fab" data-chat="all" aria-label="Задать вопрос">💬</button>`);
   document.querySelectorAll(".tabbar a").forEach((a) => a.classList.toggle("active", a.dataset.tab === tab));
   const n = pendingFor().length, badge = $("#pending-badge");
   badge.hidden = !n; badge.textContent = n;
@@ -441,11 +545,27 @@ document.addEventListener("click", (ev) => {
   }
   else if (t.id === "s-save") {
     lsSet(LS.settings, {
+      ...lsGet(LS.settings, {}),
       owner: $("#s-owner").value.trim(), repo: $("#s-repo").value.trim(),
       branch: $("#s-branch").value.trim(), token: $("#s-token").value.trim(),
     });
     toast("Сохранено"); render();
   }
+  else if (t.id === "s-ai-save") {
+    lsSet(LS.settings, { ...lsGet(LS.settings, {}), gemini: $("#s-gemini").value.trim(), model: $("#s-model").value.trim() });
+    toast("Сохранено"); render();
+  }
+  else if (t.id === "pf-save") {
+    const pr = {};
+    for (const f of PROFILE_FIELDS) { const v = $(`#pf-${f.key}`).value.trim(); if (v !== "") pr[f.key] = v; }
+    lsSet(LS.profile, pr); toast("Профиль сохранён"); render();
+  }
+  else if (t.id === "pf-export") {
+    navigator.clipboard?.writeText(JSON.stringify(profile(), null, 2)).then(() => toast("Скопировано"), () => toast("Не удалось скопировать"));
+  }
+  else if (t.dataset.chat) openChat(t.dataset.chat);
+  else if (t.id === "chat-close") closeChat();
+  else if (t.id === "chat-clear") { chatHistory(chat.pid, []); renderChat(); }
   else if (t.id === "s-export") {
     const data = state.programs.map((p) => ({ id: p.id, documents_checklist: checklist(p) }));
     navigator.clipboard?.writeText(JSON.stringify(data, null, 2)).then(() => toast("Скопировано"), () => toast("Не удалось скопировать"));
@@ -460,7 +580,112 @@ document.addEventListener("change", (ev) => {
   if (el.matches("input[data-check]")) onCheck(el.dataset.program, el.dataset.check, el.checked);
 });
 
-window.addEventListener("hashchange", () => { render(); window.scrollTo(0, 0); });
+window.addEventListener("hashchange", () => { closeChat(); render(); window.scrollTo(0, 0); });
+
+/* ---------- чат по программе ---------- */
+const chat = { pid: null, busy: false };
+const CHAT_SYSTEM = `Ты — помощник абитуриента из Кыргызстана, который поступает на бакалавриат (Computer Science или Social Studies).
+Отвечай по-русски, коротко и по делу.
+Главный источник — ДАННЫЕ ТРЕКЕРА и ТЕКСТЫ ОФИЦИАЛЬНЫХ СТРАНИЦ ниже. Если берёшь из них факт — укажи ссылку на источник.
+Если ответа в них нет — прямо скажи «в данных трекера этого нет» и подскажи, где проверить (официальный сайт, посольство, приёмная комиссия).
+Общие знания можно использовать, но помечай их «(общая информация — проверьте на официальном сайте)».
+Никогда не выдумывай даты, суммы, минимальные баллы и списки документов.
+Даты со статусом expected — это ожидание по прошлым годам, а не официальное объявление; так и говори.`;
+
+function chatHistory(pid, value) {
+  const all = lsGet(LS.chat, {});
+  if (value === undefined) return all[pid] || [];
+  all[pid] = value.slice(-30); lsSet(LS.chat, all); return all[pid];
+}
+
+function stripLocal(p) {
+  const { documents_checklist, ...rest } = p;
+  return { ...rest, documents_checklist: checklist(p).map((c) => ({ title: c.title, done: c.done, url: c.url })) };
+}
+
+async function chatContext(pid) {
+  const pr = profile();
+  let ctx = `ПРОФИЛЬ АБИТУРИЕНТА:\n${JSON.stringify(pr)}\n\nСЕГОДНЯ: ${ymd(new Date(), HOME_TZ)}\n\n`;
+  if (pid === "all") {
+    const brief = state.programs.map((p) => ({ name: p.name, country: p.country, type: p.type, deadline: p.deadline, deadline_status: p.deadline_status, requirements: p.requirements, thresholds: p.thresholds, notes: p.notes }));
+    return ctx + `ДАННЫЕ ТРЕКЕРА (все программы):\n${JSON.stringify(brief)}`;
+  }
+  const p = programById(pid);
+  ctx += `ДАННЫЕ ТРЕКЕРА:\n${JSON.stringify(stripLocal(p))}\n`;
+  let budget = 24000;
+  for (const src of (state.sourceList || []).filter((x) => x.program_id === pid)) {
+    if (budget <= 0) break;
+    try {
+      const r = await fetch(`data/snapshots/${encodeURIComponent(src.id)}.txt`, { cache: "no-store" });
+      if (!r.ok) continue;
+      const t = (await r.text()).slice(0, Math.min(8000, budget));
+      budget -= t.length;
+      ctx += `\nТЕКСТ ОФИЦИАЛЬНОЙ СТРАНИЦЫ ${src.url} (снимок агента):\n<<<\n${t}\n>>>\n`;
+    } catch { /* снимка нет */ }
+  }
+  return ctx;
+}
+
+function fmtMsg(text) {
+  return esc(text)
+    .replace(/\*\*(.+?)\*\*/g, "<b>$1</b>")
+    .replace(/(https?:\/\/[^\s<)]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>')
+    .replace(/\n/g, "<br>");
+}
+
+function renderChat() {
+  const box = $("#chat"), hist = chatHistory(chat.pid);
+  const p = programById(chat.pid);
+  box.querySelector(".chat-title").textContent = p ? p.name : "Вопрос по поступлению";
+  const key = lsGet(LS.settings, {}).gemini;
+  const log = box.querySelector(".chat-log");
+  log.innerHTML = (!key
+    ? `<div class="msg sys">Чтобы задавать вопросы, добавьте бесплатный ключ Gemini в <a href="#/settings">настройках</a>.</div>` : "")
+    + (hist.length ? "" : `<div class="msg sys">Спросите, например: «Какие документы мне нужно перевести?» или «Хватит ли моего IELTS?». Ответы опираются на данные трекера и снимки официальных страниц.</div>`)
+    + hist.map((m) => `<div class="msg ${m.role === "user" ? "me" : "bot"}">${fmtMsg(m.text)}</div>`).join("")
+    + (chat.busy ? `<div class="msg bot muted">Думаю…</div>` : "");
+  log.scrollTop = log.scrollHeight;
+}
+
+function openChat(pid) { chat.pid = pid; $("#chat").hidden = false; renderChat(); $("#chat-input").focus(); }
+function closeChat() { $("#chat").hidden = true; }
+
+async function sendChat(text) {
+  const { gemini, model } = lsGet(LS.settings, {});
+  if (!gemini) { toast("Добавьте ключ Gemini в настройках"); return; }
+  const hist = chatHistory(chat.pid, [...chatHistory(chat.pid), { role: "user", text }]);
+  chat.busy = true; renderChat();
+  try {
+    const context = await chatContext(chat.pid);
+    const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model || "gemini-2.5-flash")}:generateContent`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "x-goog-api-key": gemini },
+      body: JSON.stringify({
+        systemInstruction: { parts: [{ text: CHAT_SYSTEM + "\n\n" + context }] },
+        contents: hist.map((m) => ({ role: m.role === "user" ? "user" : "model", parts: [{ text: m.text }] })),
+        generationConfig: { temperature: 0.2 },
+      }),
+    });
+    const data = await r.json();
+    if (!r.ok) throw new Error(data?.error?.message || `HTTP ${r.status}`);
+    const answer = data.candidates?.[0]?.content?.parts?.map((x) => x.text).join("") || "Пустой ответ.";
+    chatHistory(chat.pid, [...hist, { role: "model", text: answer }]);
+  } catch (err) {
+    chatHistory(chat.pid, [...hist, { role: "model", text: "⚠️ Ошибка: " + err.message }]);
+  } finally { chat.busy = false; renderChat(); }
+}
+
+document.addEventListener("submit", (ev) => {
+  if (ev.target.id !== "chat-form") return;
+  ev.preventDefault();
+  const inp = $("#chat-input"), text = inp.value.trim();
+  if (!text || chat.busy) return;
+  inp.value = ""; sendChat(text);
+});
+document.addEventListener("keydown", (ev) => {
+  if (ev.target.id === "chat-input" && ev.key === "Enter" && !ev.shiftKey) { ev.preventDefault(); $("#chat-form").requestSubmit(); }
+  if (ev.key === "Escape" && !$("#chat").hidden) closeChat();
+});
 
 loadData().then(render).catch((err) => {
   $("#app").innerHTML = `<div class="card"><b>Не удалось загрузить данные.</b><p class="small muted">${esc(err.message)}</p>

@@ -6,12 +6,17 @@
 
 approve — переносит предложенное значение в programs.json (с source_url и цитатой),
 для дедлайна ставит deadline_status=confirmed (цитата с официальной страницы + ваша проверка).
+Для новой программы (kind=new_program) — добавляет её в programs.json с пустыми полями,
+а её ссылку — в белый список sources.json (агент начнёт проверять её со следующего запуска).
 """
+import re
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from common import CHANGELOG_FILE, PROGRAMS_FILE, load_json, now_iso, program_by_id, save_json  # noqa: E402
+from common import (  # noqa: E402
+    CHANGELOG_FILE, PROGRAMS_FILE, SOURCES_FILE, load_json, now_iso, program_by_id, save_json,
+)
 
 
 def apply_change(program, entry):
@@ -39,6 +44,42 @@ def apply_change(program, entry):
     program["last_changed"] = stamp
 
 
+def slugify(name, taken):
+    base = re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")[:40] or "program"
+    slug, n = base, 2
+    while slug in taken:
+        slug, n = f"{base}-{n}", n + 1
+    return slug
+
+
+def add_program(programs, entry):
+    new = entry["new"]
+    pid = slugify(new["name"], {p["id"] for p in programs["programs"]})
+    empty = {"value": None, "source_url": None, "quote": None}
+    url = new.get("url") or entry["source_url"]
+    programs["programs"].append({
+        "id": pid, "name": new["name"], "country": new.get("country") or "—", "type": "стипендия",
+        "priority": "medium", "official_urls": [url],
+        "nominating_body": dict(empty),
+        "opens": {"date": None, "time": None, "timezone": None, "text": None, "status": "unknown", "source_url": None, "quote": None},
+        "deadline": {"date": None, "time": None, "timezone": "Asia/Bishkek", "source_url": entry["source_url"],
+                     "quote": None, "note": new.get("deadline_text")},
+        "deadline_status": "unknown",
+        "requirements": {k: dict(empty) for k in ("language", "exams", "documents", "min_grades")},
+        "documents_checklist": [], "files": [],
+        "last_checked": None, "last_changed": now_iso(), "reviewed": None,
+        "notes": f"Найдено агентом на {entry['source_url']}: «{new['quote']}»",
+    })
+    if new.get("url"):
+        sources = load_json(SOURCES_FILE)
+        if not any(s["url"] == new["url"] for s in sources["sources"]):
+            sources["sources"].append({"id": pid, "kind": "page", "program_id": pid, "url": new["url"],
+                                       "selector": None, "enabled": True})
+            save_json(SOURCES_FILE, sources)
+    entry["program_id"] = pid
+    return pid
+
+
 def resolve(decision, change_id):
     programs, changelog = load_json(PROGRAMS_FILE), load_json(CHANGELOG_FILE)
     entry = next((e for e in changelog["entries"] if e["id"] == change_id), None)
@@ -46,7 +87,10 @@ def resolve(decision, change_id):
         raise SystemExit(f"Изменение {change_id} не найдено")
     if entry.get("status") != "pending":
         raise SystemExit(f"Изменение {change_id} уже в статусе {entry.get('status')}")
-    if decision == "approve":
+    if decision == "approve" and entry.get("kind") == "new_program":
+        print("добавлена программа", add_program(programs, entry))
+        save_json(PROGRAMS_FILE, programs)
+    elif decision == "approve":
         program = program_by_id(programs, entry["program_id"])
         if program is None:
             raise SystemExit(f"Программа {entry['program_id']} не найдена")

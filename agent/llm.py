@@ -89,12 +89,12 @@ def _user_prompt(program, url, text):
     )
 
 
-def _call_gemini(user_prompt):
+def _call_gemini(system_prompt, user_prompt):
     r = requests.post(
         f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent",
         headers={"x-goog-api-key": os.environ["GEMINI_API_KEY"], "Content-Type": "application/json"},
         json={
-            "systemInstruction": {"parts": [{"text": SYSTEM_PROMPT}]},
+            "systemInstruction": {"parts": [{"text": system_prompt}]},
             "contents": [{"role": "user", "parts": [{"text": user_prompt}]}],
             "generationConfig": {"temperature": 0, "responseMimeType": "application/json"},
         },
@@ -104,7 +104,7 @@ def _call_gemini(user_prompt):
     return r.json()["candidates"][0]["content"]["parts"][0]["text"]
 
 
-def _call_groq(user_prompt):
+def _call_groq(system_prompt, user_prompt):
     r = requests.post(
         "https://api.groq.com/openai/v1/chat/completions",
         headers={"Authorization": f"Bearer {os.environ['GROQ_API_KEY']}"},
@@ -113,7 +113,7 @@ def _call_groq(user_prompt):
             "temperature": 0,
             "response_format": {"type": "json_object"},
             "messages": [
-                {"role": "system", "content": SYSTEM_PROMPT},
+                {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt},
             ],
         },
@@ -123,15 +123,39 @@ def _call_groq(user_prompt):
     return r.json()["choices"][0]["message"]["content"]
 
 
-def extract(program, url, text):
-    """Вернуть dict с извлечёнными полями или None, если LLM не настроен."""
+DISCOVER_PROMPT = """Ты просматриваешь официальную страницу со списком конкурсов/стипендий на обучение за рубежом.
+Найди программы, по которым можно получить БАКАЛАВРИАТ (или где уровень не указан) гражданину Кыргызстана.
+Правила:
+- Используй ТОЛЬКО текст страницы. Ничего не додумывай.
+- Для каждой программы дай "quote" — ДОСЛОВНЫЙ фрагмент страницы (до 200 символов), где она упомянута.
+- "url" — только из списка ССЫЛКИ НА СТРАНИЦЕ ниже, иначе null.
+- "deadline_text" — срок подачи, как он написан на странице, или null.
+- Если программ нет (например, «Актуальных конкурсов пока нет») — верни пустой список.
+Ответь ТОЛЬКО JSON: {"programs": [{"name": "...", "country": null, "level": null, "url": null, "deadline_text": null, "quote": "..."}]}"""
+
+
+def _run(system_prompt, user_prompt):
     p = provider()
     if p is None:
         print("[llm] ключ не задан (GEMINI_API_KEY / GROQ_API_KEY) — извлечение пропущено")
         return None
-    prompt = _user_prompt(program, url, text)
-    raw = _call_gemini(prompt) if p == "gemini" else _call_groq(prompt)
+    raw = _call_gemini(system_prompt, user_prompt) if p == "gemini" else _call_groq(system_prompt, user_prompt)
     raw = raw.strip()
     if raw.startswith("```"):
         raw = re.sub(r"^```(?:json)?|```$", "", raw, flags=re.MULTILINE).strip()
     return json.loads(raw)
+
+
+def extract(program, url, text):
+    """Вернуть dict с извлечёнными полями или None, если LLM не настроен."""
+    return _run(SYSTEM_PROMPT, _user_prompt(program, url, text))
+
+
+def discover(url, text, links):
+    """Найти программы на странице-каталоге. links — список (текст, url) со страницы."""
+    link_lines = "\n".join(f"- {t} -> {u}" for t, u in links[:150])
+    prompt = (
+        f"URL страницы: {url}\n\nТЕКСТ СТРАНИЦЫ:\n<<<\n{relevant_excerpt(text, MAX_CHARS - 3000)}\n>>>\n\n"
+        f"ССЫЛКИ НА СТРАНИЦЕ:\n{link_lines[:3000]}"
+    )
+    return _run(DISCOVER_PROMPT, prompt)

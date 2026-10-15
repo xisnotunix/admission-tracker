@@ -111,23 +111,27 @@ def quote_in_text(quote, text):
 def send_telegram(text):
     # strip + удаление переводов строк: токен часто вставляют с лишним Enter
     token = "".join((os.environ.get("TELEGRAM_BOT_TOKEN") or "").split())
-    chat_id = (os.environ.get("TELEGRAM_CHAT_ID") or "").strip()
-    if not token or not chat_id:
+    # Несколько получателей — через запятую: "5295630219,123456789"
+    chat_ids = [c.strip() for c in (os.environ.get("TELEGRAM_CHAT_ID") or "").split(",") if c.strip()]
+    if not token or not chat_ids:
         print("[telegram] секреты не заданы, сообщение не отправлено:\n" + text)
         return False
-    r = requests.post(
-        f"https://api.telegram.org/bot{token}/sendMessage",
-        data={
-            "chat_id": chat_id,
-            "text": text[:4000],
-            "parse_mode": "HTML",
-            "disable_web_page_preview": "true",
-        },
-        timeout=30,
-    )
-    if not r.ok:
-        print(f"[telegram] ошибка {r.status_code}: {r.text[:300]}")
-    return r.ok
+    ok = True
+    for chat_id in chat_ids:
+        r = requests.post(
+            f"https://api.telegram.org/bot{token}/sendMessage",
+            data={
+                "chat_id": chat_id,
+                "text": text[:4000],
+                "parse_mode": "HTML",
+                "disable_web_page_preview": "true",
+            },
+            timeout=30,
+        )
+        if not r.ok:
+            print(f"[telegram] ошибка для {chat_id}: {r.status_code}: {r.text[:300]}")
+            ok = False
+    return ok
 
 
 def html_escape(s):

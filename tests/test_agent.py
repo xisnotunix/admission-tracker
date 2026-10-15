@@ -56,5 +56,49 @@ class AgentTests(unittest.TestCase):
         self.assertEqual(len(build_messages(programs, date(2027, 1, 13))), 0)
 
 
+CATALOG_HTML = """<main><h2>Конкурсы</h2>
+<p>Конкурсный отбор на обучение в Китайской Народной Республике (бакалавриат). Срок до 31 января.</p>
+<a href="/contest/42">Подробнее</a></main>"""
+
+
+class DiscoveryTests(unittest.TestCase):
+    def setUp(self):
+        from check_sources import extract_links
+        self.text = extract_text(CATALOG_HTML)
+        self.links = extract_links(CATALOG_HTML, "https://student.edu.gov.kg/")
+
+    def test_links_are_absolute(self):
+        self.assertIn(("Подробнее", "https://student.edu.gov.kg/contest/42"), self.links)
+
+    def test_discovered_needs_real_quote_and_link(self):
+        from check_sources import verify_discovered
+        result = {"programs": [
+            {"name": "Стипендия Китая", "url": "https://student.edu.gov.kg/contest/42",
+             "quote": "Конкурсный отбор на обучение в Китайской Народной Республике"},
+            {"name": "Выдуманная стипендия", "url": None, "quote": "Стипендия Марса для всех"},
+            {"name": "Китай 2", "url": "https://evil.example/x",
+             "quote": "обучение в Китайской Народной Республике (бакалавриат)"},
+        ]}
+        found = verify_discovered(result, self.text, self.links)
+        self.assertEqual([f["name"] for f in found], ["Стипендия Китая", "Китай 2"])
+        self.assertIsNone(found[1]["url"])  # ссылки нет на странице — отброшена
+
+    def test_known_program_matching(self):
+        from check_sources import known_program
+        programs = {"programs": [{"name": "Stipendium Hungaricum 2027/28", "official_urls": []}]}
+        self.assertIsNotNone(known_program(programs, "Stipendium Hungaricum", None))
+        self.assertIsNone(known_program(programs, "Türkiye Bursları", None))
+
+    def test_approve_new_program(self):
+        import review
+        programs = {"programs": [{"id": "x", "name": "X"}]}
+        entry = {"source_url": "https://student.edu.gov.kg/", "new": {
+            "name": "China Scholarship", "country": "Китай", "url": None,
+            "deadline_text": "до 31 января", "quote": "q"}}
+        pid = review.add_program(programs, entry)
+        self.assertEqual(pid, "china-scholarship")
+        self.assertEqual(programs["programs"][-1]["deadline_status"], "unknown")
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -22,8 +22,22 @@
   <nav class="tabbar" aria-label="Разделы">
     <a href="#/" data-tab="home"><span>📅</span>Дедлайны</a>
     <a href="#/log" data-tab="log"><span>📝</span>Журнал<b id="pending-badge" hidden></b></a>
+    <a href="#/profile" data-tab="profile"><span>👤</span>Профиль</a>
     <a href="#/settings" data-tab="settings"><span>⚙️</span>Настройки</a>
   </nav>
+
+  <section id="chat" class="chat" hidden aria-label="Чат">
+    <header class="chat-head">
+      <b class="chat-title">Вопрос</b>
+      <button class="btn small" id="chat-clear" title="Очистить историю">Очистить</button>
+      <button class="btn small" id="chat-close" aria-label="Закрыть">✕</button>
+    </header>
+    <div class="chat-log"></div>
+    <form id="chat-form" class="chat-form">
+      <textarea id="chat-input" rows="1" placeholder="Ваш вопрос…"></textarea>
+      <button class="btn primary" type="submit">➤</button>
+    </form>
+  </section>
 
   <div id="toast" class="toast" hidden></div>
   <script src="assets/app.js"></script>

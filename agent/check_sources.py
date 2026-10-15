@@ -20,6 +20,7 @@
 import argparse
 import difflib
 import hashlib
+import re
 import sys
 from urllib.parse import urljoin, urlparse
 
@@ -195,13 +196,107 @@ def next_id(changelog, stamp):
     return f"{base}-{n:03d}"
 
 
+# ---------- каталоги: поиск новых программ ----------
+
+def extract_links(html, base_url):
+    """Ссылки страницы как (текст, абсолютный url). Агент по ним НЕ ходит —
+    они нужны только чтобы LLM не выдумывала адреса."""
+    soup = BeautifulSoup(html, "html.parser")
+    out, seen = [], set()
+    for a in soup.find_all("a", href=True):
+        u = urljoin(base_url, a["href"]).split("#")[0]
+        if not u.startswith(("http://", "https://")) or u in seen:
+            continue
+        seen.add(u)
+        out.append((" ".join(a.get_text(" ").split())[:80], u))
+    return out
+
+
+def _words(s):
+    return set(re.findall(r"\w{4,}", normalize(s)))
+
+
+def known_program(programs, name, url):
+    """Программа уже есть в трекере? По URL или по совпадению слов в названии."""
+    n = normalize(name)
+    for p in programs["programs"]:
+        if url and url in (p.get("official_urls") or []):
+            return p
+        pn = normalize(p["name"])
+        if n and (n in pn or pn in n):
+            return p
+        a, b = _words(name), _words(p["name"])
+        if a and b and len(a & b) / min(len(a), len(b)) >= 0.6:
+            return p
+    return None
+
+
+def verify_discovered(result, text, links):
+    """Оставить только программы с дословной цитатой; url — только реальная ссылка со страницы."""
+    urls = {u for _, u in links}
+    out = []
+    for item in (result or {}).get("programs") or []:
+        name, quote = clean_value(item.get("name")), item.get("quote")
+        if not name or not quote or not quote_in_text(quote, text):
+            continue
+        url = clean_value(item.get("url"))
+        out.append({
+            "name": name,
+            "country": clean_value(item.get("country")),
+            "level": clean_value(item.get("level")),
+            "url": url if url in urls else None,
+            "deadline_text": clean_value(item.get("deadline_text")),
+            "quote": quote.strip(),
+        })
+    return out
+
+
+def already_proposed(changelog, name):
+    """Не предлагать повторно то, что уже ждёт решения или было отклонено."""
+    n = normalize(name)
+    return any(
+        e.get("kind") == "new_program" and e.get("status") in ("pending", "rejected")
+        and normalize(e["new"]["name"]) == n
+        for e in changelog["entries"]
+    )
+
+
+def check_catalog(src, ctx, html, text, stamp):
+    programs, changelog = ctx["programs"], ctx["changelog"]
+    links = extract_links(html, src["url"])
+    result = llm.discover(src["url"], text, links)
+    if result is None:
+        return []
+    found = verify_discovered(result, text, links)
+    print(f"[{src['id']}] программ на странице (с цитатой): {len(found)}")
+    messages = []
+    for item in found:
+        if known_program(programs, item["name"], item["url"]) or already_proposed(changelog, item["name"]):
+            continue
+        changelog["entries"].append({
+            "id": next_id(changelog, stamp), "created": stamp, "kind": "new_program",
+            "program_id": None, "source_id": src["id"], "source_url": src["url"],
+            "field": None, "old": None, "new": item, "quote": item["quote"],
+            "status": "pending", "resolved": None,
+        })
+        messages.append(
+            f"🆕 Новая программа: <b>{html_escape(item['name'])}</b>"
+            + (f" ({html_escape(item['country'])})" if item["country"] else "")
+            + (f"\nСрок: {html_escape(item['deadline_text'])}" if item["deadline_text"] else "")
+            + f"\n«{html_escape(item['quote'][:200])}»\nДобавить в трекер? — см. журнал."
+        )
+    return messages
+
+
 # ---------- основной цикл ----------
 
 def check_source(src, ctx, args):
     programs, changelog, state = ctx["programs"], ctx["changelog"], ctx["state"]
-    program = program_by_id(programs, src["program_id"])
-    if program is None:
+    is_catalog = src.get("kind") == "catalog"
+    program = None if is_catalog else program_by_id(programs, src["program_id"])
+    if program is None and not is_catalog:
         raise RuntimeError(f"программа {src['program_id']} не найдена в programs.json")
+    label = "Каталог конкурсов" if is_catalog else program["name"]
 
     stamp = now_iso()
     st = state["sources"].setdefault(src["id"], {})
@@ -211,7 +306,8 @@ def check_source(src, ctx, args):
     print(f"[{src['id']}] {len(text)} символов, sha256={digest[:12]}…")
 
     st.update({"url": src["url"], "last_checked": stamp, "error": None, "errors_in_row": 0})
-    program["last_checked"] = stamp
+    if program:
+        program["last_checked"] = stamp
     messages = []
 
     first_run = not st.get("hash")
@@ -225,7 +321,7 @@ def check_source(src, ctx, args):
     if changed:
         entry = {
             "id": next_id(changelog, stamp), "created": stamp, "kind": "page",
-            "program_id": program["id"], "source_id": src["id"], "source_url": src["url"],
+            "program_id": program["id"] if program else None, "source_id": src["id"], "source_url": src["url"],
             "status": "info",
             "summary": "Первый снимок страницы" if first_run else "Текст страницы изменился",
             "diff": None if first_run else diff_summary(old_text, text),
@@ -233,14 +329,18 @@ def check_source(src, ctx, args):
         changelog["entries"].append(entry)
         st.update({"hash": digest, "last_changed": stamp})
         if not first_run:
-            program["last_changed"] = stamp
+            if program:
+                program["last_changed"] = stamp
             d = entry["diff"]
             messages.append(
-                f"🔄 <b>{html_escape(program['name'])}</b>: изменилась страница\n{html_escape(src['url'])}\n"
+                f"🔄 <b>{html_escape(label)}</b>: изменилась страница\n{html_escape(src['url'])}\n"
                 f"+{d['added_total']} / −{d['removed_total']} строк"
             )
         if not args.dry_run:
             snapshot.write_text(text, encoding="utf-8", newline="\n")
+
+    if is_catalog:
+        return messages + check_catalog(src, ctx, html, text, stamp)
 
     extracted = llm.extract(program, src["url"], text)
     if extracted is None:
