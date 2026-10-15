@@ -210,6 +210,44 @@ python -m unittest discover tests -v
 
 Ключ хранится только в этом браузере, запросы идут напрямую в Google.
 
+### Бот отвечает на команды (необязательно)
+
+Без этого шага бот только присылает уведомления. Чтобы он ещё и отвечал на `/deadlines`, `/exams`, `/todo`, `/program mit`, `/list`, `/pending` и `/help`, разверните бесплатный Cloudflare Worker из папки `worker/`. Worker читает JSON с вашего сайта и отвечает только chat id из белого списка, LLM не использует.
+
+1. Зарегистрируйтесь на https://dash.cloudflare.com (бесплатно) и установите Node.js LTS (https://nodejs.org).
+2. Войдите в Cloudflare:
+   ```bash
+   cd worker
+   npx wrangler login
+   ```
+3. Проверьте `SITE_URL` в `worker/wrangler.toml` и задайте секреты. Каждая команда спросит значение:
+   ```bash
+   npx wrangler secret put TELEGRAM_BOT_TOKEN
+   npx wrangler secret put ALLOWED_CHAT_IDS
+   npx wrangler secret put WEBHOOK_SECRET
+   ```
+   `ALLOWED_CHAT_IDS` — ваш chat id (несколько можно через запятую). `WEBHOOK_SECRET` — любая длинная случайная строка из латинских букв и цифр.
+4. Разверните Worker:
+   ```bash
+   npx wrangler deploy
+   ```
+   Команда напечатает адрес вида `https://admission-tracker-bot.<имя>.workers.dev`.
+5. Подключите webhook. Откройте в браузере ссылку, подставив свои значения:
+   `https://api.telegram.org/bot<ТОКЕН>/setWebhook?url=<АДРЕС_WORKER>&secret_token=<WEBHOOK_SECRET>`
+   Должен прийти ответ `"ok":true`.
+6. Чтобы команды появились в меню бота, отправьте @BotFather `/setcommands`, выберите бота и вставьте:
+   ```
+   deadlines - ближайшие дедлайны
+   exams - экзамены и регистрация
+   todo - неготовые документы
+   program - кратко о программе (id)
+   list - все программы
+   pending - что ждёт проверки
+   help - справка
+   ```
+
+Бесплатного плана Cloudflare (100 000 запросов в день) хватит с огромным запасом. Отключить webhook: `https://api.telegram.org/bot<ТОКЕН>/deleteWebhook`.
+
 ### Кто ещё может пользоваться
 
 - **Сайт** открывается по ссылке у всех, кому вы её дадите. Чек-листы, профиль, ключ и токен у каждого свои: они хранятся в его браузере. Подтверждать изменения может только тот, у кого есть доступ к репозиторию или токен.

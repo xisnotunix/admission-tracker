@@ -1,0 +1,11 @@
+name = "admission-tracker-bot"
+main = "index.js"
+compatibility_date = "2026-09-01"
+
+[vars]
+SITE_URL = "https://xisnotunix.github.io/admission-tracker/"
+
+# Секреты задаются командой (не храните их в этом файле):
+#   npx wrangler secret put TELEGRAM_BOT_TOKEN
+#   npx wrangler secret put ALLOWED_CHAT_IDS
+#   npx wrangler secret put WEBHOOK_SECRET
