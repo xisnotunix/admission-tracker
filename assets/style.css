@@ -196,3 +196,5 @@ label.input input, textarea {
 .checks label { display: flex; gap: 8px; align-items: center; font-size: .9rem; }
 select { width: 100%; font: inherit; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg); color: var(--text); }
 a.chip { text-decoration: none; }
+
+.offline { margin-bottom: 12px; padding: 10px 12px; border-radius: 12px; background: var(--amber-bg); color: var(--amber); font-size: .9rem; }

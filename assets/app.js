@@ -121,8 +121,10 @@ function fmtStamp(iso) {
 
 /* ---------- данные ---------- */
 async function loadData() {
+  state.fromCache = null;
   const get = (f) => fetch(`data/${f}?t=${Date.now()}`, { cache: "no-store" }).then((r) => {
     if (!r.ok) throw new Error(`${f}: HTTP ${r.status}`);
+    if (r.headers.get("X-From-Cache")) state.fromCache = r.headers.get("X-From-Cache");  // ответ service worker без сети
     return r.json();
   });
   const [programs, changelog, st, src] = await Promise.all([
@@ -773,6 +775,11 @@ function render() {
   else if (hash === "#/recs") { html = viewRecs(); tab = "profile"; }
   else if (hash === "#/budget") { html = viewBudget(); tab = "profile"; }
   else html = viewHome();
+  const offline = state.fromCache || !navigator.onLine;
+  if (offline) {
+    const when = Date.parse(state.fromCache) ? ` от ${fmtStamp(new Date(state.fromCache).toISOString())}` : "";
+    html = `<div class="offline">📴 Нет сети — показаны сохранённые данные${esc(when)}. Чат и подтверждения не работают.</div>` + html;
+  }
   $("#app").innerHTML = html + (hash.startsWith("#/p/") ? "" : `<button class="chat-fab" data-chat="all" aria-label="Задать вопрос">💬</button>`);
   document.querySelectorAll(".tabbar a").forEach((a) => a.classList.toggle("active", a.dataset.tab === tab));
   const n = pendingFor().length, badge = $("#pending-badge");
@@ -877,6 +884,12 @@ document.addEventListener("change", (ev) => {
   if (el.id === "backup-import" && el.files[0]) importPersonal(el.files[0]);
   if (el.id === "status-note") setStatus(el.dataset.program, { note: el.value.trim() });
 });
+
+window.addEventListener("online", () => loadData().then(render).catch(() => {}));
+window.addEventListener("offline", render);
+if ("serviceWorker" in navigator && location.protocol !== "file:") {
+  navigator.serviceWorker.register("sw.js").catch((err) => console.warn("service worker:", err));
+}
 
 window.addEventListener("hashchange", () => { closeChat(); render(); window.scrollTo(0, 0); });
 
