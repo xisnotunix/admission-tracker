@@ -4,7 +4,7 @@
 "use strict";
 
 const HOME_TZ = "Asia/Bishkek";
-const LS = { checklist: "tracker.checklist", settings: "tracker.settings", sent: "tracker.sent", profile: "tracker.profile", chat: "tracker.chat", status: "tracker.status", recs: "tracker.recs" };
+const LS = { checklist: "tracker.checklist", settings: "tracker.settings", sent: "tracker.sent", profile: "tracker.profile", chat: "tracker.chat", status: "tracker.status", recs: "tracker.recs", budget: "tracker.budget" };
 const STATUS = {
   confirmed: { label: "подтверждён", cls: "confirmed", icon: "✓" },
   expected: { label: "ожидается", cls: "expected", icon: "~" },
@@ -145,7 +145,7 @@ const sourceErrors = (p) => Object.values(state.sources).filter((s) => s.error &
 const profile = () => lsGet(LS.profile, {});
 
 /* ---------- подразделы «Профиля» ---------- */
-const SUBPAGES = [["#/profile", "👤 Профиль"], ["#/recs", "✉️ Рекомендации"]];
+const SUBPAGES = [["#/profile", "👤 Профиль"], ["#/recs", "✉️ Рекомендации"], ["#/budget", "💰 Бюджет"]];
 function subnav() {
   const h = location.hash || "#/";
   return `<div class="chips" role="group" aria-label="Разделы профиля">${SUBPAGES.map(([href, l]) =>
@@ -228,6 +228,92 @@ function saveRec() {
   };
   const list = recs().filter((r) => r.id !== item.id);
   lsSet(LS.recs, [...list, item]); state.editRec = null; toast("Сохранено"); render();
+}
+
+/* ---------- бюджет ---------- */
+const BUDGET_CATS = { fee: "Сбор за подачу", test: "Экзамен (IELTS/SAT/ОРТ)", translation: "Перевод / нотариус", medical: "Медсправка",
+  apostille: "Апостиль / легализация", photo: "Фото / копии", delivery: "Доставка документов", travel: "Поездка / виза", other: "Другое" };
+const CURRENCIES = ["KGS", "USD", "EUR"];
+const budget = () => ({ items: [], rates: {}, ...lsGet(LS.budget, {}) });
+const money = (n, cur) => `${Number(n).toLocaleString("ru-RU", { maximumFractionDigits: 2 })} ${cur}`;
+
+function toKgs(amount, cur, rates) {
+  if (cur === "KGS") return amount;
+  const r = Number(rates[cur]);
+  return r > 0 ? amount * r : null;
+}
+
+function viewBudget() {
+  const b = budget(), edit = b.items.find((i) => i.id === state.editBudget) || null;
+  const f = edit || { currency: "USD", category: "fee" };
+  const items = b.items.slice().sort((a, c) => (a.paid - c.paid) || (a.due || "9999").localeCompare(c.due || "9999"));
+  const sums = {};
+  for (const i of b.items) {
+    const s = (sums[i.currency] ||= { paid: 0, unpaid: 0 });
+    s[i.paid ? "paid" : "unpaid"] += Number(i.amount) || 0;
+  }
+  const kgsUnpaid = b.items.filter((i) => !i.paid).map((i) => toKgs(Number(i.amount) || 0, i.currency, b.rates));
+  const kgsTotal = kgsUnpaid.every((x) => x !== null) ? kgsUnpaid.reduce((a, c) => a + c, 0) : null;
+  const t = todayStr(), monthEnd = t.slice(0, 8) + String(new Date(+t.slice(0, 4), +t.slice(5, 7), 0).getDate()).padStart(2, "0");
+  const soon = b.items.filter((i) => !i.paid && i.due && i.due <= monthEnd);
+  const templates = state.programs.flatMap((p) => (p.fees || []).map((fee, k) => ({ p, fee, k })))
+    .filter(({ p, fee }) => !b.items.some((i) => i.program === p.id && i.title === fee.title));
+  const progName = (id) => programById(id)?.name || "";
+  return `${subnav()}
+    <h1>Бюджет поступления</h1>
+    <p class="small muted">Хранится только в этом браузере.</p>
+    <div class="card">
+      ${Object.keys(sums).length ? Object.entries(sums).map(([cur, s]) =>
+        `<div class="field"><b>${cur}</b>: осталось оплатить <b>${money(s.unpaid, cur)}</b> · оплачено ${money(s.paid, cur)}</div>`).join("") : `<span class="empty">Расходов пока нет</span>`}
+      ${kgsUnpaid.length ? `<div class="field">Всего к оплате в сомах: ${kgsTotal === null ? `<span class="empty">укажите курсы ниже</span>` : `<b>${money(Math.round(kgsTotal), "KGS")}</b>`}</div>` : ""}
+      ${soon.length ? `<div class="field" style="color:var(--amber)"><b>До конца месяца:</b> ${soon.map((i) => `${esc(i.title)} — ${money(i.amount, i.currency)}`).join("; ")}</div>` : ""}
+    </div>
+    ${templates.length ? `<h2>Известные сборы программ</h2><div class="card">${templates.map(({ p, fee, k }) =>
+      `<div class="field"><b>${esc(p.name)}</b>: ${esc(fee.title)} — ${money(fee.amount, fee.currency)}
+        ${fee.source_url ? `<a class="small" href="${esc(safeUrl(fee.source_url))}" target="_blank" rel="noopener">источник</a>` : ""}
+        <div class="actions"><button class="btn small" data-fee="${esc(p.id)}:${k}">＋ Добавить в бюджет</button></div></div>`).join("")}</div>` : ""}
+    <h2>Расходы</h2>
+    ${items.map((i) => `<div class="card">
+      <div class="entry"><div class="head"><b>${esc(i.title)}</b><b>${money(i.amount, i.currency)}</b></div></div>
+      <div class="small muted">${esc(BUDGET_CATS[i.category] || "")}${i.program ? " · " + esc(progName(i.program)) : ""}${i.due ? " · до " + esc(i.due) : ""}</div>
+      <div class="actions">
+        <label class="check" style="border:0;padding:0"><input type="checkbox" data-paid="${esc(i.id)}" ${i.paid ? "checked" : ""}> <span>Оплачено</span></label>
+        <button class="btn small" data-edit-budget="${esc(i.id)}">Изменить</button>
+      </div></div>`).join("") || ""}
+    <h2>${edit ? "Изменить" : "Добавить"} расход</h2>
+    <div class="card">
+      <label class="input"><span>Что</span><input id="bg-title" value="${esc(f.title || "")}" placeholder="IELTS, нотариальный перевод табеля…"></label>
+      <label class="input"><span>Категория</span><select id="bg-cat">${Object.entries(BUDGET_CATS).map(([k, l]) => `<option value="${k}" ${f.category === k ? "selected" : ""}>${l}</option>`).join("")}</select></label>
+      <label class="input"><span>Сумма</span><input id="bg-amount" type="number" step="0.01" inputmode="decimal" value="${esc(f.amount ?? "")}"></label>
+      <label class="input"><span>Валюта</span><select id="bg-cur">${CURRENCIES.map((c) => `<option ${f.currency === c ? "selected" : ""}>${c}</option>`).join("")}</select></label>
+      <label class="input"><span>Программа (необязательно)</span><select id="bg-prog"><option value="">—</option>${state.programs.map((p) =>
+        `<option value="${esc(p.id)}" ${f.program === p.id ? "selected" : ""}>${esc(p.name)}</option>`).join("")}</select></label>
+      <label class="input"><span>Оплатить до</span><input id="bg-due" type="date" value="${esc(f.due || "")}"></label>
+      <div class="actions">
+        <button class="btn primary" id="bg-save">${edit ? "Сохранить" : "Добавить"}</button>
+        ${edit ? `<button class="btn" id="bg-cancel">Отмена</button><button class="btn danger" id="bg-del">Удалить</button>` : ""}
+      </div>
+    </div>
+    <h2>Курсы валют (вручную)</h2>
+    <div class="card">
+      <p class="small muted" style="margin-top:0">Сколько сомов за 1 единицу валюты — возьмите курс в своём банке. Нужен только для общей суммы в сомах.</p>
+      <label class="input"><span>1 USD = … KGS</span><input id="rate-USD" type="number" step="0.01" inputmode="decimal" value="${esc(b.rates.USD ?? "")}"></label>
+      <label class="input"><span>1 EUR = … KGS</span><input id="rate-EUR" type="number" step="0.01" inputmode="decimal" value="${esc(b.rates.EUR ?? "")}"></label>
+      <button class="btn" id="rates-save">Сохранить курсы</button>
+    </div>`;
+}
+
+function saveBudget(mutator) { const b = budget(); mutator(b); lsSet(LS.budget, b); render(); }
+
+function saveBudgetItem() {
+  const title = $("#bg-title").value.trim(), amount = parseFloat($("#bg-amount").value);
+  if (!title || !(amount >= 0)) { toast("Укажите название и сумму"); return; }
+  const prev = budget().items.find((i) => i.id === state.editBudget);
+  const item = { id: state.editBudget || uid(), title, amount, currency: $("#bg-cur").value, category: $("#bg-cat").value,
+    program: $("#bg-prog").value, due: $("#bg-due").value, paid: prev?.paid || false };
+  state.editBudget = null;
+  saveBudget((b) => { b.items = [...b.items.filter((i) => i.id !== item.id), item]; });
+  toast("Сохранено");
 }
 
 /* ---------- резервная копия личных данных ---------- */
@@ -685,6 +771,7 @@ function render() {
   else if (hash === "#/settings") { html = viewSettings(); tab = "settings"; }
   else if (hash === "#/profile") { html = viewProfile(); tab = "profile"; }
   else if (hash === "#/recs") { html = viewRecs(); tab = "profile"; }
+  else if (hash === "#/budget") { html = viewBudget(); tab = "profile"; }
   else html = viewHome();
   $("#app").innerHTML = html + (hash.startsWith("#/p/") ? "" : `<button class="chat-fab" data-chat="all" aria-label="Задать вопрос">💬</button>`);
   document.querySelectorAll(".tabbar a").forEach((a) => a.classList.toggle("active", a.dataset.tab === tab));
@@ -758,6 +845,17 @@ document.addEventListener("click", (ev) => {
   else if (t.id === "rec-del" && confirm("Удалить рекомендателя?")) { lsSet(LS.recs, recs().filter((r) => r.id !== state.editRec)); state.editRec = null; render(); }
   else if (t.dataset.editRec) { state.editRec = t.dataset.editRec; render(); window.scrollTo(0, document.body.scrollHeight); }
   else if (t.id === "backup-export") exportPersonal();
+  else if (t.id === "bg-save") saveBudgetItem();
+  else if (t.id === "bg-cancel") { state.editBudget = null; render(); }
+  else if (t.id === "bg-del" && confirm("Удалить расход?")) { const id = state.editBudget; state.editBudget = null; saveBudget((b) => { b.items = b.items.filter((i) => i.id !== id); }); }
+  else if (t.dataset.editBudget) { state.editBudget = t.dataset.editBudget; render(); window.scrollTo(0, document.body.scrollHeight); }
+  else if (t.id === "rates-save") saveBudget((b) => { b.rates = { USD: parseFloat($("#rate-USD").value) || null, EUR: parseFloat($("#rate-EUR").value) || null }; });
+  else if (t.dataset.fee) {
+    const [pid, k] = t.dataset.fee.split(":"), fee = programById(pid).fees[+k];
+    saveBudget((b) => b.items.push({ id: uid(), title: fee.title, amount: fee.amount, currency: fee.currency, category: "fee",
+      program: pid, due: programById(pid).deadline?.date || "", paid: false }));
+    toast("Добавлено");
+  }
   else if (t.dataset.stage) setStatus(t.dataset.program, { stage: t.dataset.stage });
   else if (t.dataset.outcome) setStatus(t.dataset.program, { outcome: t.dataset.outcome });
   else if (t.dataset.chat) openChat(t.dataset.chat);
@@ -775,6 +873,7 @@ document.addEventListener("click", (ev) => {
 document.addEventListener("change", (ev) => {
   const el = ev.target;
   if (el.matches("input[data-check]")) onCheck(el.dataset.program, el.dataset.check, el.checked);
+  if (el.dataset.paid) saveBudget((b) => { const i = b.items.find((x) => x.id === el.dataset.paid); if (i) i.paid = el.checked; });
   if (el.id === "backup-import" && el.files[0]) importPersonal(el.files[0]);
   if (el.id === "status-note") setStatus(el.dataset.program, { note: el.value.trim() });
 });

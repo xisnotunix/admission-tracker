@@ -1820,7 +1820,8 @@
       "priority": "high",
       "official_urls": [
         "https://nyuad.nyu.edu/en/apply/undergraduate/apply/key-dates-and-deadlines.html",
-        "https://nyuad.nyu.edu/en/apply/undergraduate/scholarships-and-financial-aid.html"
+        "https://nyuad.nyu.edu/en/apply/undergraduate/scholarships-and-financial-aid.html",
+        "https://nyuad.nyu.edu/en/apply/undergraduate/apply.html"
       ],
       "nominating_body": {
         "value": "Подача напрямую в вуз (Common App)",
@@ -1847,14 +1848,14 @@
       "deadline_status": "confirmed",
       "requirements": {
         "language": {
-          "value": null,
-          "source_url": null,
-          "quote": null
+          "value": "Английский тест, как правило, ожидается от тех, для кого английский не родной.",
+          "source_url": "https://nyuad.nyu.edu/en/apply/undergraduate/apply.html",
+          "quote": "most students for whom English is not their first language can expect to submit English language testing"
         },
         "exams": {
-          "value": "Test-optional (NYU не требует тестов в цикле 2027–2028).",
+          "value": "Test-optional: SAT/ACT не обязательны в цикле 2027–2028.",
           "source_url": "https://nyuad.nyu.edu/en/apply/undergraduate/apply.html",
-          "quote": null
+          "quote": "NYU will continue to remain test-optional through the 2027-2028 application cycle."
         },
         "documents": {
           "value": "Common App; CSS Profile для финпомощи.",
@@ -1926,7 +1927,16 @@
       "last_checked": null,
       "last_changed": null,
       "reviewed": "2026-10-15",
-      "notes": "Финпомощь для иностранцев на основе потребности. Покрытие 100% потребности на официальной странице явно не подтверждено — уточнить. Сбор 85 USD, есть waiver. Популярный вариант у абитуриентов из Центральной Азии; есть Computer Science и Social Research & Public Policy."
+      "notes": "Финпомощь для иностранцев на основе потребности. Покрытие 100% потребности на официальной странице явно не подтверждено — уточнить. Сбор 85 USD, есть waiver. Популярный вариант у абитуриентов из Центральной Азии; есть Computer Science и Social Research & Public Policy.",
+      "fees": [
+        {
+          "title": "Сбор за подачу (не возвращается; можно запросить fee waiver)",
+          "amount": 85,
+          "currency": "USD",
+          "source_url": "https://nyuad.nyu.edu/en/apply/undergraduate/apply.html",
+          "quote": "A non-refundable USD 85 application fee."
+        }
+      ]
     },
     {
       "id": "italy-dsu",
