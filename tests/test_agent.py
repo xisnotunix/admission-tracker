@@ -106,6 +106,31 @@ class DiscoveryTests(unittest.TestCase):
         self.assertEqual(programs["programs"][-1]["deadline_status"], "unknown")
 
 
+class DigestTests(unittest.TestCase):
+    def test_build_digest(self):
+        from weekly_digest import build_digest
+        programs = {"programs": [
+            {"id": "a", "name": "A", "deadline_status": "confirmed",
+             "deadline": {"date": "2027-01-01", "time": "23:59", "timezone": "Asia/Bishkek"},
+             "documents_checklist": [{"id": "x", "title": "X", "done": False}, {"id": "y", "title": "Y", "done": True}],
+             "application_status": {"stage": "preparing"}},
+            {"id": "b", "name": "B", "deadline": {"date": "2026-01-01"}},                       # прошёл
+            {"id": "c", "name": "C", "deadline": {"date": "2027-01-02"}, "application_status": {"stage": "result"}},
+        ]}
+        changelog = {"entries": [
+            {"kind": "new_program", "status": "pending", "created": "2026-10-14T10:00:00+00:00", "new": {"name": "Новая"}},
+        ]}
+        text = build_digest(programs, changelog, {"sources": {"s1": {"error": "403"}}}, today=date(2026, 10, 15))
+        self.assertIn("A — <b>78 дней</b>", text)
+        self.assertIn("23:59 по Бишкеку", text)
+        self.assertIn("не готово документов: 1 из 2", text)
+        self.assertNotIn("B —", text)
+        self.assertNotIn("C —", text)
+        self.assertIn("Ждут проверки в журнале: <b>1</b>", text)
+        self.assertIn("Новая", text)
+        self.assertIn("s1", text)
+
+
 class CalendarTests(unittest.TestCase):
     def test_build_ics(self):
         from calendar_ics import build_ics

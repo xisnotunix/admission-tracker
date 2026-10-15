@@ -74,7 +74,12 @@ def format_deadline(deadline):
         return "дата неизвестна"
     s = dt.strftime("%d.%m.%Y")
     if deadline.get("time"):
-        s += f", {deadline['time']} {dt.tzname()}"
+        name = dt.tzname()
+        if deadline.get("timezone") in (None, "Asia/Bishkek"):
+            name = "по Бишкеку"
+        elif name and name[0] in "+-":  # у пояса нет буквенного имени
+            name = "GMT" + name.lstrip("0").replace("+0", "+").replace("-0", "-")
+        s += f", {deadline['time']} {name}"
     return s
 
 
