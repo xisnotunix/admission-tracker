@@ -6,6 +6,7 @@
 import json
 import os
 import re
+import time
 
 import requests
 
@@ -90,6 +91,28 @@ def _user_prompt(program, url, text):
 
 
 GEMINI_API = "https://generativelanguage.googleapis.com/v1beta"
+
+# Бесплатные тарифы ограничивают запросы в минуту: держим паузу между вызовами
+# и повторяем после ожидания при 429 (лимит) и 5xx (перегрузка).
+MIN_INTERVAL = float(os.environ.get("LLM_MIN_INTERVAL", "7"))
+_last_call = 0.0
+
+
+def _post(url, **kwargs):
+    global _last_call
+    for attempt in range(5):
+        wait = MIN_INTERVAL - (time.monotonic() - _last_call)
+        if wait > 0:
+            time.sleep(wait)
+        _last_call = time.monotonic()
+        r = requests.post(url, **kwargs)
+        if r.status_code not in (429, 500, 502, 503, 504) or attempt == 4:
+            return r
+        retry_after = r.headers.get("Retry-After", "")
+        delay = float(retry_after) if retry_after.isdigit() else 15 * (attempt + 1)
+        print(f"[llm] HTTP {r.status_code}, повтор через {delay:.0f} с")
+        time.sleep(delay)
+    return r
 _gemini_model = None  # модель, найденная автоматически, если GEMINI_MODEL сняли с поддержки
 
 
@@ -127,7 +150,7 @@ def _call_gemini(system_prompt, user_prompt):
     }
     for attempt in range(2):
         model = _gemini_model or GEMINI_MODEL
-        r = requests.post(f"{GEMINI_API}/models/{model}:generateContent",
+        r = _post(f"{GEMINI_API}/models/{model}:generateContent",
                           headers={"x-goog-api-key": api_key}, json=body, timeout=120)
         if r.status_code == 404 and attempt == 0:
             # Модели снимают с поддержки — берём актуальную Flash из списка доступных ключу.
@@ -140,7 +163,7 @@ def _call_gemini(system_prompt, user_prompt):
 
 
 def _call_groq(system_prompt, user_prompt):
-    r = requests.post(
+    r = _post(
         "https://api.groq.com/openai/v1/chat/completions",
         headers={"Authorization": f"Bearer {os.environ['GROQ_API_KEY']}"},
         json={

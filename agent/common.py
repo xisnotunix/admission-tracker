@@ -110,7 +110,9 @@ def quote_in_text(quote, text):
 
 def send_telegram(text):
     # strip + удаление переводов строк: токен часто вставляют с лишним Enter
-    token = "".join((os.environ.get("TELEGRAM_BOT_TOKEN") or "").split())
+    token = "".join((os.environ.get("TELEGRAM_BOT_TOKEN") or "").split()).strip("<>\"'")
+    if re.match(r"^bot\d", token):  # вставили вместе с приставкой из URL
+        token = token[3:]
     # Несколько получателей — через запятую: "5295630219,123456789"
     chat_ids = [c.strip() for c in (os.environ.get("TELEGRAM_CHAT_ID") or "").split(",") if c.strip()]
     if not token or not chat_ids:
