@@ -4,7 +4,7 @@
 "use strict";
 
 const HOME_TZ = "Asia/Bishkek";
-const LS = { checklist: "tracker.checklist", settings: "tracker.settings", sent: "tracker.sent", profile: "tracker.profile", chat: "tracker.chat", status: "tracker.status", recs: "tracker.recs", budget: "tracker.budget" };
+const LS = { checklist: "tracker.checklist", settings: "tracker.settings", sent: "tracker.sent", profile: "tracker.profile", chat: "tracker.chat", status: "tracker.status", recs: "tracker.recs", budget: "tracker.budget", essays: "tracker.essays" };
 const STATUS = {
   confirmed: { label: "подтверждён", cls: "confirmed", icon: "✓" },
   expected: { label: "ожидается", cls: "expected", icon: "~" },
@@ -150,7 +150,7 @@ const sourceErrors = (p) => Object.values(state.sources).filter((s) => s.error &
 const profile = () => lsGet(LS.profile, {});
 
 /* ---------- подразделы «Профиля» ---------- */
-const SUBPAGES = [["#/profile", "👤 Профиль"], ["#/recs", "✉️ Рекомендации"], ["#/budget", "💰 Бюджет"]];
+const SUBPAGES = [["#/profile", "👤 Профиль"], ["#/recs", "✉️ Рекомендации"], ["#/budget", "💰 Бюджет"], ["#/essays", "📝 Эссе"]];
 function subnav() {
   const h = location.hash || "#/";
   return `<div class="chips" role="group" aria-label="Разделы профиля">${SUBPAGES.map(([href, l]) =>
@@ -319,6 +319,105 @@ function saveBudgetItem() {
   state.editBudget = null;
   saveBudget((b) => { b.items = [...b.items.filter((i) => i.id !== item.id), item]; });
   toast("Сохранено");
+}
+
+/* ---------- эссе ---------- */
+const essayStore = () => ({ drafts: {}, custom: [], ...lsGet(LS.essays, {}) });
+const wordCount = (t) => (t.trim().match(/\S+/g) || []).length;
+
+/** Все эссе: из требований программ (одно эссе может быть у нескольких программ) + свои. */
+function allEssays() {
+  const map = new Map();
+  for (const p of state.programs) {
+    for (const e of p.essays || []) {
+      const cur = map.get(e.id) || { ...e, programs: [] };
+      cur.programs.push(p.id);
+      map.set(e.id, cur);
+    }
+  }
+  for (const c of essayStore().custom) map.set(c.id, { ...c, programs: c.programs || [], custom: true });
+  return [...map.values()];
+}
+
+function limitText(e) {
+  const parts = [];
+  if (e.limit_words) parts.push(`до ${e.limit_words} слов`);
+  if (e.min_pages) parts.push(`от ${e.min_pages} стр.`);
+  if (e.language) parts.push(e.language);
+  return parts.join(" · ");
+}
+
+function counterHtml(e, text) {
+  const w = wordCount(text), over = e.limit_words && w > e.limit_words;
+  const pages = e.min_pages ? ` · ≈${(w / 475).toFixed(1)} стр.` : "";
+  return `<span class="${over ? "over" : ""}">${w}${e.limit_words ? " / " + e.limit_words : ""} слов</span> · ${text.length} символов${pages}${over ? " — превышен лимит" : ""}`;
+}
+
+function viewEssays() {
+  const store = essayStore();
+  const list = allEssays();
+  return `${subnav()}
+    <h1>Эссе и мотивационные письма</h1>
+    <p class="small muted">Черновики сохраняются автоматически, только в этом браузере. Требования взяты из официальных источников программ.</p>
+    ${list.map((e) => {
+      const d = store.drafts[e.id] || { text: "", versions: [] };
+      const progs = e.programs.map(programById).filter(Boolean);
+      return `<div class="card essay">
+        <div class="entry"><div class="head"><b>${esc(e.title)}</b>${e.custom ? `<button class="btn small danger" data-essay-del="${esc(e.id)}">Удалить</button>` : ""}</div></div>
+        ${limitText(e) ? `<div class="small"><b>${esc(limitText(e))}</b></div>` : ""}
+        ${e.prompt ? `<div class="small muted">${esc(e.prompt)}</div>` : ""}
+        ${e.note ? `<div class="small muted">${esc(e.note)}</div>` : ""}
+        ${progs.length ? `<div class="small">Для: ${progs.map((p) => `<a href="#/p/${encodeURIComponent(p.id)}">${esc(p.name)}</a>`).join(", ")}</div>` : ""}
+        ${quoteBlock({ quote: e.quote, source_url: e.source_url })}
+        <textarea class="essay-text" data-essay="${esc(e.id)}" rows="10" placeholder="Начните писать…">${esc(d.text)}</textarea>
+        <div class="small muted essay-count" data-count="${esc(e.id)}">${counterHtml(e, d.text)}</div>
+        <div class="actions">
+          <button class="btn small" data-essay-version="${esc(e.id)}">📌 Сохранить версию</button>
+          ${(d.versions || []).length ? `<select class="essay-restore" data-essay-restore="${esc(e.id)}" style="width:auto">
+            <option value="">Версии (${d.versions.length})…</option>
+            ${d.versions.map((v, i) => `<option value="${i}">${esc(fmtStamp(v.at))} — ${wordCount(v.text)} слов</option>`).join("")}</select>` : ""}
+          <button class="btn small primary" data-essay-review="${esc(e.id)}">💬 Проверить в чате</button>
+        </div>
+      </div>`;
+    }).join("")}
+    <h2>Своё эссе</h2>
+    <div class="card">
+      <label class="input"><span>Название</span><input id="essay-new-title" placeholder="Например: эссе для UCA"></label>
+      <label class="input"><span>Лимит слов (если есть)</span><input id="essay-new-limit" type="number" inputmode="numeric"></label>
+      <button class="btn primary" id="essay-add">Добавить</button>
+    </div>`;
+}
+
+let essayTimer = null;
+function onEssayInput(el) {
+  const id = el.dataset.essay, e = allEssays().find((x) => x.id === id);
+  $(`[data-count="${CSS.escape(id)}"]`).innerHTML = counterHtml(e, el.value);
+  clearTimeout(essayTimer);
+  essayTimer = setTimeout(() => {
+    const st = essayStore();
+    const d = st.drafts[id] || { versions: [] };
+    st.drafts[id] = { ...d, text: el.value, updated: new Date().toISOString() };
+    lsSet(LS.essays, st);
+  }, 400);
+}
+
+function saveEssayVersion(id) {
+  const st = essayStore(), d = st.drafts[id];
+  if (!d || !d.text?.trim()) { toast("Черновик пуст"); return; }
+  if (d.versions?.[0]?.text === d.text) { toast("Эта версия уже сохранена"); return; }
+  d.versions = [{ text: d.text, at: new Date().toISOString() }, ...(d.versions || [])].slice(0, 5);
+  lsSet(LS.essays, st); toast("Версия сохранена (хранятся 5 последних)"); render();
+}
+
+function reviewEssay(id) {
+  const e = allEssays().find((x) => x.id === id), d = essayStore().drafts[id];
+  if (!d?.text?.trim()) { toast("Сначала напишите черновик"); return; }
+  const req = [limitText(e), e.prompt, e.note].filter(Boolean).join(". ");
+  openChat(e.programs[0] || "all");
+  sendChat(`Дай отзыв на мой черновик «${e.title}». Требования: ${req || "не указаны"}.\n` +
+    `Оцени структуру, ясность, конкретику и соответствие требованиям; укажи 3–5 самых важных улучшений. ` +
+    `НЕ переписывай текст за меня и не пиши готовые абзацы — только советы и вопросы, которые помогут мне улучшить его самому.\n\n` +
+    `Текст (${wordCount(d.text)} слов):\n${d.text}`);
 }
 
 /* ---------- резервная копия личных данных ---------- */
@@ -626,6 +725,12 @@ function viewProgram(id) {
         <p class="small"><a href="#/" data-goto-exams="1">Все экзамены →</a></p></div>` : "";
     })()}
 
+    ${(p.essays || []).length ? `<h2>Эссе</h2><div class="card">${p.essays.map((e) => {
+      const d = essayStore().drafts[e.id];
+      return `<div class="field"><b>${esc(e.title)}</b>${limitText(e) ? ` <span class="small muted">${esc(limitText(e))}</span>` : ""}
+        <div class="small">${d?.text?.trim() ? `черновик: ${wordCount(d.text)} слов` : `<span class="empty">черновика нет</span>`}</div></div>`;
+    }).join("")}<p class="small"><a href="#/essays">Открыть редактор →</a></p></div>` : ""}
+
     ${recsBlock(p)}
 
     ${(p.files || []).length ? `<h2>Формы и официальные документы</h2>
@@ -826,6 +931,7 @@ function render() {
   else if (hash === "#/profile") { html = viewProfile(); tab = "profile"; }
   else if (hash === "#/recs") { html = viewRecs(); tab = "profile"; }
   else if (hash === "#/budget") { html = viewBudget(); tab = "profile"; }
+  else if (hash === "#/essays") { html = viewEssays(); tab = "profile"; }
   else html = viewHome();
   const offline = state.fromCache || !navigator.onLine;
   if (offline) {
@@ -905,6 +1011,19 @@ document.addEventListener("click", (ev) => {
   else if (t.id === "rec-del" && confirm("Удалить рекомендателя?")) { lsSet(LS.recs, recs().filter((r) => r.id !== state.editRec)); state.editRec = null; render(); }
   else if (t.dataset.editRec) { state.editRec = t.dataset.editRec; render(); window.scrollTo(0, document.body.scrollHeight); }
   else if (t.id === "backup-export") exportPersonal();
+  else if (t.dataset.essayVersion) saveEssayVersion(t.dataset.essayVersion);
+  else if (t.dataset.essayReview) reviewEssay(t.dataset.essayReview);
+  else if (t.id === "essay-add") {
+    const title = $("#essay-new-title").value.trim();
+    if (!title) { toast("Укажите название"); return; }
+    const st = essayStore();
+    st.custom.push({ id: "custom-" + uid(), title, limit_words: parseInt($("#essay-new-limit").value) || null, programs: [] });
+    lsSet(LS.essays, st); render();
+  }
+  else if (t.dataset.essayDel && confirm("Удалить эссе вместе с черновиком?")) {
+    const st = essayStore(), id = t.dataset.essayDel;
+    st.custom = st.custom.filter((c) => c.id !== id); delete st.drafts[id]; lsSet(LS.essays, st); render();
+  }
   else if (t.id === "bg-save") saveBudgetItem();
   else if (t.id === "bg-cancel") { state.editBudget = null; render(); }
   else if (t.id === "bg-del" && confirm("Удалить расход?")) { const id = state.editBudget; state.editBudget = null; saveBudget((b) => { b.items = b.items.filter((i) => i.id !== id); }); }
@@ -933,6 +1052,11 @@ document.addEventListener("click", (ev) => {
 document.addEventListener("change", (ev) => {
   const el = ev.target;
   if (el.matches("input[data-check]")) onCheck(el.dataset.program, el.dataset.check, el.checked);
+  if (el.dataset.essayRestore !== undefined && el.value !== "" && confirm("Заменить текущий черновик этой версией? (текущий сохранится как новая версия)")) {
+    const id = el.dataset.essayRestore, st = essayStore(), d = st.drafts[id], v = d.versions[+el.value];
+    if (d.text && d.text !== v.text) d.versions = [{ text: d.text, at: new Date().toISOString() }, ...d.versions].slice(0, 5);
+    d.text = v.text; lsSet(LS.essays, st); render(); return;
+  }
   if (el.dataset.paid) saveBudget((b) => { const i = b.items.find((x) => x.id === el.dataset.paid); if (i) i.paid = el.checked; });
   if (el.id === "backup-import" && el.files[0]) importPersonal(el.files[0]);
   if (el.id === "status-note") setStatus(el.dataset.program, { note: el.value.trim() });
@@ -1060,6 +1184,10 @@ async function sendChat(text) {
     chatHistory(chat.pid, [...hist, { role: "model", text: "⚠️ Ошибка: " + err.message }]);
   } finally { chat.busy = false; renderChat(); }
 }
+
+document.addEventListener("input", (ev) => {
+  if (ev.target.matches("textarea[data-essay]")) onEssayInput(ev.target);
+});
 
 document.addEventListener("submit", (ev) => {
   if (ev.target.id !== "chat-form") return;

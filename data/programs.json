@@ -156,7 +156,20 @@
       "last_checked": "2026-10-15T13:27:07+00:00",
       "last_changed": null,
       "reviewed": "2026-10-15",
-      "notes": "Проверено по официальным документам цикла 2026/27; для 2027/28 они обновятся. Можно выбрать 2 программы. Номинация от КР — до конца февраля, результаты — конец июня/начало июля."
+      "notes": "Проверено по официальным документам цикла 2026/27; для 2027/28 они обновятся. Можно выбрать 2 программы. Номинация от КР — до конца февраля, результаты — конец июня/начало июля.",
+      "essays": [
+        {
+          "id": "sh-motivation",
+          "title": "Stipendium Hungaricum: мотивационное письмо",
+          "prompt": "Мотивация к выбранной программе и учёбе в Венгрии.",
+          "limit_words": null,
+          "min_pages": 1,
+          "language": "язык выбранной программы или венгерский",
+          "source_url": "https://stipendiumhungaricum.hu/wp-content/uploads/2025/10/document-for-applicants-ba-ma-otm_26.pdf",
+          "quote": "Motivation Letter - minimum 1 page, typed in Times New Roman 12-point letters",
+          "note": "Times New Roman 12; 1 страница ≈ 450–500 слов."
+        }
+      ]
     },
     {
       "id": "mext-undergraduate",
@@ -923,7 +936,20 @@
       "last_checked": "2026-10-15T13:39:00+00:00",
       "last_changed": null,
       "reviewed": "2026-10-15",
-      "notes": "Для CS подходит Software Engineering или Applied Mathematics and Informatics; для Social Studies — социология, антропология, политология, психология."
+      "notes": "Для CS подходит Software Engineering или Applied Mathematics and Informatics; для Social Studies — социология, антропология, политология, психология.",
+      "essays": [
+        {
+          "id": "auca-statement",
+          "title": "AUCA: Statement of purpose",
+          "prompt": "Почему AUCA и выбранная программа, ваши цели.",
+          "limit_words": 700,
+          "min_pages": null,
+          "language": "английский",
+          "source_url": "https://auca.kg/en/freshman_applicants/",
+          "quote": "Limit your statement of purpose to 700 words.",
+          "note": null
+        }
+      ]
     },
     {
       "id": "ala-too",
@@ -1116,7 +1142,20 @@
       "last_checked": null,
       "last_changed": null,
       "reviewed": "2026-10-15",
-      "notes": "Need-blind для иностранцев, покрывает 100% доказанной потребности: «Harvard will meet the full financial need of admitted students». Ранний раунд — 1 ноября 2026 (через 2 недели): реалистично только если SAT/английский уже сданы. Основная цель — Regular Decision."
+      "notes": "Need-blind для иностранцев, покрывает 100% доказанной потребности: «Harvard will meet the full financial need of admitted students». Ранний раунд — 1 ноября 2026 (через 2 недели): реалистично только если SAT/английский уже сданы. Основная цель — Regular Decision.",
+      "essays": [
+        {
+          "id": "common-app-personal",
+          "title": "Основное эссе Common App (personal essay)",
+          "prompt": "Одна из 7 тем Common App 2026–2027 (темы не изменились с прошлого года).",
+          "limit_words": null,
+          "min_pages": null,
+          "language": "английский",
+          "source_url": "https://appsupport.commonapp.org/applicantsupport/s/article/What-are-the-2026-27-Common-App-essay-prompts",
+          "quote": null,
+          "note": "Лимит слов показывается в самой анкете Common App (обычно 650 слов) — сверьте там. Одно эссе уходит во все вузы Common App."
+        }
+      ]
     },
     {
       "id": "yale",
@@ -1232,7 +1271,20 @@
       "last_checked": null,
       "last_changed": null,
       "reviewed": "2026-10-15",
-      "notes": "Need-blind для иностранцев: «International students are eligible for the same need-based financial aid as domestic applicants». Ранний раунд — 1 ноября 2026 (через 2 недели): реалистично только если SAT/английский уже сданы. Основная цель — Regular Decision."
+      "notes": "Need-blind для иностранцев: «International students are eligible for the same need-based financial aid as domestic applicants». Ранний раунд — 1 ноября 2026 (через 2 недели): реалистично только если SAT/английский уже сданы. Основная цель — Regular Decision.",
+      "essays": [
+        {
+          "id": "common-app-personal",
+          "title": "Основное эссе Common App (personal essay)",
+          "prompt": "Одна из 7 тем Common App 2026–2027 (темы не изменились с прошлого года).",
+          "limit_words": null,
+          "min_pages": null,
+          "language": "английский",
+          "source_url": "https://appsupport.commonapp.org/applicantsupport/s/article/What-are-the-2026-27-Common-App-essay-prompts",
+          "quote": null,
+          "note": "Лимит слов показывается в самой анкете Common App (обычно 650 слов) — сверьте там. Одно эссе уходит во все вузы Common App."
+        }
+      ]
     },
     {
       "id": "princeton",
@@ -1347,7 +1399,20 @@
       "last_checked": null,
       "last_changed": null,
       "reviewed": "2026-10-15",
-      "notes": "Need-blind для иностранцев, финпомощь без кредитов (no-loan). Тестовую политику уточнить на сайте. Ранний раунд — 1 ноября 2026 (через 2 недели): реалистично только если SAT/английский уже сданы. Основная цель — Regular Decision."
+      "notes": "Need-blind для иностранцев, финпомощь без кредитов (no-loan). Тестовую политику уточнить на сайте. Ранний раунд — 1 ноября 2026 (через 2 недели): реалистично только если SAT/английский уже сданы. Основная цель — Regular Decision.",
+      "essays": [
+        {
+          "id": "common-app-personal",
+          "title": "Основное эссе Common App (personal essay)",
+          "prompt": "Одна из 7 тем Common App 2026–2027 (темы не изменились с прошлого года).",
+          "limit_words": null,
+          "min_pages": null,
+          "language": "английский",
+          "source_url": "https://appsupport.commonapp.org/applicantsupport/s/article/What-are-the-2026-27-Common-App-essay-prompts",
+          "quote": null,
+          "note": "Лимит слов показывается в самой анкете Common App (обычно 650 слов) — сверьте там. Одно эссе уходит во все вузы Common App."
+        }
+      ]
     },
     {
       "id": "mit",
@@ -1463,7 +1528,20 @@
       "last_checked": null,
       "last_changed": null,
       "reviewed": "2026-10-15",
-      "notes": "Подача через портал MIT, не через Common App. Финпомощь для иностранцев на тех же условиях: «Application deadlines are the same for both domestic and international students» (sfs.mit.edu). Ранний раунд — 1 ноября 2026 (через 2 недели): реалистично только если SAT/английский уже сданы. Основная цель — Regular Decision."
+      "notes": "Подача через портал MIT, не через Common App. Финпомощь для иностранцев на тех же условиях: «Application deadlines are the same for both domestic and international students» (sfs.mit.edu). Ранний раунд — 1 ноября 2026 (через 2 недели): реалистично только если SAT/английский уже сданы. Основная цель — Regular Decision.",
+      "essays": [
+        {
+          "id": "mit-essays",
+          "title": "MIT: короткие эссе в анкете",
+          "prompt": "Несколько коротких ответов на вопросы MIT (в анкете на портале MIT, не Common App).",
+          "limit_words": null,
+          "min_pages": null,
+          "language": "английский",
+          "source_url": "https://mitadmissions.org/apply/firstyear/deadlines-requirements/",
+          "quote": null,
+          "note": "Вопросы и лимиты — в анкете MIT."
+        }
+      ]
     },
     {
       "id": "dartmouth",
@@ -1578,7 +1656,20 @@
       "last_checked": null,
       "last_changed": null,
       "reviewed": "2026-10-15",
-      "notes": "Need-blind для всех, включая иностранцев (с класса 2026), покрывает 100% доказанной потребности. Финпомощь RD — до 1 февраля. Early Decision обязывает поступить, если приняли."
+      "notes": "Need-blind для всех, включая иностранцев (с класса 2026), покрывает 100% доказанной потребности. Финпомощь RD — до 1 февраля. Early Decision обязывает поступить, если приняли.",
+      "essays": [
+        {
+          "id": "common-app-personal",
+          "title": "Основное эссе Common App (personal essay)",
+          "prompt": "Одна из 7 тем Common App 2026–2027 (темы не изменились с прошлого года).",
+          "limit_words": null,
+          "min_pages": null,
+          "language": "английский",
+          "source_url": "https://appsupport.commonapp.org/applicantsupport/s/article/What-are-the-2026-27-Common-App-essay-prompts",
+          "quote": null,
+          "note": "Лимит слов показывается в самой анкете Common App (обычно 650 слов) — сверьте там. Одно эссе уходит во все вузы Common App."
+        }
+      ]
     },
     {
       "id": "amherst",
@@ -1694,7 +1785,20 @@
       "last_checked": null,
       "last_changed": null,
       "reviewed": "2026-10-15",
-      "notes": "«Amherst College follows a need-blind admission policy for all students—domestic and international.» Покрывает 100% рассчитанной потребности. Вместо платного CSS Profile можно бесплатно подать ISFAA (через портал Amherst после подачи заявки)."
+      "notes": "«Amherst College follows a need-blind admission policy for all students—domestic and international.» Покрывает 100% рассчитанной потребности. Вместо платного CSS Profile можно бесплатно подать ISFAA (через портал Amherst после подачи заявки).",
+      "essays": [
+        {
+          "id": "common-app-personal",
+          "title": "Основное эссе Common App (personal essay)",
+          "prompt": "Одна из 7 тем Common App 2026–2027 (темы не изменились с прошлого года).",
+          "limit_words": null,
+          "min_pages": null,
+          "language": "английский",
+          "source_url": "https://appsupport.commonapp.org/applicantsupport/s/article/What-are-the-2026-27-Common-App-essay-prompts",
+          "quote": null,
+          "note": "Лимит слов показывается в самой анкете Common App (обычно 650 слов) — сверьте там. Одно эссе уходит во все вузы Common App."
+        }
+      ]
     },
     {
       "id": "bowdoin",
@@ -1810,7 +1914,20 @@
       "last_checked": null,
       "last_changed": null,
       "reviewed": "2026-10-15",
-      "notes": "«Bowdoin College is need blind for international students»; покрывает полную потребность. SAT не обязателен — хороший вариант, если не успеваете сдать SAT."
+      "notes": "«Bowdoin College is need blind for international students»; покрывает полную потребность. SAT не обязателен — хороший вариант, если не успеваете сдать SAT.",
+      "essays": [
+        {
+          "id": "common-app-personal",
+          "title": "Основное эссе Common App (personal essay)",
+          "prompt": "Одна из 7 тем Common App 2026–2027 (темы не изменились с прошлого года).",
+          "limit_words": null,
+          "min_pages": null,
+          "language": "английский",
+          "source_url": "https://appsupport.commonapp.org/applicantsupport/s/article/What-are-the-2026-27-Common-App-essay-prompts",
+          "quote": null,
+          "note": "Лимит слов показывается в самой анкете Common App (обычно 650 слов) — сверьте там. Одно эссе уходит во все вузы Common App."
+        }
+      ]
     },
     {
       "id": "nyuad",
@@ -1935,6 +2052,19 @@
           "currency": "USD",
           "source_url": "https://nyuad.nyu.edu/en/apply/undergraduate/apply.html",
           "quote": "A non-refundable USD 85 application fee."
+        }
+      ],
+      "essays": [
+        {
+          "id": "common-app-personal",
+          "title": "Основное эссе Common App (personal essay)",
+          "prompt": "Одна из 7 тем Common App 2026–2027 (темы не изменились с прошлого года).",
+          "limit_words": null,
+          "min_pages": null,
+          "language": "английский",
+          "source_url": "https://appsupport.commonapp.org/applicantsupport/s/article/What-are-the-2026-27-Common-App-essay-prompts",
+          "quote": null,
+          "note": "Лимит слов показывается в самой анкете Common App (обычно 650 слов) — сверьте там. Одно эссе уходит во все вузы Common App."
         }
       ]
     },
