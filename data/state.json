@@ -1,1 +1,127 @@
-{ "sources": {} }
+{
+  "sources": {
+    "kg-ministry-contests": {
+      "url": "https://student.edu.gov.kg/",
+      "last_checked": "2026-10-15T13:14:14+00:00",
+      "error": "404 Client Error: Not Found for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+      "errors_in_row": 1,
+      "hash": "105f2a769d3798233302c41228e92d20245b12914e09b20fa19df6dc07faafa1",
+      "last_changed": "2026-10-15T13:14:14+00:00",
+      "last_error_at": "2026-10-15T13:14:16+00:00"
+    },
+    "sh-apply": {
+      "url": "https://stipendiumhungaricum.hu/apply/",
+      "last_checked": "2026-10-15T13:14:16+00:00",
+      "error": "404 Client Error: Not Found for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+      "errors_in_row": 1,
+      "hash": "e60ce0b8dd29e9962130d801ca0376bfd59127a91bb1186c1859a46465d6eddf",
+      "last_changed": "2026-10-15T13:14:16+00:00",
+      "last_error_at": "2026-10-15T13:14:17+00:00"
+    },
+    "sh-main": {
+      "url": "https://stipendiumhungaricum.hu/",
+      "last_checked": "2026-10-15T13:14:17+00:00",
+      "error": "404 Client Error: Not Found for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+      "errors_in_row": 1,
+      "hash": "8a2fa5a973b1d148ca155717c4065c000aad0c8bbd789e7c97e546d093a85ff9",
+      "last_changed": "2026-10-15T13:14:17+00:00",
+      "last_error_at": "2026-10-15T13:14:18+00:00"
+    },
+    "sh-portal": {
+      "url": "https://apply.stipendiumhungaricum.hu/",
+      "last_checked": "2026-10-15T13:14:18+00:00",
+      "error": "404 Client Error: Not Found for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+      "errors_in_row": 1,
+      "hash": "bb44f0ed078608eb991c117efc2e1055d5753971cd811cf74f7eda5a4dc2e3b1",
+      "last_changed": "2026-10-15T13:14:18+00:00",
+      "last_error_at": "2026-10-15T13:14:19+00:00"
+    },
+    "mext-undergrad": {
+      "url": "https://www.studyinjapan.go.jp/en/smap-stopj-applications-undergraduate.html",
+      "last_checked": "2026-10-15T13:14:19+00:00",
+      "error": "404 Client Error: Not Found for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+      "errors_in_row": 1,
+      "hash": "65da06cc534ecdc0c12bf490819846d0c34747ed893630ce20daa0bc362ff2b7",
+      "last_changed": "2026-10-15T13:14:19+00:00",
+      "last_error_at": "2026-10-15T13:14:20+00:00"
+    },
+    "tb-announcement": {
+      "url": "https://turkiyeburslari.gov.tr/duyurular/turkiye-burslari-2026-basvurulari-121",
+      "last_checked": "2026-10-15T13:14:20+00:00",
+      "error": "404 Client Error: Not Found for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+      "errors_in_row": 1,
+      "hash": "ccaa2fa4e8cd3402e0203b5bf86cc177d99a5897000cc4472539bd495515c4ce",
+      "last_changed": "2026-10-15T13:14:20+00:00",
+      "last_error_at": "2026-10-15T13:14:21+00:00"
+    },
+    "tb-main": {
+      "url": "https://turkiyeburslari.gov.tr/",
+      "last_checked": "2026-10-15T13:14:21+00:00",
+      "error": "404 Client Error: Not Found for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+      "errors_in_row": 1,
+      "hash": "93b330a1f834bf48d82915c9cddca442ed75206c464dcdfcb9db49c0aaf9ef80",
+      "last_changed": "2026-10-15T13:14:21+00:00",
+      "last_error_at": "2026-10-15T13:14:22+00:00"
+    },
+    "ru-quota-misis": {
+      "url": "https://misis.ru/events/6552/",
+      "last_error_at": "2026-10-15T13:15:08+00:00",
+      "error": "HTTPSConnectionPool(host='misis.ru', port=443): Max retries exceeded with url: /events/6552/ (Caused by ConnectTimeoutError(<HTTPSConnection(host='misis.ru', port=443) at 0x7fd49e5b24b0>, 'Connection to misis.ru timed out. (connect timeout=45)'))",
+      "errors_in_row": 1
+    },
+    "gks-main": {
+      "url": "https://www.studyinkorea.go.kr/",
+      "last_checked": "2026-10-15T13:15:08+00:00",
+      "error": "404 Client Error: Not Found for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+      "errors_in_row": 1,
+      "hash": "4c89dfd364ff36210e098bc9adc90a5e57080f36bab4e1da8157dc7c047e57fe",
+      "last_changed": "2026-10-15T13:15:08+00:00",
+      "last_error_at": "2026-10-15T13:15:11+00:00"
+    },
+    "uca-overview": {
+      "url": "https://admissions.ucentralasia.org/?p=42",
+      "last_checked": "2026-10-15T13:15:11+00:00",
+      "error": "404 Client Error: Not Found for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+      "errors_in_row": 1,
+      "hash": "ba360571e9e488ae3b76b031e9dd17b077662b617a698eb572ae285397704f8f",
+      "last_changed": "2026-10-15T13:15:11+00:00",
+      "last_error_at": "2026-10-15T13:15:12+00:00"
+    },
+    "uca-stage1": {
+      "url": "https://admissions.ucentralasia.org/apply/stage-1/",
+      "last_checked": "2026-10-15T13:15:12+00:00",
+      "error": "404 Client Error: Not Found for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+      "errors_in_row": 1,
+      "hash": "9931e4ab9d1a44ba3411747ce4817b3cbe5343a82e36b3cbadb2de2a31056392",
+      "last_changed": "2026-10-15T13:15:12+00:00",
+      "last_error_at": "2026-10-15T13:15:12+00:00"
+    },
+    "auca-freshman": {
+      "url": "https://auca.kg/en/freshman_applicants/",
+      "last_checked": "2026-10-15T13:15:12+00:00",
+      "error": "404 Client Error: Not Found for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+      "errors_in_row": 1,
+      "hash": "2aa23171c3fd2db820cd4ceb9a1d4ff30c09a93c23370edec29a03053ede94d6",
+      "last_changed": "2026-10-15T13:15:12+00:00",
+      "last_error_at": "2026-10-15T13:15:16+00:00"
+    },
+    "auca-exams": {
+      "url": "https://auca.kg/en/auca_exams_view/",
+      "last_checked": "2026-10-15T13:15:16+00:00",
+      "error": "404 Client Error: Not Found for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+      "errors_in_row": 1,
+      "hash": "e3dfc773ea5f4b5c261786cc5b4c3fde3eb8ec32aa1726a0795bd5b5a16de708",
+      "last_changed": "2026-10-15T13:15:16+00:00",
+      "last_error_at": "2026-10-15T13:15:17+00:00"
+    },
+    "auca-scoring": {
+      "url": "https://auca.kg/en/auca_exams_scoring/",
+      "last_checked": "2026-10-15T13:15:17+00:00",
+      "error": "404 Client Error: Not Found for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+      "errors_in_row": 1,
+      "hash": "8ba1b8a13d6dcba6ec1d8666ce2900022176e3b9970ee105c0cf3dca119c1ec0",
+      "last_changed": "2026-10-15T13:15:17+00:00",
+      "last_error_at": "2026-10-15T13:15:20+00:00"
+    }
+  }
+}

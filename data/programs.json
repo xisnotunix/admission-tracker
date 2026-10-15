@@ -19,9 +19,13 @@
         "note": "В 2026/27 для КР было 200 мест, из них 130 — бакалавриат и одноуровневая магистратура. У министерства может быть свой срок — следить за student.edu.gov.kg."
       },
       "opens": {
-        "date": null, "time": null, "timezone": null,
+        "date": null,
+        "time": null,
+        "timezone": null,
         "text": "ожидается в ноябре 2026",
-        "status": "expected", "source_url": null, "quote": null
+        "status": "expected",
+        "source_url": null,
+        "quote": null
       },
       "deadline": {
         "date": "2027-01-15",
@@ -55,30 +59,101 @@
         }
       },
       "thresholds": {
-        "age_min": { "value": 18, "source_url": "https://www.weproject.media/articles/detail/200-kyrgyzstantsev-smogut-uchitsya-v-vengrii-v-2026-godu-trebovaniya-kvoty-i-sroki-podachi/", "quote": null, "note": "18 лет к 31 августа года начала учёбы (условие министерства КР в цикле 2026)" }
+        "age_min": {
+          "value": 18,
+          "source_url": "https://www.weproject.media/articles/detail/200-kyrgyzstantsev-smogut-uchitsya-v-vengrii-v-2026-godu-trebovaniya-kvoty-i-sroki-podachi/",
+          "quote": null,
+          "note": "18 лет к 31 августа года начала учёбы (условие министерства КР в цикле 2026)"
+        }
       },
       "documents_checklist": [
-        { "id": "application", "title": "Онлайн-анкета на английском + фото (не старше 2 лет)", "done": false, "url": "https://apply.stipendiumhungaricum.hu/" },
-        { "id": "motivation", "title": "Мотивационное письмо (от 1 стр., Times New Roman 12, на языке программы)", "done": false },
-        { "id": "language", "title": "Языковой сертификат (IELTS/TOEFL — уровень по требованию вуза)", "done": false },
-        { "id": "school-cert", "title": "Аттестат об окончании школы (скан оригинала)", "done": false },
-        { "id": "transcript", "title": "Табель оценок за все классы старшей школы", "done": false },
-        { "id": "translation", "title": "Переводы аттестата и табеля на язык программы", "done": false },
-        { "id": "passport", "title": "Загранпаспорт (страница с фото) или ID-карта; паспорт — до 1 августа", "done": false },
-        { "id": "statement", "title": "Принять «Statement for Application» в онлайн-системе", "done": false },
-        { "id": "ministry", "title": "Регистрация в конкурсе министерства КР на student.edu.gov.kg", "done": false, "url": "https://student.edu.gov.kg/" },
-        { "id": "checklist-pdf", "title": "Сверить с официальным чек-листом (Checklist 2026, обновится для 2027)", "done": false, "url": "https://stipendiumhungaricum.hu/wp-content/uploads/2025/10/Checklist_2026.pdf" },
-        { "id": "medical", "title": "Медсправка по шаблону — только если получу стипендию", "done": false, "url": "https://stipendiumhungaricum.hu/wp-content/uploads/2025/10/Medical_certificate.pdf" }
+        {
+          "id": "application",
+          "title": "Онлайн-анкета на английском + фото (не старше 2 лет)",
+          "done": false,
+          "url": "https://apply.stipendiumhungaricum.hu/"
+        },
+        {
+          "id": "motivation",
+          "title": "Мотивационное письмо (от 1 стр., Times New Roman 12, на языке программы)",
+          "done": false
+        },
+        {
+          "id": "language",
+          "title": "Языковой сертификат (IELTS/TOEFL — уровень по требованию вуза)",
+          "done": false
+        },
+        {
+          "id": "school-cert",
+          "title": "Аттестат об окончании школы (скан оригинала)",
+          "done": false
+        },
+        {
+          "id": "transcript",
+          "title": "Табель оценок за все классы старшей школы",
+          "done": false
+        },
+        {
+          "id": "translation",
+          "title": "Переводы аттестата и табеля на язык программы",
+          "done": false
+        },
+        {
+          "id": "passport",
+          "title": "Загранпаспорт (страница с фото) или ID-карта; паспорт — до 1 августа",
+          "done": false
+        },
+        {
+          "id": "statement",
+          "title": "Принять «Statement for Application» в онлайн-системе",
+          "done": false
+        },
+        {
+          "id": "ministry",
+          "title": "Регистрация в конкурсе министерства КР на student.edu.gov.kg",
+          "done": false,
+          "url": "https://student.edu.gov.kg/"
+        },
+        {
+          "id": "checklist-pdf",
+          "title": "Сверить с официальным чек-листом (Checklist 2026, обновится для 2027)",
+          "done": false,
+          "url": "https://stipendiumhungaricum.hu/wp-content/uploads/2025/10/Checklist_2026.pdf"
+        },
+        {
+          "id": "medical",
+          "title": "Медсправка по шаблону — только если получу стипендию",
+          "done": false,
+          "url": "https://stipendiumhungaricum.hu/wp-content/uploads/2025/10/Medical_certificate.pdf"
+        }
       ],
       "files": [
-        { "title": "Call for Applications 2026/27 (BA/MA)", "url": "https://stipendiumhungaricum.hu/wp-content/uploads/2025/10/BA_MA_OTM_Call_for_Applications_2026_27.pdf" },
-        { "title": "Application Guide 2026/27", "url": "https://stipendiumhungaricum.hu/wp-content/uploads/2025/11/Application_Guide_for_the_Stipendium_Hungaricum_Programme_2026_27_final.pdf" },
-        { "title": "Documents for all applicants", "url": "https://stipendiumhungaricum.hu/wp-content/uploads/2025/10/document-for-applicants-ba-ma-otm_26.pdf" },
-        { "title": "Checklist 2026", "url": "https://stipendiumhungaricum.hu/wp-content/uploads/2025/10/Checklist_2026.pdf" },
-        { "title": "Шаблон медсправки", "url": "https://stipendiumhungaricum.hu/wp-content/uploads/2025/10/Medical_certificate.pdf" },
-        { "title": "Dos and Don'ts", "url": "https://stipendiumhungaricum.hu/wp-content/uploads/2025/10/DosandDonts_2026.pdf" }
+        {
+          "title": "Call for Applications 2026/27 (BA/MA)",
+          "url": "https://stipendiumhungaricum.hu/wp-content/uploads/2025/10/BA_MA_OTM_Call_for_Applications_2026_27.pdf"
+        },
+        {
+          "title": "Application Guide 2026/27",
+          "url": "https://stipendiumhungaricum.hu/wp-content/uploads/2025/11/Application_Guide_for_the_Stipendium_Hungaricum_Programme_2026_27_final.pdf"
+        },
+        {
+          "title": "Documents for all applicants",
+          "url": "https://stipendiumhungaricum.hu/wp-content/uploads/2025/10/document-for-applicants-ba-ma-otm_26.pdf"
+        },
+        {
+          "title": "Checklist 2026",
+          "url": "https://stipendiumhungaricum.hu/wp-content/uploads/2025/10/Checklist_2026.pdf"
+        },
+        {
+          "title": "Шаблон медсправки",
+          "url": "https://stipendiumhungaricum.hu/wp-content/uploads/2025/10/Medical_certificate.pdf"
+        },
+        {
+          "title": "Dos and Don'ts",
+          "url": "https://stipendiumhungaricum.hu/wp-content/uploads/2025/10/DosandDonts_2026.pdf"
+        }
       ],
-      "last_checked": null,
+      "last_checked": "2026-10-15T13:14:18+00:00",
       "last_changed": null,
       "reviewed": "2026-10-15",
       "notes": "Проверено по официальным документам цикла 2026/27; для 2027/28 они обновятся. Можно выбрать 2 программы. Номинация от КР — до конца февраля, результаты — конец июня/начало июля."
@@ -100,7 +175,9 @@
         "note": "Документы подаются в посольство Японии в Бишкеке."
       },
       "opens": {
-        "date": null, "time": null, "timezone": null,
+        "date": null,
+        "time": null,
+        "timezone": null,
         "text": "ожидается апрель–май 2027",
         "status": "expected",
         "source_url": "https://www.studyinjapan.go.jp/en/smap-stopj-applications-undergraduate.html",
@@ -138,27 +215,86 @@
         }
       },
       "thresholds": {
-        "age_note": { "value": null, "source_url": "https://www.studyinjapan.go.jp/en/_mt/2026/04/2027_Guidelines_Undergraduate_E.pdf", "quote": "Applicants, in principle, must have been born on or after April 2, 2002.", "note": "Это для набора 2027; для 2028 граница сдвинется на год." }
+        "age_note": {
+          "value": null,
+          "source_url": "https://www.studyinjapan.go.jp/en/_mt/2026/04/2027_Guidelines_Undergraduate_E.pdf",
+          "quote": "Applicants, in principle, must have been born on or after April 2, 2002.",
+          "note": "Это для набора 2027; для 2028 граница сдвинется на год."
+        }
       },
       "documents_checklist": [
-        { "id": "application", "title": "Application Form (форма года набора) + фото 4,5×3,5 см", "done": false, "url": "https://www.studyinjapan.go.jp/en/_mt/2026/04/2027_Application_Undergraduate.pdf" },
-        { "id": "transcript", "title": "Табели за все годы старшей школы (с перечнем предметов и шкалой оценок)", "done": false },
-        { "id": "graduation", "title": "Аттестат или справка о предстоящем окончании школы", "done": false },
-        { "id": "translation", "title": "Переводы документов на английский или японский", "done": false },
-        { "id": "recommendation", "title": "Рекомендация классного руководителя или директора", "done": false, "url": "https://www.studyinjapan.go.jp/en/_mt/2026/04/2027_SampleRecommendation_Undergraduate.pdf" },
-        { "id": "medical", "title": "Медсправка по форме MEXT (заполняет врач)", "done": false, "url": "https://www.studyinjapan.go.jp/en/_mt/2026/04/2027_HealthCertificate_Undergraduate.pdf" },
-        { "id": "language", "title": "Сертификаты IELTS/TOEFL/JLPT, если есть (2 копии, не старше 2 лет)", "done": false },
-        { "id": "copies", "title": "Собрать 2 пакета: оригиналы + копии, пронумеровать ①–⑨", "done": false },
-        { "id": "exam-prep", "title": "Подготовка к экзаменам: японский, английский, математика", "done": false }
+        {
+          "id": "application",
+          "title": "Application Form (форма года набора) + фото 4,5×3,5 см",
+          "done": false,
+          "url": "https://www.studyinjapan.go.jp/en/_mt/2026/04/2027_Application_Undergraduate.pdf"
+        },
+        {
+          "id": "transcript",
+          "title": "Табели за все годы старшей школы (с перечнем предметов и шкалой оценок)",
+          "done": false
+        },
+        {
+          "id": "graduation",
+          "title": "Аттестат или справка о предстоящем окончании школы",
+          "done": false
+        },
+        {
+          "id": "translation",
+          "title": "Переводы документов на английский или японский",
+          "done": false
+        },
+        {
+          "id": "recommendation",
+          "title": "Рекомендация классного руководителя или директора",
+          "done": false,
+          "url": "https://www.studyinjapan.go.jp/en/_mt/2026/04/2027_SampleRecommendation_Undergraduate.pdf"
+        },
+        {
+          "id": "medical",
+          "title": "Медсправка по форме MEXT (заполняет врач)",
+          "done": false,
+          "url": "https://www.studyinjapan.go.jp/en/_mt/2026/04/2027_HealthCertificate_Undergraduate.pdf"
+        },
+        {
+          "id": "language",
+          "title": "Сертификаты IELTS/TOEFL/JLPT, если есть (2 копии, не старше 2 лет)",
+          "done": false
+        },
+        {
+          "id": "copies",
+          "title": "Собрать 2 пакета: оригиналы + копии, пронумеровать ①–⑨",
+          "done": false
+        },
+        {
+          "id": "exam-prep",
+          "title": "Подготовка к экзаменам: японский, английский, математика",
+          "done": false
+        }
       ],
       "files": [
-        { "title": "Application Guidelines 2027 (EN)", "url": "https://www.studyinjapan.go.jp/en/_mt/2026/04/2027_Guidelines_Undergraduate_E.pdf" },
-        { "title": "Application Form 2027", "url": "https://www.studyinjapan.go.jp/en/_mt/2026/04/2027_Application_Undergraduate.pdf" },
-        { "title": "Placement Preference Form 2027", "url": "https://www.studyinjapan.go.jp/en/_mt/2026/04/2027_Placement_Undergraduate.pdf" },
-        { "title": "Certificate of Health 2027", "url": "https://www.studyinjapan.go.jp/en/_mt/2026/04/2027_HealthCertificate_Undergraduate.pdf" },
-        { "title": "Образец рекомендации", "url": "https://www.studyinjapan.go.jp/en/_mt/2026/04/2027_SampleRecommendation_Undergraduate.pdf" }
+        {
+          "title": "Application Guidelines 2027 (EN)",
+          "url": "https://www.studyinjapan.go.jp/en/_mt/2026/04/2027_Guidelines_Undergraduate_E.pdf"
+        },
+        {
+          "title": "Application Form 2027",
+          "url": "https://www.studyinjapan.go.jp/en/_mt/2026/04/2027_Application_Undergraduate.pdf"
+        },
+        {
+          "title": "Placement Preference Form 2027",
+          "url": "https://www.studyinjapan.go.jp/en/_mt/2026/04/2027_Placement_Undergraduate.pdf"
+        },
+        {
+          "title": "Certificate of Health 2027",
+          "url": "https://www.studyinjapan.go.jp/en/_mt/2026/04/2027_HealthCertificate_Undergraduate.pdf"
+        },
+        {
+          "title": "Образец рекомендации",
+          "url": "https://www.studyinjapan.go.jp/en/_mt/2026/04/2027_SampleRecommendation_Undergraduate.pdf"
+        }
       ],
-      "last_checked": null,
+      "last_checked": "2026-10-15T13:14:19+00:00",
       "last_changed": null,
       "reviewed": "2026-10-15",
       "notes": "Computer Science в MEXT — это Natural Sciences A (Information Engineering): экзамены с химией и физикой. Social Sciences — Humanities A/B: японский, английский, математика. Сначала обычно год подготовительного курса японского. Формы — набора 2027; для 2028 выйдут новые."
@@ -173,45 +309,98 @@
         "https://turkiyeburslari.gov.tr/",
         "https://tbbs.turkiyeburslari.gov.tr/"
       ],
-      "nominating_body": { "value": "Подача напрямую на портале TBBS", "source_url": "https://turkiyeburslari.gov.tr/duyurular/turkiye-burslari-2026-basvurulari-121", "quote": null },
+      "nominating_body": {
+        "value": "Подача напрямую на портале TBBS",
+        "source_url": "https://turkiyeburslari.gov.tr/duyurular/turkiye-burslari-2026-basvurulari-121",
+        "quote": null
+      },
       "opens": {
-        "date": "2027-01-10", "time": null, "timezone": null,
+        "date": "2027-01-10",
+        "time": null,
+        "timezone": null,
         "text": "ожидается 10 января 2027",
         "status": "expected",
         "source_url": "https://turkiyeburslari.gov.tr/duyurular/turkiye-burslari-2026-basvurulari-121",
         "quote": "Application Dates: 10 January – 20 February 2026"
       },
       "deadline": {
-        "date": "2027-02-20", "time": null, "timezone": "Europe/Istanbul",
+        "date": "2027-02-20",
+        "time": null,
+        "timezone": "Europe/Istanbul",
         "source_url": "https://turkiyeburslari.gov.tr/duyurular/turkiye-burslari-2026-basvurulari-121",
         "quote": null,
         "note": "В 2026 приём шёл 10 января – 20 февраля. Дата 2027 — по аналогии."
       },
       "deadline_status": "expected",
       "requirements": {
-        "language": { "value": null, "source_url": null, "quote": null },
-        "exams": { "value": null, "source_url": null, "quote": null },
-        "documents": { "value": null, "source_url": null, "quote": null },
+        "language": {
+          "value": null,
+          "source_url": null,
+          "quote": null
+        },
+        "exams": {
+          "value": null,
+          "source_url": null,
+          "quote": null
+        },
+        "documents": {
+          "value": null,
+          "source_url": null,
+          "quote": null
+        },
         "min_grades": {
           "value": "По сторонним гидам: от 70% для бакалавриата (90% — медицина и естественные науки). Сверить с официальной страницей критериев.",
-          "source_url": null, "quote": null
+          "source_url": null,
+          "quote": null
         }
       },
       "thresholds": {
-        "gpa_percent": { "value": 70, "source_url": null, "quote": null, "note": "вторичный источник, проверить" }
+        "gpa_percent": {
+          "value": 70,
+          "source_url": null,
+          "quote": null,
+          "note": "вторичный источник, проверить"
+        }
       },
       "documents_checklist": [
-        { "id": "passport", "title": "Паспорт / ID", "done": false },
-        { "id": "transcript", "title": "Табель/аттестат", "done": false },
-        { "id": "photo", "title": "Фото", "done": false },
-        { "id": "language", "title": "Языковой сертификат (если есть)", "done": false },
-        { "id": "tbbs", "title": "Регистрация на tbbs.turkiyeburslari.gov.tr", "done": false, "url": "https://tbbs.turkiyeburslari.gov.tr/" }
+        {
+          "id": "passport",
+          "title": "Паспорт / ID",
+          "done": false
+        },
+        {
+          "id": "transcript",
+          "title": "Табель/аттестат",
+          "done": false
+        },
+        {
+          "id": "photo",
+          "title": "Фото",
+          "done": false
+        },
+        {
+          "id": "language",
+          "title": "Языковой сертификат (если есть)",
+          "done": false
+        },
+        {
+          "id": "tbbs",
+          "title": "Регистрация на tbbs.turkiyeburslari.gov.tr",
+          "done": false,
+          "url": "https://tbbs.turkiyeburslari.gov.tr/"
+        }
       ],
       "files": [
-        { "title": "Как подать (Application in 5 steps)", "url": "https://www.turkiyeburslari.gov.tr/applysteps" },
-        { "title": "Календарь отбора", "url": "https://www.turkiyeburslari.gov.tr/calendar" }
+        {
+          "title": "Как подать (Application in 5 steps)",
+          "url": "https://www.turkiyeburslari.gov.tr/applysteps"
+        },
+        {
+          "title": "Календарь отбора",
+          "url": "https://www.turkiyeburslari.gov.tr/calendar"
+        }
       ],
-      "last_checked": null,
+      "last_checked": "2026-10-15T13:14:21+00:00",
       "last_changed": null,
       "reviewed": "2026-10-15",
       "notes": "Новая программа. Список документов и возрастной лимит официально не проверены — чек-лист предварительный."
@@ -225,36 +414,73 @@
       "official_urls": [
         "https://education-in-russia.com/"
       ],
-      "nominating_body": { "value": "Россотрудничество (отбор через education-in-russia.com)", "source_url": "https://misis.ru/events/6552/", "quote": null },
+      "nominating_body": {
+        "value": "Россотрудничество (отбор через education-in-russia.com)",
+        "source_url": "https://misis.ru/events/6552/",
+        "quote": null
+      },
       "opens": {
-        "date": null, "time": null, "timezone": null,
+        "date": null,
+        "time": null,
+        "timezone": null,
         "text": "в прошлом цикле — с 15 сентября; возможно, приём уже идёт",
         "status": "expected",
         "source_url": "https://misis.ru/events/6552/",
         "quote": "Приём заявок стартовал 15 сентября 2025 года"
       },
       "deadline": {
-        "date": "2027-01-15", "time": null, "timezone": "Europe/Moscow",
+        "date": "2027-01-15",
+        "time": null,
+        "timezone": "Europe/Moscow",
         "source_url": "https://misis.ru/events/6552/",
         "quote": null,
         "note": "В цикле 2026/27 заявки принимались до 15 января 2026. Дата 2027 — по аналогии."
       },
       "deadline_status": "expected",
       "requirements": {
-        "language": { "value": null, "source_url": null, "quote": null },
-        "exams": { "value": null, "source_url": null, "quote": null },
+        "language": {
+          "value": null,
+          "source_url": null,
+          "quote": null
+        },
+        "exams": {
+          "value": null,
+          "source_url": null,
+          "quote": null
+        },
         "documents": {
           "value": "Скан паспорта, скан документа об образовании (или справка из школы), скан оценок.",
           "source_url": "https://misis.ru/events/6552/",
           "quote": null
         },
-        "min_grades": { "value": null, "source_url": null, "quote": null }
+        "min_grades": {
+          "value": null,
+          "source_url": null,
+          "quote": null
+        }
       },
       "documents_checklist": [
-        { "id": "passport", "title": "Скан паспорта", "done": false },
-        { "id": "school", "title": "Аттестат или справка из школы", "done": false },
-        { "id": "grades", "title": "Скан оценок", "done": false },
-        { "id": "portal", "title": "Заявка на education-in-russia.com (не оставлять «Черновик»!)", "done": false, "url": "https://education-in-russia.com/" }
+        {
+          "id": "passport",
+          "title": "Скан паспорта",
+          "done": false
+        },
+        {
+          "id": "school",
+          "title": "Аттестат или справка из школы",
+          "done": false
+        },
+        {
+          "id": "grades",
+          "title": "Скан оценок",
+          "done": false
+        },
+        {
+          "id": "portal",
+          "title": "Заявка на education-in-russia.com (не оставлять «Черновик»!)",
+          "done": false,
+          "url": "https://education-in-russia.com/"
+        }
       ],
       "files": [],
       "last_checked": null,
@@ -271,23 +497,58 @@
       "official_urls": [
         "https://student.edu.gov.kg/"
       ],
-      "nominating_body": { "value": "Министерство науки, высшего образования и инноваций КР", "source_url": "https://weproject.media/articles/detail/15-kyrgyzstantsev-smogut-besplatno-uchitsya-v-kitae-v-2026-godu/", "quote": null },
-      "opens": { "date": null, "time": null, "timezone": null, "text": "объявление на student.edu.gov.kg", "status": "unknown", "source_url": null, "quote": null },
+      "nominating_body": {
+        "value": "Министерство науки, высшего образования и инноваций КР",
+        "source_url": "https://weproject.media/articles/detail/15-kyrgyzstantsev-smogut-besplatno-uchitsya-v-kitae-v-2026-godu/",
+        "quote": null
+      },
+      "opens": {
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "text": "объявление на student.edu.gov.kg",
+        "status": "unknown",
+        "source_url": null,
+        "quote": null
+      },
       "deadline": {
-        "date": "2027-01-31", "time": "23:59", "timezone": "Asia/Bishkek",
+        "date": "2027-01-31",
+        "time": "23:59",
+        "timezone": "Asia/Bishkek",
         "source_url": "https://weproject.media/articles/detail/15-kyrgyzstantsev-smogut-besplatno-uchitsya-v-kitae-v-2026-godu/",
         "quote": null,
         "note": "В прошлом цикле срок был 23:59, 31 января 2026 (15 мест). Дата 2027 — по аналогии."
       },
       "deadline_status": "expected",
       "requirements": {
-        "language": { "value": null, "source_url": null, "quote": null },
-        "exams": { "value": null, "source_url": null, "quote": null },
-        "documents": { "value": null, "source_url": null, "quote": null },
-        "min_grades": { "value": null, "source_url": null, "quote": null }
+        "language": {
+          "value": null,
+          "source_url": null,
+          "quote": null
+        },
+        "exams": {
+          "value": null,
+          "source_url": null,
+          "quote": null
+        },
+        "documents": {
+          "value": null,
+          "source_url": null,
+          "quote": null
+        },
+        "min_grades": {
+          "value": null,
+          "source_url": null,
+          "quote": null
+        }
       },
       "documents_checklist": [
-        { "id": "ministry", "title": "Регистрация в конкурсе на student.edu.gov.kg", "done": false, "url": "https://student.edu.gov.kg/" }
+        {
+          "id": "ministry",
+          "title": "Регистрация в конкурсе на student.edu.gov.kg",
+          "done": false,
+          "url": "https://student.edu.gov.kg/"
+        }
       ],
       "files": [],
       "last_checked": null,
@@ -304,19 +565,54 @@
       "official_urls": [
         "https://www.studyinkorea.go.kr/"
       ],
-      "nominating_body": { "value": "Посольство Кореи (Embassy Track) или вуз (University Track)", "source_url": null, "quote": null },
-      "opens": { "date": null, "time": null, "timezone": null, "text": "обычно сентябрь (2027 для набора 2028)", "status": "expected", "source_url": null, "quote": null },
-      "deadline": { "date": null, "time": null, "timezone": "Asia/Seoul", "source_url": null, "quote": null, "note": "Набор 2027 подавался в сентябре–октябре 2026 — уже прошёл." },
+      "nominating_body": {
+        "value": "Посольство Кореи (Embassy Track) или вуз (University Track)",
+        "source_url": null,
+        "quote": null
+      },
+      "opens": {
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "text": "обычно сентябрь (2027 для набора 2028)",
+        "status": "expected",
+        "source_url": null,
+        "quote": null
+      },
+      "deadline": {
+        "date": null,
+        "time": null,
+        "timezone": "Asia/Seoul",
+        "source_url": null,
+        "quote": null,
+        "note": "Набор 2027 подавался в сентябре–октябре 2026 — уже прошёл."
+      },
       "deadline_status": "unknown",
       "requirements": {
-        "language": { "value": null, "source_url": null, "quote": null },
-        "exams": { "value": null, "source_url": null, "quote": null },
-        "documents": { "value": null, "source_url": null, "quote": null },
-        "min_grades": { "value": null, "source_url": null, "quote": null }
+        "language": {
+          "value": null,
+          "source_url": null,
+          "quote": null
+        },
+        "exams": {
+          "value": null,
+          "source_url": null,
+          "quote": null
+        },
+        "documents": {
+          "value": null,
+          "source_url": null,
+          "quote": null
+        },
+        "min_grades": {
+          "value": null,
+          "source_url": null,
+          "quote": null
+        }
       },
       "documents_checklist": [],
       "files": [],
-      "last_checked": null,
+      "last_checked": "2026-10-15T13:15:08+00:00",
       "last_changed": null,
       "reviewed": "2026-10-15",
       "notes": "Не подтверждено, что у Кыргызстана есть квота в GKS-U — уточнить в посольстве Кореи в Бишкеке. Лимит возраста — до 25 лет."
@@ -330,15 +626,49 @@
       "official_urls": [
         "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/"
       ],
-      "nominating_body": { "value": null, "source_url": null, "quote": null },
-      "opens": { "date": null, "time": null, "timezone": null, "text": null, "status": "unknown", "source_url": null, "quote": null },
-      "deadline": { "date": null, "time": null, "timezone": null, "source_url": null, "quote": null },
+      "nominating_body": {
+        "value": null,
+        "source_url": null,
+        "quote": null
+      },
+      "opens": {
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "text": null,
+        "status": "unknown",
+        "source_url": null,
+        "quote": null
+      },
+      "deadline": {
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "source_url": null,
+        "quote": null
+      },
       "deadline_status": "unknown",
       "requirements": {
-        "language": { "value": null, "source_url": null, "quote": null },
-        "exams": { "value": null, "source_url": null, "quote": null },
-        "documents": { "value": null, "source_url": null, "quote": null },
-        "min_grades": { "value": null, "source_url": null, "quote": null }
+        "language": {
+          "value": null,
+          "source_url": null,
+          "quote": null
+        },
+        "exams": {
+          "value": null,
+          "source_url": null,
+          "quote": null
+        },
+        "documents": {
+          "value": null,
+          "source_url": null,
+          "quote": null
+        },
+        "min_grades": {
+          "value": null,
+          "source_url": null,
+          "quote": null
+        }
       },
       "documents_checklist": [],
       "files": [],
@@ -357,17 +687,35 @@
         "https://admissions.ucentralasia.org/apply/stage-1/",
         "https://admissions.ucentralasia.org/?p=42"
       ],
-      "nominating_body": { "value": null, "source_url": null, "quote": null },
-      "opens": { "date": null, "time": null, "timezone": null, "text": "обычно осень", "status": "unknown", "source_url": null, "quote": null },
+      "nominating_body": {
+        "value": null,
+        "source_url": null,
+        "quote": null
+      },
+      "opens": {
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "text": "обычно осень",
+        "status": "unknown",
+        "source_url": null,
+        "quote": null
+      },
       "deadline": {
-        "date": "2027-02-14", "time": null, "timezone": "Asia/Bishkek",
+        "date": "2027-02-14",
+        "time": null,
+        "timezone": "Asia/Bishkek",
         "source_url": "https://admissions.ucentralasia.org/apply/stage-1/",
         "quote": null,
         "note": "Этап 1 (анкета и документы) в цикле 2026 — до 14 февраля 2026; этап 2 — тест UCA или SAT 7–8 марта. Даты 2027 — по аналогии."
       },
       "deadline_status": "expected",
       "requirements": {
-        "language": { "value": null, "source_url": null, "quote": null },
+        "language": {
+          "value": null,
+          "source_url": null,
+          "quote": null
+        },
         "exams": {
           "value": "UCA Admissions Test или результаты SAT (этап 2).",
           "source_url": "https://admissions.ucentralasia.org/?p=42",
@@ -378,20 +726,53 @@
           "source_url": "https://admissions.ucentralasia.org/apply/stage-1/",
           "quote": "A clear copy of a government-issued photo ID or Passport"
         },
-        "min_grades": { "value": null, "source_url": null, "quote": null }
+        "min_grades": {
+          "value": null,
+          "source_url": null,
+          "quote": null
+        }
       },
       "documents_checklist": [
-        { "id": "form", "title": "Анкета этапа 1 (онлайн)", "done": false, "url": "https://ucentralasia.org/apply-online" },
-        { "id": "passport", "title": "Копия паспорта или ID", "done": false },
-        { "id": "photo", "title": "Фото на белом фоне (не старше 3 месяцев)", "done": false },
-        { "id": "test", "title": "Тест UCA или SAT (этап 2)", "done": false, "url": "https://admissions.ucentralasia.org/apply/stage-2/" },
-        { "id": "aid", "title": "Заявка на финансовую помощь (этап 4)", "done": false, "url": "https://admissions.ucentralasia.org/apply/stage-4/" }
+        {
+          "id": "form",
+          "title": "Анкета этапа 1 (онлайн)",
+          "done": false,
+          "url": "https://ucentralasia.org/apply-online"
+        },
+        {
+          "id": "passport",
+          "title": "Копия паспорта или ID",
+          "done": false
+        },
+        {
+          "id": "photo",
+          "title": "Фото на белом фоне (не старше 3 месяцев)",
+          "done": false
+        },
+        {
+          "id": "test",
+          "title": "Тест UCA или SAT (этап 2)",
+          "done": false,
+          "url": "https://admissions.ucentralasia.org/apply/stage-2/"
+        },
+        {
+          "id": "aid",
+          "title": "Заявка на финансовую помощь (этап 4)",
+          "done": false,
+          "url": "https://admissions.ucentralasia.org/apply/stage-4/"
+        }
       ],
       "files": [
-        { "title": "Проспект UCA (PDF)", "url": "https://ucentralasia.org/media/h3bf0z0p/web-uca-prospectus-eng.pdf" },
-        { "title": "FAQ бакалавриата", "url": "https://ucentralasia.org/schools/school-of-arts-and-sciences/undergraduate-programme/frequently-asked-questions" }
+        {
+          "title": "Проспект UCA (PDF)",
+          "url": "https://ucentralasia.org/media/h3bf0z0p/web-uca-prospectus-eng.pdf"
+        },
+        {
+          "title": "FAQ бакалавриата",
+          "url": "https://ucentralasia.org/schools/school-of-arts-and-sciences/undergraduate-programme/frequently-asked-questions"
+        }
       ],
-      "last_checked": null,
+      "last_checked": "2026-10-15T13:15:12+00:00",
       "last_changed": null,
       "reviewed": "2026-10-15",
       "notes": "Есть BSc Computer Science, а также Global Economics и Communications and Media. Приём только по заслугам: «Money is no barrier to studying here because admission to UCA is purely merit-based»."
@@ -407,10 +788,24 @@
         "https://auca.kg/en/auca_exams_view/",
         "https://auca.kg/en/auca_exams_scoring/"
       ],
-      "nominating_body": { "value": null, "source_url": null, "quote": null },
-      "opens": { "date": null, "time": null, "timezone": null, "text": null, "status": "unknown", "source_url": null, "quote": null },
+      "nominating_body": {
+        "value": null,
+        "source_url": null,
+        "quote": null
+      },
+      "opens": {
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "text": null,
+        "status": "unknown",
+        "source_url": null,
+        "quote": null
+      },
       "deadline": {
-        "date": "2027-06-12", "time": "17:00", "timezone": "Asia/Bishkek",
+        "date": "2027-06-12",
+        "time": "17:00",
+        "timezone": "Asia/Bishkek",
         "source_url": "https://auca.kg/en/auca_exams_view/",
         "quote": null,
         "note": "В 2026 заявки и запросы на финпомощь — до 12 июня 2026, 17:00 (1-й раунд был 10 апреля). Даты 2027 — по аналогии."
@@ -432,31 +827,100 @@
           "source_url": "https://auca.kg/en/freshman_applicants/",
           "quote": "Limit your statement of purpose to 700 words."
         },
-        "min_grades": { "value": "Минимум ОРТ устанавливает министерство.", "source_url": "https://auca.kg/en/auca_exams_view/", "quote": null }
+        "min_grades": {
+          "value": "Минимум ОРТ устанавливает министерство.",
+          "source_url": "https://auca.kg/en/auca_exams_view/",
+          "quote": null
+        }
       },
       "thresholds": {
-        "ielts": { "value": 4.0, "source_url": "https://auca.kg/en/auca_exams_scoring/", "quote": null },
-        "toefl_ibt": { "value": 39, "source_url": "https://auca.kg/en/auca_exams_scoring/", "quote": null },
-        "duolingo": { "value": 95, "source_url": "https://auca.kg/en/auca_exams_scoring/", "quote": null }
+        "ielts": {
+          "value": 4.0,
+          "source_url": "https://auca.kg/en/auca_exams_scoring/",
+          "quote": null
+        },
+        "toefl_ibt": {
+          "value": 39,
+          "source_url": "https://auca.kg/en/auca_exams_scoring/",
+          "quote": null
+        },
+        "duolingo": {
+          "value": 95,
+          "source_url": "https://auca.kg/en/auca_exams_scoring/",
+          "quote": null
+        }
       },
       "documents_checklist": [
-        { "id": "application", "title": "Анкета AUCA (онлайн или PDF)", "done": false, "url": "http://applyonline.auca.kg/" },
-        { "id": "statement", "title": "Statement of purpose (до 700 слов)", "done": false },
-        { "id": "english", "title": "Английский: AUCA ELPT / IELTS / TOEFL / Duolingo", "done": false },
-        { "id": "exam", "title": "Экзамен AUCA (математика + эссе) или SAT/ACT", "done": false },
-        { "id": "ort", "title": "Оригинал сертификата ОРТ текущего года", "done": false, "url": "http://www.testing.kg/ru/" },
-        { "id": "school", "title": "Аттестат или справка из школы (для выпускников)", "done": false },
-        { "id": "transcript", "title": "Нотариальные копии табелей", "done": false },
-        { "id": "passport", "title": "Копия паспорта", "done": false },
-        { "id": "photos", "title": "2 цветных фото 3×4 на белом фоне", "done": false },
-        { "id": "olympiads", "title": "Дипломы олимпиад (если есть)", "done": false },
-        { "id": "aid", "title": "Заявка на финансовую помощь (+ копия «Алтын тамга», если есть)", "done": false, "url": "https://auca.kg/en/financial_aid/" }
+        {
+          "id": "application",
+          "title": "Анкета AUCA (онлайн или PDF)",
+          "done": false,
+          "url": "http://applyonline.auca.kg/"
+        },
+        {
+          "id": "statement",
+          "title": "Statement of purpose (до 700 слов)",
+          "done": false
+        },
+        {
+          "id": "english",
+          "title": "Английский: AUCA ELPT / IELTS / TOEFL / Duolingo",
+          "done": false
+        },
+        {
+          "id": "exam",
+          "title": "Экзамен AUCA (математика + эссе) или SAT/ACT",
+          "done": false
+        },
+        {
+          "id": "ort",
+          "title": "Оригинал сертификата ОРТ текущего года",
+          "done": false,
+          "url": "http://www.testing.kg/ru/"
+        },
+        {
+          "id": "school",
+          "title": "Аттестат или справка из школы (для выпускников)",
+          "done": false
+        },
+        {
+          "id": "transcript",
+          "title": "Нотариальные копии табелей",
+          "done": false
+        },
+        {
+          "id": "passport",
+          "title": "Копия паспорта",
+          "done": false
+        },
+        {
+          "id": "photos",
+          "title": "2 цветных фото 3×4 на белом фоне",
+          "done": false
+        },
+        {
+          "id": "olympiads",
+          "title": "Дипломы олимпиад (если есть)",
+          "done": false
+        },
+        {
+          "id": "aid",
+          "title": "Заявка на финансовую помощь (+ копия «Алтын тамга», если есть)",
+          "done": false,
+          "url": "https://auca.kg/en/financial_aid/"
+        }
       ],
       "files": [
-        { "title": "Анкета AUCA 2026 (PDF)", "url": "https://auca.kg/uploads/Admission%20Sample%20Exams/AUCA_Admissions_Application_2026pdf.pdf" },
-        { "title": "Минимальные баллы", "url": "https://auca.kg/en/auca_exams_scoring/" }
+        {
+          "title": "Анкета AUCA 2026 (PDF)",
+          "url": "https://auca.kg/uploads/Admission%20Sample%20Exams/AUCA_Admissions_Application_2026pdf.pdf"
+        },
+        {
+          "title": "Минимальные баллы",
+          "url": "https://auca.kg/en/auca_exams_scoring/"
+        }
       ],
-      "last_checked": null,
+      "last_checked": "2026-10-15T13:15:17+00:00",
       "last_changed": null,
       "reviewed": "2026-10-15",
       "notes": "Для CS подходит Software Engineering или Applied Mathematics and Informatics; для Social Studies — социология, антропология, политология, психология."
@@ -470,20 +934,67 @@
       "official_urls": [
         "https://alatoo.edu.kg/"
       ],
-      "nominating_body": { "value": null, "source_url": null, "quote": null },
-      "opens": { "date": null, "time": null, "timezone": null, "text": null, "status": "unknown", "source_url": null, "quote": null },
-      "deadline": { "date": null, "time": null, "timezone": "Asia/Bishkek", "source_url": null, "quote": null },
+      "nominating_body": {
+        "value": null,
+        "source_url": null,
+        "quote": null
+      },
+      "opens": {
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "text": null,
+        "status": "unknown",
+        "source_url": null,
+        "quote": null
+      },
+      "deadline": {
+        "date": null,
+        "time": null,
+        "timezone": "Asia/Bishkek",
+        "source_url": null,
+        "quote": null
+      },
       "deadline_status": "unknown",
       "requirements": {
-        "language": { "value": "Обучение в основном на английском.", "source_url": "https://kaktus.media/doc/376036_gid_po_vyzam_bishkeka:_mejdynarodnyy_yniversitet_ala_too_mya.html", "quote": null },
-        "exams": { "value": "Приём граждан КР по результатам ОРТ (по гиду Kaktus.media, 2026/27).", "source_url": "https://kaktus.media/doc/376036_gid_po_vyzam_bishkeka:_mejdynarodnyy_yniversitet_ala_too_mya.html", "quote": null },
-        "documents": { "value": null, "source_url": null, "quote": null },
-        "min_grades": { "value": null, "source_url": null, "quote": null }
+        "language": {
+          "value": "Обучение в основном на английском.",
+          "source_url": "https://kaktus.media/doc/376036_gid_po_vyzam_bishkeka:_mejdynarodnyy_yniversitet_ala_too_mya.html",
+          "quote": null
+        },
+        "exams": {
+          "value": "Приём граждан КР по результатам ОРТ (по гиду Kaktus.media, 2026/27).",
+          "source_url": "https://kaktus.media/doc/376036_gid_po_vyzam_bishkeka:_mejdynarodnyy_yniversitet_ala_too_mya.html",
+          "quote": null
+        },
+        "documents": {
+          "value": null,
+          "source_url": null,
+          "quote": null
+        },
+        "min_grades": {
+          "value": null,
+          "source_url": null,
+          "quote": null
+        }
       },
       "documents_checklist": [
-        { "id": "ort", "title": "Сертификат ОРТ", "done": false, "url": "http://www.testing.kg/ru/" },
-        { "id": "school", "title": "Аттестат", "done": false },
-        { "id": "passport", "title": "Паспорт", "done": false }
+        {
+          "id": "ort",
+          "title": "Сертификат ОРТ",
+          "done": false,
+          "url": "http://www.testing.kg/ru/"
+        },
+        {
+          "id": "school",
+          "title": "Аттестат",
+          "done": false
+        },
+        {
+          "id": "passport",
+          "title": "Паспорт",
+          "done": false
+        }
       ],
       "files": [],
       "last_checked": null,
