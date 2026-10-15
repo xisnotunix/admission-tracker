@@ -102,8 +102,9 @@ def quote_in_text(quote, text):
 # ---------- Telegram ----------
 
 def send_telegram(text):
-    token = os.environ.get("TELEGRAM_BOT_TOKEN")
-    chat_id = os.environ.get("TELEGRAM_CHAT_ID")
+    # strip + удаление переводов строк: токен часто вставляют с лишним Enter
+    token = "".join((os.environ.get("TELEGRAM_BOT_TOKEN") or "").split())
+    chat_id = (os.environ.get("TELEGRAM_CHAT_ID") or "").strip()
     if not token or not chat_id:
         print("[telegram] секреты не заданы, сообщение не отправлено:\n" + text)
         return False
