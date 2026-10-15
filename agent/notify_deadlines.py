@@ -10,7 +10,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from common import (  # noqa: E402
-    PROGRAMS_FILE, days_left, format_deadline, html_escape, load_json, send_telegram, site_url,
+    PROGRAMS_FILE, days_left, format_deadline, format_deadline_home, html_escape, load_json, send_telegram, site_url,
 )
 
 REMIND_DAYS = (60, 30, 14, 7, 1)
@@ -30,10 +30,12 @@ def build_messages(programs, today=None):
         checklist = p.get("documents_checklist") or []
         todo = [c["title"] for c in checklist if not c.get("done")]
         word = "день" if n == 1 else "дней"
+        home = format_deadline_home(p["deadline"])
         msg = (
             f"⏰ <b>{html_escape(p['name'])}</b>: до дедлайна {n} {word}\n"
             f"Дедлайн: {html_escape(format_deadline(p['deadline']))}\n"
-            f"Статус: {STATUS_LABELS.get(p.get('deadline_status'), p.get('deadline_status'))}"
+            + (f"По Бишкеку: {home}\n" if home else "")
+            + f"Статус: {STATUS_LABELS.get(p.get('deadline_status'), p.get('deadline_status'))}"
         )
         if todo:
             msg += f"\nНе готово документов: {len(todo)} из {len(checklist)}"

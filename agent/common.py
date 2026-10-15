@@ -72,11 +72,18 @@ def format_deadline(deadline):
     dt = deadline_datetime(deadline)
     if dt is None:
         return "дата неизвестна"
-    local = dt.astimezone(HOME_TZ)
     s = dt.strftime("%d.%m.%Y")
     if deadline.get("time"):
-        s += f" {deadline['time']} ({dt.tzname()}) = {local:%d.%m %H:%M} по Бишкеку"
+        s += f", {deadline['time']} {dt.tzname()}"
     return s
+
+
+def format_deadline_home(deadline):
+    """Тот же момент по времени Бишкека, или None, если пересчитывать нечего."""
+    dt = deadline_datetime(deadline)
+    if dt is None or not deadline.get("time") or dt.utcoffset() == dt.astimezone(HOME_TZ).utcoffset():
+        return None
+    return f"{dt.astimezone(HOME_TZ):%d.%m.%Y, %H:%M}"
 
 
 # ---------- нормализация текста для проверки цитат ----------

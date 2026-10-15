@@ -68,19 +68,31 @@ function plural(n, one, few, many) {
   return many;
 }
 
+/** Привычное название пояса: CET/CEST, JST, иначе GMT+N. */
+function tzLabel(tz, date) {
+  if (tz === HOME_TZ) return "по Бишкеку";
+  if (tz === "Asia/Tokyo") return "JST";
+  const h = Math.round(tzOffsetMs(date.getTime(), tz) / 3600000);
+  if (tz.startsWith("Europe/") && (h === 1 || h === 2)) return h === 1 ? "CET" : "CEST";
+  return h === 0 ? "UTC" : `GMT${h > 0 ? "+" : ""}${h}`;
+}
+
+const fmtDay = (d, tz) => new Intl.DateTimeFormat("ru-RU", { day: "numeric", month: "long", year: "numeric", timeZone: tz }).format(d).replace(/\s?г\.$/, "");
+
+/** Дедлайн так, как он объявлен: «15 января 2027, 14:00 CET». */
 function fmtDeadline(dl) {
   const d = deadlineDate(dl);
   if (!d) return "дата неизвестна";
   const tz = dl.timezone || HOME_TZ;
-  const day = new Intl.DateTimeFormat("ru-RU", { day: "numeric", month: "long", year: "numeric", timeZone: tz }).format(d);
-  if (!dl.time) return day;
-  const tzName = new Intl.DateTimeFormat("ru-RU", { timeZone: tz, timeZoneName: "short" })
-    .formatToParts(d).find((p) => p.type === "timeZoneName")?.value || tz;
-  let s = `${day}, ${dl.time} (${tzName})`;
-  if (tz !== HOME_TZ) {
-    s += ` — ${new Intl.DateTimeFormat("ru-RU", { timeZone: HOME_TZ, day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" }).format(d)} по Бишкеку`;
-  }
-  return s;
+  return dl.time ? `${fmtDay(d, tz)}, ${dl.time} ${tzLabel(tz, d)}` : fmtDay(d, tz);
+}
+
+/** Тот же момент по времени Бишкека, или null, если пересчитывать нечего. */
+function fmtDeadlineHome(dl) {
+  const d = deadlineDate(dl);
+  if (!d || !dl.time || (dl.timezone || HOME_TZ) === HOME_TZ) return null;
+  const t = new Intl.DateTimeFormat("ru-RU", { timeZone: HOME_TZ, hour: "2-digit", minute: "2-digit" }).format(d);
+  return `${fmtDay(d, HOME_TZ)}, ${t}`;
 }
 
 function fmtStamp(iso) {
@@ -235,6 +247,7 @@ function viewProgram(id) {
         <div>
           <div class="label muted small">ДЕДЛАЙН</div>
           <div><b>${esc(fmtDeadline(p.deadline))}</b></div>
+          ${fmtDeadlineHome(p.deadline) ? `<div class="small muted">По Бишкеку: ${esc(fmtDeadlineHome(p.deadline))}</div>` : ""}
         </div>
         ${countdown(p)}
         <div class="meta">${statusBadge(p)}${pend.length ? `<a href="#/log" class="badge review">⚑ ${pend.length} на проверке</a>` : ""}</div>
