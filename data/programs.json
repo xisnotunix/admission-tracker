@@ -1001,6 +1001,994 @@
       "last_changed": null,
       "reviewed": "2026-10-15",
       "notes": "Официальный сайт блокирует автоматические запросы (403), поэтому агент его не проверяет — сверяйте вручную или звоните в приёмную комиссию: 0555 82 00 00, info@alatoo.edu.kg. CS-направления: Software Engineering, Data Science, AI and Robotics, Cyber Security."
+    },
+    {
+      "id": "harvard",
+      "name": "Harvard College",
+      "country": "США",
+      "type": "вуз",
+      "priority": "high",
+      "official_urls": [
+        "https://college.harvard.edu/admissions/apply/first-year-applicants",
+        "https://college.harvard.edu/financial-aid/how-aid-works"
+      ],
+      "nominating_body": {
+        "value": "Подача напрямую в вуз (Common App)",
+        "source_url": null,
+        "quote": null
+      },
+      "opens": {
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "text": "Common App открыт с 1 августа",
+        "status": "confirmed",
+        "source_url": null,
+        "quote": null
+      },
+      "deadline": {
+        "date": "2027-01-01",
+        "time": "23:59",
+        "timezone": "Asia/Bishkek",
+        "source_url": "https://college.harvard.edu/admissions/apply/first-year-applicants",
+        "quote": "Your portions of the application are due by January 1 at 11:59pm (your local time)",
+        "note": "Regular Decision; 23:59 по вашему местному времени. Restrictive Early Action — 1 ноября."
+      },
+      "deadline_status": "confirmed",
+      "requirements": {
+        "language": {
+          "value": null,
+          "source_url": null,
+          "quote": null
+        },
+        "exams": {
+          "value": "SAT или ACT обязательны.",
+          "source_url": "https://college.harvard.edu/admissions/apply/first-year-applicants",
+          "quote": "Harvard requires the submission of standardized testing"
+        },
+        "documents": {
+          "value": "Common App + Harvard supplement, рекомендации, school report, тесты.",
+          "source_url": "https://college.harvard.edu/admissions/apply/first-year-applicants",
+          "quote": null
+        },
+        "min_grades": {
+          "value": "Нет формального минимума.",
+          "source_url": null,
+          "quote": null
+        }
+      },
+      "documents_checklist": [
+        {
+          "id": "common-app",
+          "title": "Аккаунт Common App и список вузов",
+          "done": false,
+          "url": "https://www.commonapp.org/"
+        },
+        {
+          "id": "essay",
+          "title": "Основное эссе Common App",
+          "done": false
+        },
+        {
+          "id": "supplements",
+          "title": "Дополнительные эссе вуза (supplements)",
+          "done": false
+        },
+        {
+          "id": "transcript",
+          "title": "Табели 9–11 классов с переводом на английский (через школу/консультанта)",
+          "done": false
+        },
+        {
+          "id": "school-report",
+          "title": "School Report и рекомендация консультанта/директора",
+          "done": false
+        },
+        {
+          "id": "teacher-recs",
+          "title": "2 рекомендации учителей (на английском)",
+          "done": false
+        },
+        {
+          "id": "sat",
+          "title": "SAT или ACT (если вуз требует)",
+          "done": false,
+          "url": "https://satsuite.collegeboard.org/sat/dates-deadlines"
+        },
+        {
+          "id": "english",
+          "title": "TOEFL / IELTS / Duolingo (если требуется)",
+          "done": false
+        },
+        {
+          "id": "css",
+          "title": "CSS Profile (или ISFAA, если вуз принимает) — финпомощь",
+          "done": false,
+          "url": "https://cssprofile.collegeboard.org/"
+        },
+        {
+          "id": "fee",
+          "title": "Сбор за подачу или fee waiver",
+          "done": false
+        }
+      ],
+      "files": [],
+      "last_checked": null,
+      "last_changed": null,
+      "reviewed": "2026-10-15",
+      "notes": "Need-blind для иностранцев, покрывает 100% доказанной потребности: «Harvard will meet the full financial need of admitted students». Ранний раунд — 1 ноября 2026 (через 2 недели): реалистично только если SAT/английский уже сданы. Основная цель — Regular Decision."
+    },
+    {
+      "id": "yale",
+      "name": "Yale College",
+      "country": "США",
+      "type": "вуз",
+      "priority": "high",
+      "official_urls": [
+        "https://admissions.yale.edu/application-deadlines",
+        "https://admissions.yale.edu/applying-yale-international-student"
+      ],
+      "nominating_body": {
+        "value": "Подача напрямую в вуз (Common App)",
+        "source_url": null,
+        "quote": null
+      },
+      "opens": {
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "text": "Common App открыт с 1 августа",
+        "status": "confirmed",
+        "source_url": null,
+        "quote": null
+      },
+      "deadline": {
+        "date": "2027-01-02",
+        "time": null,
+        "timezone": "America/New_York",
+        "source_url": "https://admissions.yale.edu/application-deadlines",
+        "quote": "Application Deadline: January 2",
+        "note": "Regular Decision. Single-Choice Early Action — 1 ноября."
+      },
+      "deadline_status": "confirmed",
+      "requirements": {
+        "language": {
+          "value": "TOEFL/IELTS и др., если меньше 2 лет учились на английском.",
+          "source_url": "https://admissions.yale.edu/applying-yale-international-student",
+          "quote": "are required to submit results from any of the proficiency tests below"
+        },
+        "exams": {
+          "value": "SAT или ACT обязательны.",
+          "source_url": "https://admissions.yale.edu/applying-yale-international-student",
+          "quote": "First-year and transfer applicants must submit scores from the SAT or ACT."
+        },
+        "documents": {
+          "value": "Рекомендации, school report с табелем, тесты.",
+          "source_url": "https://admissions.yale.edu/application-deadlines",
+          "quote": "Yale requires letters of recommendation, a school report with transcript, and standardized test scores."
+        },
+        "min_grades": {
+          "value": "Нет формального минимума.",
+          "source_url": null,
+          "quote": null
+        }
+      },
+      "documents_checklist": [
+        {
+          "id": "common-app",
+          "title": "Аккаунт Common App и список вузов",
+          "done": false,
+          "url": "https://www.commonapp.org/"
+        },
+        {
+          "id": "essay",
+          "title": "Основное эссе Common App",
+          "done": false
+        },
+        {
+          "id": "supplements",
+          "title": "Дополнительные эссе вуза (supplements)",
+          "done": false
+        },
+        {
+          "id": "transcript",
+          "title": "Табели 9–11 классов с переводом на английский (через школу/консультанта)",
+          "done": false
+        },
+        {
+          "id": "school-report",
+          "title": "School Report и рекомендация консультанта/директора",
+          "done": false
+        },
+        {
+          "id": "teacher-recs",
+          "title": "2 рекомендации учителей (на английском)",
+          "done": false
+        },
+        {
+          "id": "sat",
+          "title": "SAT или ACT (если вуз требует)",
+          "done": false,
+          "url": "https://satsuite.collegeboard.org/sat/dates-deadlines"
+        },
+        {
+          "id": "english",
+          "title": "TOEFL / IELTS / Duolingo (если требуется)",
+          "done": false
+        },
+        {
+          "id": "css",
+          "title": "CSS Profile (или ISFAA, если вуз принимает) — финпомощь",
+          "done": false,
+          "url": "https://cssprofile.collegeboard.org/"
+        },
+        {
+          "id": "fee",
+          "title": "Сбор за подачу или fee waiver",
+          "done": false
+        }
+      ],
+      "files": [],
+      "last_checked": null,
+      "last_changed": null,
+      "reviewed": "2026-10-15",
+      "notes": "Need-blind для иностранцев: «International students are eligible for the same need-based financial aid as domestic applicants». Ранний раунд — 1 ноября 2026 (через 2 недели): реалистично только если SAT/английский уже сданы. Основная цель — Regular Decision."
+    },
+    {
+      "id": "princeton",
+      "name": "Princeton University",
+      "country": "США",
+      "type": "вуз",
+      "priority": "high",
+      "official_urls": [
+        "https://admission.princeton.edu/apply/first-year-application-dates-deadlines"
+      ],
+      "nominating_body": {
+        "value": "Подача напрямую в вуз (Common App)",
+        "source_url": null,
+        "quote": null
+      },
+      "opens": {
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "text": "Common App открыт с 1 августа",
+        "status": "confirmed",
+        "source_url": null,
+        "quote": null
+      },
+      "deadline": {
+        "date": "2027-01-01",
+        "time": null,
+        "timezone": "America/New_York",
+        "source_url": "https://admission.princeton.edu/apply/first-year-application-dates-deadlines",
+        "quote": null,
+        "note": "Regular Decision — «Jan. 1» в таблице на официальной странице; финпомощь — Feb. 1. Single-choice early action — 1 ноября."
+      },
+      "deadline_status": "expected",
+      "requirements": {
+        "language": {
+          "value": "TOEFL или IELTS Academic (поля в анкете).",
+          "source_url": "https://admission.princeton.edu/apply/first-year-application-dates-deadlines",
+          "quote": null
+        },
+        "exams": {
+          "value": null,
+          "source_url": null,
+          "quote": null
+        },
+        "documents": {
+          "value": "Common App + Princeton-specific Questions.",
+          "source_url": "https://admission.princeton.edu/apply/first-year-application-dates-deadlines",
+          "quote": "you will need to submit the Common Application and the Princeton-specific Questions"
+        },
+        "min_grades": {
+          "value": "Нет формального минимума.",
+          "source_url": null,
+          "quote": null
+        }
+      },
+      "documents_checklist": [
+        {
+          "id": "common-app",
+          "title": "Аккаунт Common App и список вузов",
+          "done": false,
+          "url": "https://www.commonapp.org/"
+        },
+        {
+          "id": "essay",
+          "title": "Основное эссе Common App",
+          "done": false
+        },
+        {
+          "id": "supplements",
+          "title": "Дополнительные эссе вуза (supplements)",
+          "done": false
+        },
+        {
+          "id": "transcript",
+          "title": "Табели 9–11 классов с переводом на английский (через школу/консультанта)",
+          "done": false
+        },
+        {
+          "id": "school-report",
+          "title": "School Report и рекомендация консультанта/директора",
+          "done": false
+        },
+        {
+          "id": "teacher-recs",
+          "title": "2 рекомендации учителей (на английском)",
+          "done": false
+        },
+        {
+          "id": "sat",
+          "title": "SAT или ACT (если вуз требует)",
+          "done": false,
+          "url": "https://satsuite.collegeboard.org/sat/dates-deadlines"
+        },
+        {
+          "id": "english",
+          "title": "TOEFL / IELTS / Duolingo (если требуется)",
+          "done": false
+        },
+        {
+          "id": "css",
+          "title": "CSS Profile (или ISFAA, если вуз принимает) — финпомощь",
+          "done": false,
+          "url": "https://cssprofile.collegeboard.org/"
+        },
+        {
+          "id": "fee",
+          "title": "Сбор за подачу или fee waiver",
+          "done": false
+        }
+      ],
+      "files": [],
+      "last_checked": null,
+      "last_changed": null,
+      "reviewed": "2026-10-15",
+      "notes": "Need-blind для иностранцев, финпомощь без кредитов (no-loan). Тестовую политику уточнить на сайте. Ранний раунд — 1 ноября 2026 (через 2 недели): реалистично только если SAT/английский уже сданы. Основная цель — Regular Decision."
+    },
+    {
+      "id": "mit",
+      "name": "MIT",
+      "country": "США",
+      "type": "вуз",
+      "priority": "high",
+      "official_urls": [
+        "https://mitadmissions.org/apply/firstyear/deadlines-requirements/",
+        "https://sfs.mit.edu/undergraduate-students/apply-for-aid/deadlines-requirements"
+      ],
+      "nominating_body": {
+        "value": "Подача напрямую в вуз (Common App)",
+        "source_url": null,
+        "quote": null
+      },
+      "opens": {
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "text": "портал MIT открыт с августа",
+        "status": "confirmed",
+        "source_url": null,
+        "quote": null
+      },
+      "deadline": {
+        "date": "2027-01-04",
+        "time": null,
+        "timezone": "America/New_York",
+        "source_url": "https://mitadmissions.org/apply/firstyear/deadlines-requirements/",
+        "quote": "Regular Action (RA) applications are due January 4",
+        "note": "Regular Action. Early Action (не обязывающий) — 1 ноября. Финпомощь: CSS Profile до 15 февраля."
+      },
+      "deadline_status": "confirmed",
+      "requirements": {
+        "language": {
+          "value": "TOEFL/IELTS/Duolingo настоятельно рекомендуются неносителям; для RA — сдать до 31 января.",
+          "source_url": "https://mitadmissions.org/apply/firstyear/deadlines-requirements/",
+          "quote": "RA applicants must take any English proficiency tests before January 31."
+        },
+        "exams": {
+          "value": "SAT или ACT обязательны; для RA сдать до 31 декабря.",
+          "source_url": "https://mitadmissions.org/apply/firstyear/deadlines-requirements/",
+          "quote": "We require the SAT or ACT."
+        },
+        "documents": {
+          "value": "Собственная анкета MIT (не Common App): эссе, активности, 2 рекомендации, тесты.",
+          "source_url": "https://mitadmissions.org/apply/firstyear/deadlines-requirements/",
+          "quote": null
+        },
+        "min_grades": {
+          "value": "Нет формального минимума.",
+          "source_url": null,
+          "quote": null
+        }
+      },
+      "documents_checklist": [
+        {
+          "id": "essay",
+          "title": "Основное эссе Common App",
+          "done": false
+        },
+        {
+          "id": "transcript",
+          "title": "Табели 9–11 классов с переводом на английский (через школу/консультанта)",
+          "done": false
+        },
+        {
+          "id": "school-report",
+          "title": "School Report и рекомендация консультанта/директора",
+          "done": false
+        },
+        {
+          "id": "teacher-recs",
+          "title": "2 рекомендации учителей (на английском)",
+          "done": false
+        },
+        {
+          "id": "sat",
+          "title": "SAT или ACT (если вуз требует)",
+          "done": false,
+          "url": "https://satsuite.collegeboard.org/sat/dates-deadlines"
+        },
+        {
+          "id": "english",
+          "title": "TOEFL / IELTS / Duolingo (если требуется)",
+          "done": false
+        },
+        {
+          "id": "css",
+          "title": "CSS Profile (или ISFAA, если вуз принимает) — финпомощь",
+          "done": false,
+          "url": "https://cssprofile.collegeboard.org/"
+        },
+        {
+          "id": "fee",
+          "title": "Сбор за подачу или fee waiver",
+          "done": false
+        },
+        {
+          "id": "mit-portal",
+          "title": "Анкета на портале MIT (MyMIT)",
+          "done": false,
+          "url": "https://mitadmissions.org/apply/firstyear/deadlines-requirements/"
+        }
+      ],
+      "files": [
+        {
+          "title": "Финпомощь MIT: сроки и документы",
+          "url": "https://sfs.mit.edu/undergraduate-students/apply-for-aid/deadlines-requirements"
+        }
+      ],
+      "last_checked": null,
+      "last_changed": null,
+      "reviewed": "2026-10-15",
+      "notes": "Подача через портал MIT, не через Common App. Финпомощь для иностранцев на тех же условиях: «Application deadlines are the same for both domestic and international students» (sfs.mit.edu). Ранний раунд — 1 ноября 2026 (через 2 недели): реалистично только если SAT/английский уже сданы. Основная цель — Regular Decision."
+    },
+    {
+      "id": "dartmouth",
+      "name": "Dartmouth College",
+      "country": "США",
+      "type": "вуз",
+      "priority": "high",
+      "official_urls": [
+        "https://admissions.dartmouth.edu/apply-dartmouth"
+      ],
+      "nominating_body": {
+        "value": "Подача напрямую в вуз (Common App)",
+        "source_url": null,
+        "quote": null
+      },
+      "opens": {
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "text": "Common App открыт с 1 августа",
+        "status": "confirmed",
+        "source_url": null,
+        "quote": null
+      },
+      "deadline": {
+        "date": "2027-01-02",
+        "time": null,
+        "timezone": "America/New_York",
+        "source_url": "https://admissions.dartmouth.edu/apply-dartmouth",
+        "quote": "the Regular Decision deadline is January 2",
+        "note": "На той же странице встречается и «by January 1» — подавайте до 1 января. Early Decision (обязывающий) — 1 ноября."
+      },
+      "deadline_status": "confirmed",
+      "requirements": {
+        "language": {
+          "value": null,
+          "source_url": null,
+          "quote": null
+        },
+        "exams": {
+          "value": "SAT или ACT.",
+          "source_url": "https://admissions.dartmouth.edu/apply-dartmouth",
+          "quote": null
+        },
+        "documents": {
+          "value": "Common App + Dartmouth Writing Supplement.",
+          "source_url": "https://admissions.dartmouth.edu/apply-dartmouth",
+          "quote": null
+        },
+        "min_grades": {
+          "value": "Нет формального минимума.",
+          "source_url": null,
+          "quote": null
+        }
+      },
+      "documents_checklist": [
+        {
+          "id": "common-app",
+          "title": "Аккаунт Common App и список вузов",
+          "done": false,
+          "url": "https://www.commonapp.org/"
+        },
+        {
+          "id": "essay",
+          "title": "Основное эссе Common App",
+          "done": false
+        },
+        {
+          "id": "supplements",
+          "title": "Дополнительные эссе вуза (supplements)",
+          "done": false
+        },
+        {
+          "id": "transcript",
+          "title": "Табели 9–11 классов с переводом на английский (через школу/консультанта)",
+          "done": false
+        },
+        {
+          "id": "school-report",
+          "title": "School Report и рекомендация консультанта/директора",
+          "done": false
+        },
+        {
+          "id": "teacher-recs",
+          "title": "2 рекомендации учителей (на английском)",
+          "done": false
+        },
+        {
+          "id": "sat",
+          "title": "SAT или ACT (если вуз требует)",
+          "done": false,
+          "url": "https://satsuite.collegeboard.org/sat/dates-deadlines"
+        },
+        {
+          "id": "english",
+          "title": "TOEFL / IELTS / Duolingo (если требуется)",
+          "done": false
+        },
+        {
+          "id": "css",
+          "title": "CSS Profile (или ISFAA, если вуз принимает) — финпомощь",
+          "done": false,
+          "url": "https://cssprofile.collegeboard.org/"
+        },
+        {
+          "id": "fee",
+          "title": "Сбор за подачу или fee waiver",
+          "done": false
+        }
+      ],
+      "files": [],
+      "last_checked": null,
+      "last_changed": null,
+      "reviewed": "2026-10-15",
+      "notes": "Need-blind для всех, включая иностранцев (с класса 2026), покрывает 100% доказанной потребности. Финпомощь RD — до 1 февраля. Early Decision обязывает поступить, если приняли."
+    },
+    {
+      "id": "amherst",
+      "name": "Amherst College",
+      "country": "США",
+      "type": "вуз",
+      "priority": "high",
+      "official_urls": [
+        "https://www.amherst.edu/admission/apply/international",
+        "https://www.amherst.edu/admission/apply"
+      ],
+      "nominating_body": {
+        "value": "Подача напрямую в вуз (Common App)",
+        "source_url": null,
+        "quote": null
+      },
+      "opens": {
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "text": "Common App открыт с 1 августа",
+        "status": "confirmed",
+        "source_url": null,
+        "quote": null
+      },
+      "deadline": {
+        "date": "2027-01-05",
+        "time": null,
+        "timezone": "America/New_York",
+        "source_url": "https://www.amherst.edu/admission/apply",
+        "quote": "Regular decision: Please submit admission application materials by January 5, 2027",
+        "note": "Дата с официальной страницы (по результатам поиска; сайт блокирует прямое чтение — сверьте вручную). Финпомощь RD — до 15 января 2027. Early Decision — 9 ноября 2026 (обязывающий)."
+      },
+      "deadline_status": "expected",
+      "requirements": {
+        "language": {
+          "value": "Владение английским обязательно до зачисления.",
+          "source_url": "https://www.amherst.edu/admission/apply/international",
+          "quote": null
+        },
+        "exams": {
+          "value": null,
+          "source_url": null,
+          "quote": null
+        },
+        "documents": {
+          "value": "Common App, как у всех абитуриентов.",
+          "source_url": "https://www.amherst.edu/admission/apply/international",
+          "quote": null
+        },
+        "min_grades": {
+          "value": "Нет формального минимума.",
+          "source_url": null,
+          "quote": null
+        }
+      },
+      "documents_checklist": [
+        {
+          "id": "common-app",
+          "title": "Аккаунт Common App и список вузов",
+          "done": false,
+          "url": "https://www.commonapp.org/"
+        },
+        {
+          "id": "essay",
+          "title": "Основное эссе Common App",
+          "done": false
+        },
+        {
+          "id": "supplements",
+          "title": "Дополнительные эссе вуза (supplements)",
+          "done": false
+        },
+        {
+          "id": "transcript",
+          "title": "Табели 9–11 классов с переводом на английский (через школу/консультанта)",
+          "done": false
+        },
+        {
+          "id": "school-report",
+          "title": "School Report и рекомендация консультанта/директора",
+          "done": false
+        },
+        {
+          "id": "teacher-recs",
+          "title": "2 рекомендации учителей (на английском)",
+          "done": false
+        },
+        {
+          "id": "sat",
+          "title": "SAT или ACT (если вуз требует)",
+          "done": false,
+          "url": "https://satsuite.collegeboard.org/sat/dates-deadlines"
+        },
+        {
+          "id": "english",
+          "title": "TOEFL / IELTS / Duolingo (если требуется)",
+          "done": false
+        },
+        {
+          "id": "css",
+          "title": "CSS Profile (или ISFAA, если вуз принимает) — финпомощь",
+          "done": false,
+          "url": "https://cssprofile.collegeboard.org/"
+        },
+        {
+          "id": "fee",
+          "title": "Сбор за подачу или fee waiver",
+          "done": false
+        }
+      ],
+      "files": [],
+      "last_checked": null,
+      "last_changed": null,
+      "reviewed": "2026-10-15",
+      "notes": "«Amherst College follows a need-blind admission policy for all students—domestic and international.» Покрывает 100% рассчитанной потребности. Вместо платного CSS Profile можно бесплатно подать ISFAA (через портал Amherst после подачи заявки)."
+    },
+    {
+      "id": "bowdoin",
+      "name": "Bowdoin College",
+      "country": "США",
+      "type": "вуз",
+      "priority": "medium",
+      "official_urls": [
+        "https://www.bowdoin.edu/admissions/apply/index.html",
+        "https://www.bowdoin.edu/student-aid/apply-for-aid/international-students.html"
+      ],
+      "nominating_body": {
+        "value": "Подача напрямую в вуз (Common App)",
+        "source_url": null,
+        "quote": null
+      },
+      "opens": {
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "text": "Common App открыт с 1 августа",
+        "status": "confirmed",
+        "source_url": null,
+        "quote": null
+      },
+      "deadline": {
+        "date": null,
+        "time": null,
+        "timezone": "America/New_York",
+        "source_url": "https://www.bowdoin.edu/admissions/apply/index.html",
+        "quote": null,
+        "note": "Раунды ED1, ED2, RD — точные даты на официальной странице не удалось прочитать, сверить вручную."
+      },
+      "deadline_status": "unknown",
+      "requirements": {
+        "language": {
+          "value": "Английский тест — по желанию.",
+          "source_url": "https://www.bowdoin.edu/admissions/apply/index.html",
+          "quote": "It is optional for international students to submit English proficiency test scores"
+        },
+        "exams": {
+          "value": "Test-optional: SAT/ACT не обязательны.",
+          "source_url": "https://www.bowdoin.edu/admissions/apply/index.html",
+          "quote": "ACT or SAT scores are not required for the purpose of admission."
+        },
+        "documents": {
+          "value": "Common App; финдокументы (CSS Profile 2027-2028, код 3089, или ISFAA) — только после зачисления.",
+          "source_url": "https://www.bowdoin.edu/student-aid/apply-for-aid/international-students.html",
+          "quote": "International applicants for the Class of 2031 are not required to submit student aid application materials until they are admitted to Bowdoin."
+        },
+        "min_grades": {
+          "value": "Нет формального минимума.",
+          "source_url": null,
+          "quote": null
+        }
+      },
+      "documents_checklist": [
+        {
+          "id": "common-app",
+          "title": "Аккаунт Common App и список вузов",
+          "done": false,
+          "url": "https://www.commonapp.org/"
+        },
+        {
+          "id": "essay",
+          "title": "Основное эссе Common App",
+          "done": false
+        },
+        {
+          "id": "supplements",
+          "title": "Дополнительные эссе вуза (supplements)",
+          "done": false
+        },
+        {
+          "id": "transcript",
+          "title": "Табели 9–11 классов с переводом на английский (через школу/консультанта)",
+          "done": false
+        },
+        {
+          "id": "school-report",
+          "title": "School Report и рекомендация консультанта/директора",
+          "done": false
+        },
+        {
+          "id": "teacher-recs",
+          "title": "2 рекомендации учителей (на английском)",
+          "done": false
+        },
+        {
+          "id": "sat",
+          "title": "SAT или ACT (если вуз требует)",
+          "done": false,
+          "url": "https://satsuite.collegeboard.org/sat/dates-deadlines"
+        },
+        {
+          "id": "english",
+          "title": "TOEFL / IELTS / Duolingo (если требуется)",
+          "done": false
+        },
+        {
+          "id": "css",
+          "title": "CSS Profile (или ISFAA, если вуз принимает) — финпомощь",
+          "done": false,
+          "url": "https://cssprofile.collegeboard.org/"
+        },
+        {
+          "id": "fee",
+          "title": "Сбор за подачу или fee waiver",
+          "done": false
+        }
+      ],
+      "files": [],
+      "last_checked": null,
+      "last_changed": null,
+      "reviewed": "2026-10-15",
+      "notes": "«Bowdoin College is need blind for international students»; покрывает полную потребность. SAT не обязателен — хороший вариант, если не успеваете сдать SAT."
+    },
+    {
+      "id": "nyuad",
+      "name": "NYU Abu Dhabi",
+      "country": "ОАЭ",
+      "type": "вуз",
+      "priority": "high",
+      "official_urls": [
+        "https://nyuad.nyu.edu/en/apply/undergraduate/apply/key-dates-and-deadlines.html",
+        "https://nyuad.nyu.edu/en/apply/undergraduate/scholarships-and-financial-aid.html"
+      ],
+      "nominating_body": {
+        "value": "Подача напрямую в вуз (Common App)",
+        "source_url": null,
+        "quote": null
+      },
+      "opens": {
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "text": "Common App открыт с 1 августа",
+        "status": "confirmed",
+        "source_url": null,
+        "quote": null
+      },
+      "deadline": {
+        "date": "2027-01-05",
+        "time": "23:59",
+        "timezone": "America/New_York",
+        "source_url": "https://nyuad.nyu.edu/en/apply/undergraduate/apply/key-dates-and-deadlines.html",
+        "quote": null,
+        "note": "Regular Decision — 5 января (таблица на официальной странице). Early Decision I — 1 ноября, ED II — 1 января. CSS Profile для RD — до 1 февраля."
+      },
+      "deadline_status": "confirmed",
+      "requirements": {
+        "language": {
+          "value": null,
+          "source_url": null,
+          "quote": null
+        },
+        "exams": {
+          "value": "Test-optional (NYU не требует тестов в цикле 2027–2028).",
+          "source_url": "https://nyuad.nyu.edu/en/apply/undergraduate/apply.html",
+          "quote": null
+        },
+        "documents": {
+          "value": "Common App; CSS Profile для финпомощи.",
+          "source_url": "https://nyuad.nyu.edu/en/apply/undergraduate/scholarships-and-financial-aid.html",
+          "quote": "Financial Aid at NYUAD is based on a student's and family’s demonstrated financial need."
+        },
+        "min_grades": {
+          "value": "Нет формального минимума.",
+          "source_url": null,
+          "quote": null
+        }
+      },
+      "documents_checklist": [
+        {
+          "id": "common-app",
+          "title": "Аккаунт Common App и список вузов",
+          "done": false,
+          "url": "https://www.commonapp.org/"
+        },
+        {
+          "id": "essay",
+          "title": "Основное эссе Common App",
+          "done": false
+        },
+        {
+          "id": "supplements",
+          "title": "Дополнительные эссе вуза (supplements)",
+          "done": false
+        },
+        {
+          "id": "transcript",
+          "title": "Табели 9–11 классов с переводом на английский (через школу/консультанта)",
+          "done": false
+        },
+        {
+          "id": "school-report",
+          "title": "School Report и рекомендация консультанта/директора",
+          "done": false
+        },
+        {
+          "id": "teacher-recs",
+          "title": "2 рекомендации учителей (на английском)",
+          "done": false
+        },
+        {
+          "id": "sat",
+          "title": "SAT или ACT (если вуз требует)",
+          "done": false,
+          "url": "https://satsuite.collegeboard.org/sat/dates-deadlines"
+        },
+        {
+          "id": "english",
+          "title": "TOEFL / IELTS / Duolingo (если требуется)",
+          "done": false
+        },
+        {
+          "id": "css",
+          "title": "CSS Profile (или ISFAA, если вуз принимает) — финпомощь",
+          "done": false,
+          "url": "https://cssprofile.collegeboard.org/"
+        },
+        {
+          "id": "fee",
+          "title": "Сбор за подачу или fee waiver",
+          "done": false
+        }
+      ],
+      "files": [],
+      "last_checked": null,
+      "last_changed": null,
+      "reviewed": "2026-10-15",
+      "notes": "Финпомощь для иностранцев на основе потребности. Покрытие 100% потребности на официальной странице явно не подтверждено — уточнить. Сбор 85 USD, есть waiver. Популярный вариант у абитуриентов из Центральной Азии; есть Computer Science и Social Research & Public Policy."
+    },
+    {
+      "id": "italy-dsu",
+      "name": "Италия: региональные стипендии DSU (через Foundation Year)",
+      "country": "Италия",
+      "type": "стипендия",
+      "priority": "low",
+      "official_urls": [
+        "https://www.unipr.it/en/node/107075",
+        "https://www.universitaly.it/"
+      ],
+      "nominating_body": {
+        "value": "Региональное агентство (ER.GO, EDISU Piemonte, DiSCo Lazio, DSU Toscana и др.)",
+        "source_url": null,
+        "quote": null
+      },
+      "opens": {
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "text": "приём в вузы — весна; заявки DSU — лето",
+        "status": "unknown",
+        "source_url": null,
+        "quote": null
+      },
+      "deadline": {
+        "date": null,
+        "time": null,
+        "timezone": "Europe/Rome",
+        "source_url": null,
+        "quote": null,
+        "note": "Сроки DSU разные по регионам (обычно июль–сентябрь)."
+      },
+      "deadline_status": "unknown",
+      "requirements": {
+        "language": {
+          "value": "Английский для англоязычных программ; для Foundation Year часто нужен итальянский B1.",
+          "source_url": null,
+          "quote": null
+        },
+        "exams": {
+          "value": null,
+          "source_url": null,
+          "quote": null
+        },
+        "documents": {
+          "value": "Пре-регистрация через Universitaly; доход семьи — ISEE Parificato.",
+          "source_url": null,
+          "quote": null
+        },
+        "min_grades": {
+          "value": "Итальянские вузы требуют 12 лет школы: с аттестатом КР (11 лет) — сначала Foundation Year.",
+          "source_url": "https://www.unipr.it/en/node/107075",
+          "quote": null
+        }
+      },
+      "documents_checklist": [],
+      "files": [],
+      "last_checked": null,
+      "last_changed": null,
+      "reviewed": "2026-10-15",
+      "notes": "Стипендия по доходу семьи (бесплатное обучение + выплаты + часто жильё). Барьер — 11-летняя школа: нужен Foundation Year (или год в вузе КР). Германия аналогично: Studienkolleg + немецкий B2. Низкий приоритет на 2027."
     }
   ]
 }

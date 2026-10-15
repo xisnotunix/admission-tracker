@@ -1,37 +1,252 @@
 {
   "_comment": "Белый список. Агент скачивает ТОЛЬКО эти URL и не переходит по ссылкам. kind=page — страница программы (ищем дедлайн и требования); kind=catalog — список конкурсов (ищем НОВЫЕ программы). enabled=false — пропускается. selector — необязательный CSS-селектор основной части страницы.",
   "sources": [
-    { "id": "kg-ministry-contests", "kind": "catalog", "program_id": null, "url": "https://student.edu.gov.kg/", "selector": null, "enabled": true,
-      "note": "Портал Минобрнауки КР: все конкурсы на обучение за рубежом (Венгрия, Китай и др.)" },
-
-    { "id": "sh-apply", "kind": "page", "program_id": "stipendium-hungaricum", "url": "https://stipendiumhungaricum.hu/apply/", "selector": null, "enabled": true },
-    { "id": "sh-main", "kind": "page", "program_id": "stipendium-hungaricum", "url": "https://stipendiumhungaricum.hu/", "selector": null, "enabled": true },
-    { "id": "sh-portal", "kind": "page", "program_id": "stipendium-hungaricum", "url": "https://apply.stipendiumhungaricum.hu/", "selector": null, "enabled": true },
-
-    { "id": "mext-undergrad", "kind": "page", "program_id": "mext-undergraduate", "url": "https://www.studyinjapan.go.jp/en/smap-stopj-applications-undergraduate.html", "selector": null, "enabled": true },
-    { "id": "mext-embassy-kg", "kind": "page", "program_id": "mext-undergraduate", "url": "https://www.kg.emb-japan.go.jp/", "selector": null, "enabled": false,
-      "note": "Сайт отвечает 403 на автоматические запросы — проверять вручную" },
-
-    { "id": "tb-announcement", "kind": "page", "program_id": "turkiye-burslari", "url": "https://turkiyeburslari.gov.tr/duyurular/turkiye-burslari-2026-basvurulari-121", "selector": null, "enabled": true,
-      "note": "Объявление 2026; когда выйдет объявление 2027 — заменить URL" },
-    { "id": "tb-main", "kind": "page", "program_id": "turkiye-burslari", "url": "https://turkiyeburslari.gov.tr/", "selector": null, "enabled": true },
-
-    { "id": "ru-quota-misis", "kind": "page", "program_id": "russia-quota", "url": "https://misis.ru/events/6552/", "selector": null, "enabled": true,
-      "note": "Описание квоты на сайте МИСИС; основной портал education-in-russia.com — SPA, текста почти нет" },
-
-    { "id": "gks-main", "kind": "page", "program_id": "gks-undergraduate", "url": "https://www.studyinkorea.go.kr/", "selector": null, "enabled": true },
-
-    { "id": "daad-db", "kind": "page", "program_id": "daad", "url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/", "selector": null, "enabled": false,
-      "note": "Низкий приоритет; база динамическая — включить при необходимости" },
-
-    { "id": "uca-overview", "kind": "page", "program_id": "uca", "url": "https://admissions.ucentralasia.org/?p=42", "selector": null, "enabled": true },
-    { "id": "uca-stage1", "kind": "page", "program_id": "uca", "url": "https://admissions.ucentralasia.org/apply/stage-1/", "selector": null, "enabled": true },
-
-    { "id": "auca-freshman", "kind": "page", "program_id": "auca", "url": "https://auca.kg/en/freshman_applicants/", "selector": null, "enabled": true },
-    { "id": "auca-exams", "kind": "page", "program_id": "auca", "url": "https://auca.kg/en/auca_exams_view/", "selector": null, "enabled": true },
-    { "id": "auca-scoring", "kind": "page", "program_id": "auca", "url": "https://auca.kg/en/auca_exams_scoring/", "selector": null, "enabled": true },
-
-    { "id": "alatoo-main", "kind": "page", "program_id": "ala-too", "url": "https://alatoo.edu.kg/", "selector": null, "enabled": false,
-      "note": "Сайт отвечает 403 на автоматические запросы — проверять вручную" }
+    {
+      "id": "kg-ministry-contests",
+      "kind": "catalog",
+      "program_id": null,
+      "url": "https://student.edu.gov.kg/",
+      "selector": null,
+      "enabled": true,
+      "note": "Портал Минобрнауки КР: все конкурсы на обучение за рубежом (Венгрия, Китай и др.)"
+    },
+    {
+      "id": "sh-apply",
+      "kind": "page",
+      "program_id": "stipendium-hungaricum",
+      "url": "https://stipendiumhungaricum.hu/apply/",
+      "selector": null,
+      "enabled": true
+    },
+    {
+      "id": "sh-main",
+      "kind": "page",
+      "program_id": "stipendium-hungaricum",
+      "url": "https://stipendiumhungaricum.hu/",
+      "selector": null,
+      "enabled": true
+    },
+    {
+      "id": "sh-portal",
+      "kind": "page",
+      "program_id": "stipendium-hungaricum",
+      "url": "https://apply.stipendiumhungaricum.hu/",
+      "selector": null,
+      "enabled": true
+    },
+    {
+      "id": "mext-undergrad",
+      "kind": "page",
+      "program_id": "mext-undergraduate",
+      "url": "https://www.studyinjapan.go.jp/en/smap-stopj-applications-undergraduate.html",
+      "selector": null,
+      "enabled": true
+    },
+    {
+      "id": "mext-embassy-kg",
+      "kind": "page",
+      "program_id": "mext-undergraduate",
+      "url": "https://www.kg.emb-japan.go.jp/",
+      "selector": null,
+      "enabled": false,
+      "note": "Сайт отвечает 403 на автоматические запросы — проверять вручную"
+    },
+    {
+      "id": "tb-announcement",
+      "kind": "page",
+      "program_id": "turkiye-burslari",
+      "url": "https://turkiyeburslari.gov.tr/duyurular/turkiye-burslari-2026-basvurulari-121",
+      "selector": null,
+      "enabled": true,
+      "note": "Объявление 2026; когда выйдет объявление 2027 — заменить URL"
+    },
+    {
+      "id": "tb-main",
+      "kind": "page",
+      "program_id": "turkiye-burslari",
+      "url": "https://turkiyeburslari.gov.tr/",
+      "selector": null,
+      "enabled": true
+    },
+    {
+      "id": "ru-quota-misis",
+      "kind": "page",
+      "program_id": "russia-quota",
+      "url": "https://misis.ru/events/6552/",
+      "selector": null,
+      "enabled": true,
+      "note": "Описание квоты на сайте МИСИС; основной портал education-in-russia.com — SPA, текста почти нет"
+    },
+    {
+      "id": "gks-main",
+      "kind": "page",
+      "program_id": "gks-undergraduate",
+      "url": "https://www.studyinkorea.go.kr/",
+      "selector": null,
+      "enabled": true
+    },
+    {
+      "id": "daad-db",
+      "kind": "page",
+      "program_id": "daad",
+      "url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/",
+      "selector": null,
+      "enabled": false,
+      "note": "Низкий приоритет; база динамическая — включить при необходимости"
+    },
+    {
+      "id": "uca-overview",
+      "kind": "page",
+      "program_id": "uca",
+      "url": "https://admissions.ucentralasia.org/?p=42",
+      "selector": null,
+      "enabled": true
+    },
+    {
+      "id": "uca-stage1",
+      "kind": "page",
+      "program_id": "uca",
+      "url": "https://admissions.ucentralasia.org/apply/stage-1/",
+      "selector": null,
+      "enabled": true
+    },
+    {
+      "id": "auca-freshman",
+      "kind": "page",
+      "program_id": "auca",
+      "url": "https://auca.kg/en/freshman_applicants/",
+      "selector": null,
+      "enabled": true
+    },
+    {
+      "id": "auca-exams",
+      "kind": "page",
+      "program_id": "auca",
+      "url": "https://auca.kg/en/auca_exams_view/",
+      "selector": null,
+      "enabled": true
+    },
+    {
+      "id": "auca-scoring",
+      "kind": "page",
+      "program_id": "auca",
+      "url": "https://auca.kg/en/auca_exams_scoring/",
+      "selector": null,
+      "enabled": true
+    },
+    {
+      "id": "alatoo-main",
+      "kind": "page",
+      "program_id": "ala-too",
+      "url": "https://alatoo.edu.kg/",
+      "selector": null,
+      "enabled": false,
+      "note": "Сайт отвечает 403 на автоматические запросы — проверять вручную"
+    },
+    {
+      "id": "harvard-firstyear",
+      "kind": "page",
+      "program_id": "harvard",
+      "url": "https://college.harvard.edu/admissions/apply/first-year-applicants",
+      "selector": null,
+      "enabled": true
+    },
+    {
+      "id": "harvard-aid",
+      "kind": "page",
+      "program_id": "harvard",
+      "url": "https://college.harvard.edu/financial-aid/how-aid-works",
+      "selector": null,
+      "enabled": true
+    },
+    {
+      "id": "yale-deadlines",
+      "kind": "page",
+      "program_id": "yale",
+      "url": "https://admissions.yale.edu/application-deadlines",
+      "selector": null,
+      "enabled": true
+    },
+    {
+      "id": "yale-international",
+      "kind": "page",
+      "program_id": "yale",
+      "url": "https://admissions.yale.edu/applying-yale-international-student",
+      "selector": null,
+      "enabled": true
+    },
+    {
+      "id": "princeton-dates",
+      "kind": "page",
+      "program_id": "princeton",
+      "url": "https://admission.princeton.edu/apply/first-year-application-dates-deadlines",
+      "selector": null,
+      "enabled": true
+    },
+    {
+      "id": "mit-deadlines",
+      "kind": "page",
+      "program_id": "mit",
+      "url": "https://mitadmissions.org/apply/firstyear/deadlines-requirements/",
+      "selector": null,
+      "enabled": true
+    },
+    {
+      "id": "mit-aid",
+      "kind": "page",
+      "program_id": "mit",
+      "url": "https://sfs.mit.edu/undergraduate-students/apply-for-aid/deadlines-requirements",
+      "selector": null,
+      "enabled": true
+    },
+    {
+      "id": "dartmouth-apply",
+      "kind": "page",
+      "program_id": "dartmouth",
+      "url": "https://admissions.dartmouth.edu/apply-dartmouth",
+      "selector": null,
+      "enabled": true
+    },
+    {
+      "id": "amherst-apply",
+      "kind": "page",
+      "program_id": "amherst",
+      "url": "https://www.amherst.edu/admission/apply",
+      "selector": null,
+      "enabled": false,
+      "note": "Сайт отвечает 405 на автоматические запросы — проверять вручную"
+    },
+    {
+      "id": "bowdoin-apply",
+      "kind": "page",
+      "program_id": "bowdoin",
+      "url": "https://www.bowdoin.edu/admissions/apply/index.html",
+      "selector": null,
+      "enabled": true
+    },
+    {
+      "id": "bowdoin-aid",
+      "kind": "page",
+      "program_id": "bowdoin",
+      "url": "https://www.bowdoin.edu/student-aid/apply-for-aid/international-students.html",
+      "selector": null,
+      "enabled": true
+    },
+    {
+      "id": "nyuad-dates",
+      "kind": "page",
+      "program_id": "nyuad",
+      "url": "https://nyuad.nyu.edu/en/apply/undergraduate/apply/key-dates-and-deadlines.html",
+      "selector": null,
+      "enabled": true
+    },
+    {
+      "id": "nyuad-aid",
+      "kind": "page",
+      "program_id": "nyuad",
+      "url": "https://nyuad.nyu.edu/en/apply/undergraduate/scholarships-and-financial-aid.html",
+      "selector": null,
+      "enabled": true
+    }
   ]
 }
