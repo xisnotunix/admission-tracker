@@ -142,6 +142,63 @@
       "status": "info",
       "summary": "Первый снимок страницы",
       "diff": null
+    },
+    {
+      "id": "2026-10-15-014",
+      "created": "2026-10-15T13:19:50+00:00",
+      "kind": "page",
+      "program_id": "russia-quota",
+      "source_id": "ru-quota-misis",
+      "source_url": "https://misis.ru/events/6552/",
+      "status": "info",
+      "summary": "Первый снимок страницы",
+      "diff": null
+    },
+    {
+      "id": "2026-10-15-015",
+      "created": "2026-10-15T13:19:57+00:00",
+      "kind": "field",
+      "program_id": "uca",
+      "source_id": "uca-stage1",
+      "source_url": "https://admissions.ucentralasia.org/apply/stage-1/",
+      "field": "deadline",
+      "old": {
+        "date": "2027-02-14",
+        "time": null,
+        "timezone": "Asia/Bishkek",
+        "status": "expected"
+      },
+      "new": {
+        "date": "2026-02-14",
+        "time": null,
+        "timezone": null,
+        "timezone_raw": null,
+        "quote": "Submit the completed UCA Stage 1 Application Form and supplementary documents to reach UCA no later than\nFebruary 14th, 2026",
+        "source_url": "https://admissions.ucentralasia.org/apply/stage-1/"
+      },
+      "quote": "Submit the completed UCA Stage 1 Application Form and supplementary documents to reach UCA no later than\nFebruary 14th, 2026",
+      "status": "pending",
+      "resolved": null
+    },
+    {
+      "id": "2026-10-15-016",
+      "created": "2026-10-15T13:19:57+00:00",
+      "kind": "field",
+      "program_id": "uca",
+      "source_id": "uca-stage1",
+      "source_url": "https://admissions.ucentralasia.org/apply/stage-1/",
+      "field": "requirements.documents",
+      "old": {
+        "value": "Анкета этапа 1, копия паспорта/ID, фото на белом фоне (не старше 3 месяцев)."
+      },
+      "new": {
+        "value": "Заполненная форма заявки Этапа 1, копия удостоверения личности/паспорта с фото, одна недавняя фотография на белом фоне",
+        "quote": "including:\nCompleted Stage 1 Application Form\nA clear copy of a government-issued photo ID or Passport\nOne photograph on a white background showing the applicant’s face, taken during the last three months.",
+        "source_url": "https://admissions.ucentralasia.org/apply/stage-1/"
+      },
+      "quote": "including:\nCompleted Stage 1 Application Form\nA clear copy of a government-issued photo ID or Passport\nOne photograph on a white background showing the applicant’s face, taken during the last three months.",
+      "status": "pending",
+      "resolved": null
     }
   ]
 }
