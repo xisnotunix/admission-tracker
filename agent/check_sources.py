@@ -31,7 +31,7 @@ sys.path.insert(0, str(__import__("pathlib").Path(__file__).resolve().parent))
 from common import (  # noqa: E402
     CHANGELOG_FILE, PROGRAMS_FILE, SNAPSHOTS, SOURCES_FILE, STATE_FILE,
     html_escape, load_json, normalize, now_iso, program_by_id, quote_in_text,
-    save_json, send_telegram, site_url,
+    save_json, send_telegram, site_url, today_home,
 )
 import llm  # noqa: E402
 
@@ -155,9 +155,22 @@ def verify(extracted, text):
 
 # ---------- предложения изменений ----------
 
-def proposals(program, verified, source_url):
-    """Сравнить проверенные данные с текущими и вернуть список предложений."""
+def is_past(iso_date, today=None):
+    """Дата уже прошла — значит, это прошлый цикл приёма, а не новый срок."""
+    try:
+        return iso_date < (today or today_home()).isoformat()
+    except TypeError:
+        return False
+
+
+def proposals(program, verified, source_url, today=None):
+    """Сравнить проверенные данные с текущими и вернуть список предложений.
+    Прошедшие даты не предлагаем: на страницах часто висит срок прошлого цикла."""
     out = []
+    for key in ("deadline", "opens"):
+        if key in verified and is_past(verified[key]["date"], today):
+            print(f"  {key} {verified[key]['date']} уже прошёл — прошлый цикл, пропускаю")
+            verified = {k: v for k, v in verified.items() if k != key}
     if "deadline" in verified:
         new = verified["deadline"]
         old = program.get("deadline") or {}

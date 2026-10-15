@@ -43,6 +43,12 @@ class AgentTests(unittest.TestCase):
         program["deadline_status"] = "expected"
         self.assertEqual(proposals(program, verified, "https://x")[0][0], "deadline")
 
+    def test_past_deadline_is_not_proposed(self):
+        program = {"deadline": {"date": None}, "deadline_status": "unknown", "requirements": {}}
+        verified = {"deadline": {"date": "2026-02-14", "time": None, "timezone": None, "quote": "q"}}
+        self.assertEqual(proposals(program, verified, "https://x", today=date(2026, 10, 15)), [])
+        self.assertEqual(len(proposals(program, verified, "https://x", today=date(2026, 1, 1))), 1)
+
     def test_extract_text_strips_scripts(self):
         text = extract_text("<html><script>var a=1</script><main><p>Hello</p>  <p>World</p></main></html>")
         self.assertEqual(text, "Hello\nWorld")
