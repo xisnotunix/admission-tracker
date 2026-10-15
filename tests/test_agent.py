@@ -100,5 +100,46 @@ class DiscoveryTests(unittest.TestCase):
         self.assertEqual(programs["programs"][-1]["deadline_status"], "unknown")
 
 
+class LlmRobustnessTests(unittest.TestCase):
+    def test_pick_gemini_model(self):
+        from llm import pick_gemini_model
+        names = ["models/gemini-2.0-flash", "models/gemini-3-flash", "models/gemini-3-flash-lite",
+                 "models/gemini-3-flash-preview-09", "models/gemini-3-pro", "models/gemini-3-flash-image"]
+        self.assertEqual(pick_gemini_model(names), "gemini-3-flash")
+        self.assertIsNone(pick_gemini_model(["models/gemini-3-pro"]))
+
+    def test_llm_failure_is_retried_next_run(self):
+        import check_sources
+        from types import SimpleNamespace
+        program = {"id": "p", "name": "P", "deadline": {}, "requirements": {}}
+        ctx = {"programs": {"programs": [program]}, "changelog": {"entries": []},
+               "state": {"sources": {}}, "allowed_hosts": {"x.test"}, "llm_errors": []}
+        src = {"id": "s", "kind": "page", "program_id": "p", "url": "https://x.test/"}
+        args = SimpleNamespace(force=False, dry_run=True)
+        calls = []
+
+        def broken(*a):
+            calls.append(1)
+            raise RuntimeError("404 model not found")
+
+        orig_fetch, orig_extract = check_sources.fetch, check_sources.llm.extract
+        check_sources.fetch = lambda url, hosts: "<p>Deadline: 15 January 2027</p>"
+        check_sources.llm.extract = broken
+        try:
+            check_sources.check_source(src, ctx, args)
+            self.assertTrue(ctx["state"]["sources"]["s"]["llm_pending"])
+            # Страница та же, но прошлый вызов LLM упал — должен быть повтор.
+            check_sources.check_source(src, ctx, args)
+            self.assertEqual(len(calls), 2)
+            check_sources.llm.extract = lambda *a: {}
+            check_sources.check_source(src, ctx, args)
+            self.assertFalse(ctx["state"]["sources"]["s"]["llm_pending"])
+            check_sources.llm.extract = broken
+            check_sources.check_source(src, ctx, args)  # без изменений и без долга — LLM не зовём
+            self.assertEqual(len(calls), 2)
+        finally:
+            check_sources.fetch, check_sources.llm.extract = orig_fetch, orig_extract
+
+
 if __name__ == "__main__":
     unittest.main()

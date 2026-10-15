@@ -650,6 +650,22 @@ function renderChat() {
 function openChat(pid) { chat.pid = pid; $("#chat").hidden = false; renderChat(); $("#chat-input").focus(); }
 function closeChat() { $("#chat").hidden = true; }
 
+const GEMINI_API = "https://generativelanguage.googleapis.com/v1beta";
+
+/** Самая новая обычная Flash-модель, доступная ключу (модели регулярно снимают с поддержки). */
+async function pickGeminiModel(key) {
+  const r = await fetch(`${GEMINI_API}/models?pageSize=1000`, { headers: { "x-goog-api-key": key } });
+  const data = await r.json();
+  if (!r.ok) throw new Error(data?.error?.message || `HTTP ${r.status}`);
+  const names = (data.models || []).filter((m) => (m.supportedGenerationMethods || []).includes("generateContent"))
+    .map((m) => m.name.split("/").pop()).filter((n) => n.includes("flash"));
+  const stable = names.filter((n) => !/lite|image|tts|live|audio|thinking|exp|preview/.test(n));
+  const pool = stable.length ? stable : names;
+  const ver = (n) => parseFloat((n.match(/gemini-(\d+(?:\.\d+)?)/) || [])[1] || 0);
+  pool.sort((a, b) => ver(b) - ver(a) || a.length - b.length);
+  return pool[0] || null;
+}
+
 async function sendChat(text) {
   const { gemini, model } = lsGet(LS.settings, {});
   if (!gemini) { toast("Добавьте ключ Gemini в настройках"); return; }
@@ -657,7 +673,7 @@ async function sendChat(text) {
   chat.busy = true; renderChat();
   try {
     const context = await chatContext(chat.pid);
-    const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model || "gemini-2.5-flash")}:generateContent`, {
+    const call = (m) => fetch(`${GEMINI_API}/models/${encodeURIComponent(m)}:generateContent`, {
       method: "POST",
       headers: { "Content-Type": "application/json", "x-goog-api-key": gemini },
       body: JSON.stringify({
@@ -666,6 +682,12 @@ async function sendChat(text) {
         generationConfig: { temperature: 0.2 },
       }),
     });
+    const cached = lsGet("tracker.model", null);
+    let r = await call(model || cached || "gemini-2.5-flash");
+    if (r.status === 404) {  // модель сняли с поддержки — подбираем актуальную и запоминаем
+      const picked = await pickGeminiModel(gemini);
+      if (picked) { lsSet("tracker.model", picked); r = await call(picked); }
+    }
     const data = await r.json();
     if (!r.ok) throw new Error(data?.error?.message || `HTTP ${r.status}`);
     const answer = data.candidates?.[0]?.content?.parts?.map((x) => x.text).join("") || "Пустой ответ.";

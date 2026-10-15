@@ -89,19 +89,54 @@ def _user_prompt(program, url, text):
     )
 
 
-def _call_gemini(system_prompt, user_prompt):
-    r = requests.post(
-        f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent",
-        headers={"x-goog-api-key": os.environ["GEMINI_API_KEY"], "Content-Type": "application/json"},
-        json={
-            "systemInstruction": {"parts": [{"text": system_prompt}]},
-            "contents": [{"role": "user", "parts": [{"text": user_prompt}]}],
-            "generationConfig": {"temperature": 0, "responseMimeType": "application/json"},
-        },
-        timeout=120,
-    )
+GEMINI_API = "https://generativelanguage.googleapis.com/v1beta"
+_gemini_model = None  # модель, найденная автоматически, если GEMINI_MODEL сняли с поддержки
+
+
+def pick_gemini_model(names):
+    """Самая новая обычная Flash-модель из списка (без lite/image/tts/preview и т.п.)."""
+    names = [n.split("/")[-1] for n in names]
+    flash = [n for n in names if "flash" in n]
+    stable = [n for n in flash if not re.search(r"lite|image|tts|live|audio|thinking|exp|preview", n)]
+    pool = stable or flash
+    if not pool:
+        return None
+
+    def key(n):
+        m = re.search(r"gemini-(\d+(?:\.\d+)?)", n)
+        return (float(m.group(1)) if m else 0.0, -len(n))
+
+    return max(pool, key=key)
+
+
+def _gemini_models(api_key):
+    r = requests.get(f"{GEMINI_API}/models", params={"pageSize": 1000},
+                     headers={"x-goog-api-key": api_key}, timeout=60)
     r.raise_for_status()
-    return r.json()["candidates"][0]["content"]["parts"][0]["text"]
+    return [m["name"] for m in r.json().get("models", [])
+            if "generateContent" in m.get("supportedGenerationMethods", [])]
+
+
+def _call_gemini(system_prompt, user_prompt):
+    global _gemini_model
+    api_key = os.environ["GEMINI_API_KEY"]
+    body = {
+        "systemInstruction": {"parts": [{"text": system_prompt}]},
+        "contents": [{"role": "user", "parts": [{"text": user_prompt}]}],
+        "generationConfig": {"temperature": 0, "responseMimeType": "application/json"},
+    }
+    for attempt in range(2):
+        model = _gemini_model or GEMINI_MODEL
+        r = requests.post(f"{GEMINI_API}/models/{model}:generateContent",
+                          headers={"x-goog-api-key": api_key}, json=body, timeout=120)
+        if r.status_code == 404 and attempt == 0:
+            # Модели снимают с поддержки — берём актуальную Flash из списка доступных ключу.
+            _gemini_model = pick_gemini_model(_gemini_models(api_key))
+            print(f"[llm] модель {model} недоступна, использую {_gemini_model}")
+            if _gemini_model and _gemini_model != model:
+                continue
+        r.raise_for_status()
+        return r.json()["candidates"][0]["content"]["parts"][0]["text"]
 
 
 def _call_groq(system_prompt, user_prompt):

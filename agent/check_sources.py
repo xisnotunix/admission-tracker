@@ -266,7 +266,7 @@ def check_catalog(src, ctx, html, text, stamp):
     links = extract_links(html, src["url"])
     result = llm.discover(src["url"], text, links)
     if result is None:
-        return []
+        return None
     found = verify_discovered(result, text, links)
     print(f"[{src['id']}] программ на странице (с цитатой): {len(found)}")
     messages = []
@@ -312,7 +312,7 @@ def check_source(src, ctx, args):
 
     first_run = not st.get("hash")
     changed = st.get("hash") != digest
-    if not changed and not args.force:
+    if not changed and not args.force and not st.get("llm_pending"):
         print(f"[{src['id']}] без изменений")
         return messages
 
@@ -339,12 +339,30 @@ def check_source(src, ctx, args):
         if not args.dry_run:
             snapshot.write_text(text, encoding="utf-8", newline="\n")
 
-    if is_catalog:
-        return messages + check_catalog(src, ctx, html, text, stamp)
+    # Флаг снимается только после успешного ответа LLM: если LLM упала или ключа нет,
+    # следующий запуск повторит извлечение, даже если страница не изменилась.
+    st["llm_pending"] = True
+    try:
+        found = (check_catalog(src, ctx, html, text, stamp) if is_catalog
+                 else analyze_page(src, ctx, program, text, stamp))
+    except Exception as exc:
+        print(f"[{src['id']}] ОШИБКА LLM: {exc}")
+        st["llm_error"] = str(exc)[:300]
+        ctx["llm_errors"].append(str(exc)[:200])
+        return messages
+    if found is None:
+        return messages
+    st["llm_pending"] = False
+    st["llm_error"] = None
+    return messages + found
 
+
+def analyze_page(src, ctx, program, text, stamp):
+    changelog = ctx["changelog"]
+    messages = []
     extracted = llm.extract(program, src["url"], text)
     if extracted is None:
-        return messages
+        return None
     verified, dropped = verify(extracted, text)
     if dropped:
         print(f"[{src['id']}] отброшено (цитата не найдена на странице): {', '.join(dropped)}")
@@ -387,6 +405,7 @@ def main():
         "changelog": load_json(CHANGELOG_FILE),
         "state": load_json(STATE_FILE),
         "allowed_hosts": allowed_hosts,
+        "llm_errors": [],
     }
     messages, failures = [], 0
     for src in sources:
@@ -400,6 +419,15 @@ def main():
             st["errors_in_row"] = st.get("errors_in_row", 0) + 1
             if st["errors_in_row"] == 3:  # не спамим: сообщаем один раз после 3 неудач подряд
                 messages.append(f"❗ Источник {src['id']} не открывается 3 проверки подряд: {html_escape(str(exc)[:200])}")
+
+    state = ctx["state"]
+    if ctx["llm_errors"]:
+        if state.get("llm_ok", True):  # сообщаем один раз, а не каждый запуск
+            messages.append("❗ LLM не отвечает, данные со страниц не извлекаются. Повторю при следующей проверке.\n"
+                            + html_escape(ctx["llm_errors"][0]))
+        state["llm_ok"] = False
+    else:
+        state["llm_ok"] = True
 
     if args.dry_run:
         print("[dry-run] файлы не изменены, Telegram не отправлялся")
