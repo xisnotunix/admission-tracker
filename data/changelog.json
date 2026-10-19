@@ -219,6 +219,559 @@
       "quote": "Application Forms along with Certificate of Health, and Recommendation Letter should be submitted to the Japanese embassy or consulate general in your country.",
       "status": "rejected",
       "resolved": "2026-10-15T13:46:31+00:00"
+    },
+    {
+      "id": "2026-10-19-001",
+      "created": "2026-10-19T12:22:07+00:00",
+      "kind": "field",
+      "program_id": "russia-quota",
+      "source_id": "ru-quota-misis",
+      "source_url": "https://misis.ru/events/6552/",
+      "field": "requirements.documents",
+      "old": {
+        "value": "Скан паспорта, скан документа об образовании (или справка из школы), скан оценок."
+      },
+      "new": {
+        "value": "Скан паспорта, скан документа об образовании (или справка с места учебы), скан с оценками",
+        "quote": "скан паспорта,\nскан документа об образовании (если вы ещё учитесь — справку с места учебы),\nскан с оценками.",
+        "source_url": "https://misis.ru/events/6552/"
+      },
+      "quote": "скан паспорта,\nскан документа об образовании (если вы ещё учитесь — справку с места учебы),\nскан с оценками.",
+      "status": "pending",
+      "resolved": null
+    },
+    {
+      "id": "2026-10-19-002",
+      "created": "2026-10-19T12:22:39+00:00",
+      "kind": "page",
+      "program_id": "gks-undergraduate",
+      "source_id": "gks-main",
+      "source_url": "https://www.studyinkorea.go.kr/",
+      "status": "info",
+      "summary": "Текст страницы изменился",
+      "diff": {
+        "added": [
+          "Gyeonggi University of Science and Technology",
+          "20",
+          "15",
+          "8",
+          "3",
+          "3",
+          "2",
+          "15"
+        ],
+        "removed": [
+          "KOREA NAZARENE UNIVERSITY",
+          "5",
+          "10",
+          "6",
+          "1",
+          "2",
+          "1",
+          "13"
+        ],
+        "added_total": 8,
+        "removed_total": 8
+      }
+    },
+    {
+      "id": "2026-10-19-003",
+      "created": "2026-10-19T12:22:48+00:00",
+      "kind": "field",
+      "program_id": "uca",
+      "source_id": "uca-overview",
+      "source_url": "https://admissions.ucentralasia.org/?p=42",
+      "field": "requirements.documents",
+      "old": {
+        "value": "Анкета этапа 1, копия паспорта/ID, фото на белом фоне (не старше 3 месяцев)."
+      },
+      "new": {
+        "value": "Заявление и дополнительные документы",
+        "quote": "Application form\nand supplementary documents",
+        "source_url": "https://admissions.ucentralasia.org/?p=42"
+      },
+      "quote": "Application form\nand supplementary documents",
+      "status": "pending",
+      "resolved": null
+    },
+    {
+      "id": "2026-10-19-004",
+      "created": "2026-10-19T12:22:56+00:00",
+      "kind": "field",
+      "program_id": "auca",
+      "source_id": "auca-freshman",
+      "source_url": "https://auca.kg/en/freshman_applicants/",
+      "field": "requirements.language",
+      "old": {
+        "value": "Один английский тест: AUCA ELPT от 430, IELTS от 4.0, TOEFL iBT от 39, Duolingo от 95."
+      },
+      "new": {
+        "value": "Сертификат по английскому языку: AUCA Test of English Language Proficiency, TOEFL или IELTS",
+        "quote": "Official English Test Certificate (only one English test certificate must be submitted):\nAUCA Test of English Language Proficiency\nor\nOfficial TOEFL Certificate",
+        "source_url": "https://auca.kg/en/freshman_applicants/"
+      },
+      "quote": "Official English Test Certificate (only one English test certificate must be submitted):\nAUCA Test of English Language Proficiency\nor\nOfficial TOEFL Certificate",
+      "status": "pending",
+      "resolved": null
+    },
+    {
+      "id": "2026-10-19-005",
+      "created": "2026-10-19T12:22:56+00:00",
+      "kind": "field",
+      "program_id": "auca",
+      "source_id": "auca-freshman",
+      "source_url": "https://auca.kg/en/freshman_applicants/",
+      "field": "requirements.exams",
+      "old": {
+        "value": "ОРТ текущего года (обязательно для граждан КР, только основной тест) + экзамен AUCA (математика и эссе) или SAT/ACT. Минимум по математике AUCA: 40 для Software Engineering и Applied Math & Informatics, 20 для социальных наук."
+      },
+      "new": {
+        "value": "Вступительный экзамен AUCA, SAT I или ACT Plus Writing; для граждан Кыргызстана обязателен сертификат Общереспубликанского тестирования (ОРТ)",
+        "quote": "Official Admission Exam Results (only one exam certificate must be submitted):\nAUCA Admission Exam\nor\nSAT Reasoning Test (SAT I)",
+        "source_url": "https://auca.kg/en/freshman_applicants/"
+      },
+      "quote": "Official Admission Exam Results (only one exam certificate must be submitted):\nAUCA Admission Exam\nor\nSAT Reasoning Test (SAT I)",
+      "status": "pending",
+      "resolved": null
+    },
+    {
+      "id": "2026-10-19-006",
+      "created": "2026-10-19T12:22:56+00:00",
+      "kind": "field",
+      "program_id": "auca",
+      "source_id": "auca-freshman",
+      "source_url": "https://auca.kg/en/freshman_applicants/",
+      "field": "requirements.documents",
+      "old": {
+        "value": "Анкета, statement of purpose до 700 слов, английский тест, экзамен AUCA/SAT, аттестат (или справка из школы), нотариальные копии табелей, копия паспорта, 2 фото 3×4, оригинал сертификата ОРТ, дипломы олимпиад."
+      },
+      "new": {
+        "value": "Заявление, мотивационное письмо (до 700 слов), копия аттестата/справка из школы, транскрипты/табели с оценками, копия паспорта, 2 фото 3x4 см, оригинал сертификата ОРТ",
+        "quote": "Copy of high school diploma or vocational education certificate or if currently enrolled in high school, a document from current school certifying that an applicant is in the final year of study",
+        "source_url": "https://auca.kg/en/freshman_applicants/"
+      },
+      "quote": "Copy of high school diploma or vocational education certificate or if currently enrolled in high school, a document from current school certifying that an applicant is in the final year of study",
+      "status": "pending",
+      "resolved": null
+    },
+    {
+      "id": "2026-10-19-007",
+      "created": "2026-10-19T12:22:56+00:00",
+      "kind": "field",
+      "program_id": "auca",
+      "source_id": "auca-freshman",
+      "source_url": "https://auca.kg/en/freshman_applicants/",
+      "field": "requirements.min_grades",
+      "old": {
+        "value": "Минимум ОРТ устанавливает министерство."
+      },
+      "new": {
+        "value": "Основной балл ОРТ не ниже порогового балла, установленного Министерством образования на год поступления",
+        "quote": "the main test score is not less than the one set by the Ministry of Education for the year of applying.",
+        "source_url": "https://auca.kg/en/freshman_applicants/"
+      },
+      "quote": "the main test score is not less than the one set by the Ministry of Education for the year of applying.",
+      "status": "pending",
+      "resolved": null
+    },
+    {
+      "id": "2026-10-19-008",
+      "created": "2026-10-19T12:23:10+00:00",
+      "kind": "field",
+      "program_id": "auca",
+      "source_id": "auca-exams",
+      "source_url": "https://auca.kg/en/auca_exams_view/",
+      "field": "requirements.exams",
+      "old": {
+        "value": "ОРТ текущего года (обязательно для граждан КР, только основной тест) + экзамен AUCA (математика и эссе) или SAT/ACT. Минимум по математике AUCA: 40 для Software Engineering и Applied Math & Informatics, 20 для социальных наук."
+      },
+      "new": {
+        "value": "Общереспубликанское тестирование (ОРТ) 2026 года (только основной тест) для граждан Кыргызстана",
+        "quote": "To be admitted to AUCA, all Kyrgyz citizens\nmust take\nthe National Testing (ОRТ) and submit valid 2026 ORT certificate. ORT score (only general section of the test is required)",
+        "source_url": "https://auca.kg/en/auca_exams_view/"
+      },
+      "quote": "To be admitted to AUCA, all Kyrgyz citizens\nmust take\nthe National Testing (ОRТ) and submit valid 2026 ORT certificate. ORT score (only general section of the test is required)",
+      "status": "pending",
+      "resolved": null
+    },
+    {
+      "id": "2026-10-19-009",
+      "created": "2026-10-19T12:23:10+00:00",
+      "kind": "field",
+      "program_id": "auca",
+      "source_id": "auca-exams",
+      "source_url": "https://auca.kg/en/auca_exams_view/",
+      "field": "requirements.documents",
+      "old": {
+        "value": "Анкета, statement of purpose до 700 слов, английский тест, экзамен AUCA/SAT, аттестат (или справка из школы), нотариальные копии табелей, копия паспорта, 2 фото 3×4, оригинал сертификата ОРТ, дипломы олимпиад."
+      },
+      "new": {
+        "value": "Заявление на поступление со всеми необходимыми документами, сертификат ОРТ 2026 года",
+        "quote": "fill out the application for admission\nonline\nor submit a\nhard copy of your application\nalong with all\nnecessary documents",
+        "source_url": "https://auca.kg/en/auca_exams_view/"
+      },
+      "quote": "fill out the application for admission\nonline\nor submit a\nhard copy of your application\nalong with all\nnecessary documents",
+      "status": "pending",
+      "resolved": null
+    },
+    {
+      "id": "2026-10-19-010",
+      "created": "2026-10-19T12:23:10+00:00",
+      "kind": "field",
+      "program_id": "auca",
+      "source_id": "auca-exams",
+      "source_url": "https://auca.kg/en/auca_exams_view/",
+      "field": "requirements.min_grades",
+      "old": {
+        "value": "Минимум ОРТ устанавливает министерство."
+      },
+      "new": {
+        "value": "Балл ОРТ должен соответствовать минимальному требованию МОН КР для частных университетов",
+        "quote": "ORT score (only general section of the test is required) must meet the minimum requirement set by the Kyrgyz Republic Ministry of Education and Sciences for private universities.",
+        "source_url": "https://auca.kg/en/auca_exams_view/"
+      },
+      "quote": "ORT score (only general section of the test is required) must meet the minimum requirement set by the Kyrgyz Republic Ministry of Education and Sciences for private universities.",
+      "status": "pending",
+      "resolved": null
+    },
+    {
+      "id": "2026-10-19-011",
+      "created": "2026-10-19T12:23:28+00:00",
+      "kind": "field",
+      "program_id": "auca",
+      "source_id": "auca-scoring",
+      "source_url": "https://auca.kg/en/auca_exams_scoring/",
+      "field": "requirements.language",
+      "old": {
+        "value": "Один английский тест: AUCA ELPT от 430, IELTS от 4.0, TOEFL iBT от 39, Duolingo от 95."
+      },
+      "new": {
+        "value": "ELPT от 430, TOEFL PBT от 430, TOEFL iBT (old) от 39, TOEFL iBT (new) от 2.5, IELTS от 4.0 или Duolingo от 95",
+        "quote": "Minimum English Score Requirement\nELPT\nTOEFL PBT\nTOEFL iBT (old)\nTOEFL iBT (new)\nIELTS\nDuolingo\n430\n430\n39\n2.5\n4.0\n95",
+        "source_url": "https://auca.kg/en/auca_exams_scoring/"
+      },
+      "quote": "Minimum English Score Requirement\nELPT\nTOEFL PBT\nTOEFL iBT (old)\nTOEFL iBT (new)\nIELTS\nDuolingo\n430\n430\n39\n2.5\n4.0\n95",
+      "status": "pending",
+      "resolved": null
+    },
+    {
+      "id": "2026-10-19-012",
+      "created": "2026-10-19T12:23:28+00:00",
+      "kind": "field",
+      "program_id": "auca",
+      "source_id": "auca-scoring",
+      "source_url": "https://auca.kg/en/auca_exams_scoring/",
+      "field": "requirements.exams",
+      "old": {
+        "value": "ОРТ текущего года (обязательно для граждан КР, только основной тест) + экзамен AUCA (математика и эссе) или SAT/ACT. Минимум по математике AUCA: 40 для Software Engineering и Applied Math & Informatics, 20 для социальных наук."
+      },
+      "new": {
+        "value": "Вступительные экзамены AUCA Math и AUCA Essay (либо эквиваленты SAT / ACT)",
+        "quote": "Minimum Admission Exam Score Requirement\nACADEMIC DEPARTMENT\nAUCA MATH\nAUCA ESSAY",
+        "source_url": "https://auca.kg/en/auca_exams_scoring/"
+      },
+      "quote": "Minimum Admission Exam Score Requirement\nACADEMIC DEPARTMENT\nAUCA MATH\nAUCA ESSAY",
+      "status": "pending",
+      "resolved": null
+    },
+    {
+      "id": "2026-10-19-013",
+      "created": "2026-10-19T12:23:38+00:00",
+      "kind": "page",
+      "program_id": "harvard",
+      "source_id": "harvard-firstyear",
+      "source_url": "https://college.harvard.edu/admissions/apply/first-year-applicants",
+      "status": "info",
+      "summary": "Первый снимок страницы",
+      "diff": null
+    },
+    {
+      "id": "2026-10-19-014",
+      "created": "2026-10-19T12:23:38+00:00",
+      "kind": "field",
+      "program_id": "harvard",
+      "source_id": "harvard-firstyear",
+      "source_url": "https://college.harvard.edu/admissions/apply/first-year-applicants",
+      "field": "requirements.exams",
+      "old": {
+        "value": "SAT или ACT обязательны."
+      },
+      "new": {
+        "value": "SAT или ACT (в исключительных случаях допускаются AP, IB, A-Level или национальные выпускные экзамены)",
+        "quote": "SAT or ACT - In exceptional cases when those tests are not accessible, one of the following can meet the requirement:",
+        "source_url": "https://college.harvard.edu/admissions/apply/first-year-applicants"
+      },
+      "quote": "SAT or ACT - In exceptional cases when those tests are not accessible, one of the following can meet the requirement:",
+      "status": "pending",
+      "resolved": null
+    },
+    {
+      "id": "2026-10-19-015",
+      "created": "2026-10-19T12:23:38+00:00",
+      "kind": "field",
+      "program_id": "harvard",
+      "source_id": "harvard-firstyear",
+      "source_url": "https://college.harvard.edu/admissions/apply/first-year-applicants",
+      "field": "requirements.documents",
+      "old": {
+        "value": "Common App + Harvard supplement, рекомендации, school report, тесты."
+      },
+      "new": {
+        "value": "Common Application, эссе, вопросы Harvard College, сбор $95 / fee waiver, школьный отчет и транскрипт, 2 рекомендации учителей",
+        "quote": "School Report (which includes a counselor letter) and high school transcript\nTeacher Recommendations (2)\nMidyear School Report (after your first semester grades)",
+        "source_url": "https://college.harvard.edu/admissions/apply/first-year-applicants"
+      },
+      "quote": "School Report (which includes a counselor letter) and high school transcript\nTeacher Recommendations (2)\nMidyear School Report (after your first semester grades)",
+      "status": "pending",
+      "resolved": null
+    },
+    {
+      "id": "2026-10-19-016",
+      "created": "2026-10-19T12:24:01+00:00",
+      "kind": "page",
+      "program_id": "harvard",
+      "source_id": "harvard-aid",
+      "source_url": "https://college.harvard.edu/financial-aid/how-aid-works",
+      "status": "info",
+      "summary": "Первый снимок страницы",
+      "diff": null
+    },
+    {
+      "id": "2026-10-19-017",
+      "created": "2026-10-19T12:24:22+00:00",
+      "kind": "page",
+      "program_id": "yale",
+      "source_id": "yale-deadlines",
+      "source_url": "https://admissions.yale.edu/application-deadlines",
+      "status": "info",
+      "summary": "Первый снимок страницы",
+      "diff": null
+    },
+    {
+      "id": "2026-10-19-018",
+      "created": "2026-10-19T12:24:22+00:00",
+      "kind": "field",
+      "program_id": "yale",
+      "source_id": "yale-deadlines",
+      "source_url": "https://admissions.yale.edu/application-deadlines",
+      "field": "requirements.exams",
+      "old": {
+        "value": "SAT или ACT обязательны."
+      },
+      "new": {
+        "value": "ACT или SAT",
+        "quote": "First-year and transfer applicants must include scores from the ACT or SAT when applying.",
+        "source_url": "https://admissions.yale.edu/application-deadlines"
+      },
+      "quote": "First-year and transfer applicants must include scores from the ACT or SAT when applying.",
+      "status": "pending",
+      "resolved": null
+    },
+    {
+      "id": "2026-10-19-019",
+      "created": "2026-10-19T12:24:32+00:00",
+      "kind": "page",
+      "program_id": "yale",
+      "source_id": "yale-international",
+      "source_url": "https://admissions.yale.edu/applying-yale-international-student",
+      "status": "info",
+      "summary": "Первый снимок страницы",
+      "diff": null
+    },
+    {
+      "id": "2026-10-19-020",
+      "created": "2026-10-19T12:24:32+00:00",
+      "kind": "field",
+      "program_id": "yale",
+      "source_id": "yale-international",
+      "source_url": "https://admissions.yale.edu/applying-yale-international-student",
+      "field": "requirements.language",
+      "old": {
+        "value": "TOEFL/IELTS и др., если меньше 2 лет учились на английском."
+      },
+      "new": {
+        "value": "Тест на знание английского языка (TOEFL, IELTS, Cambridge English, DET, InitialView) обязателен, если заявитель не учился минимум 2 года в англоязычной школе",
+        "quote": "N\non-native English-speakers who have not taken at least two years of secondary education where English is the medium of instruction are required to submit results from any of the proficiency tests below.",
+        "source_url": "https://admissions.yale.edu/applying-yale-international-student"
+      },
+      "quote": "N\non-native English-speakers who have not taken at least two years of secondary education where English is the medium of instruction are required to submit results from any of the proficiency tests below.",
+      "status": "pending",
+      "resolved": null
+    },
+    {
+      "id": "2026-10-19-021",
+      "created": "2026-10-19T12:24:32+00:00",
+      "kind": "field",
+      "program_id": "yale",
+      "source_id": "yale-international",
+      "source_url": "https://admissions.yale.edu/applying-yale-international-student",
+      "field": "requirements.documents",
+      "old": {
+        "value": "Рекомендации, school report с табелем, тесты."
+      },
+      "new": {
+        "value": "Все документы (включая транскрипты и рекомендации) не на английском языке должны сопровождаться заверенным переводом",
+        "quote": "If any of your documents, including transcripts and letters of recommendation, are in a language other than English, they must be accompanied by a certified translation.",
+        "source_url": "https://admissions.yale.edu/applying-yale-international-student"
+      },
+      "quote": "If any of your documents, including transcripts and letters of recommendation, are in a language other than English, they must be accompanied by a certified translation.",
+      "status": "pending",
+      "resolved": null
+    },
+    {
+      "id": "2026-10-19-022",
+      "created": "2026-10-19T12:24:43+00:00",
+      "kind": "page",
+      "program_id": "mit",
+      "source_id": "mit-deadlines",
+      "source_url": "https://mitadmissions.org/apply/firstyear/deadlines-requirements/",
+      "status": "info",
+      "summary": "Первый снимок страницы",
+      "diff": null
+    },
+    {
+      "id": "2026-10-19-023",
+      "created": "2026-10-19T12:24:43+00:00",
+      "kind": "field",
+      "program_id": "mit",
+      "source_id": "mit-deadlines",
+      "source_url": "https://mitadmissions.org/apply/firstyear/deadlines-requirements/",
+      "field": "requirements.language",
+      "old": {
+        "value": "TOEFL/IELTS/Duolingo настоятельно рекомендуются неносителям; для RA — сдать до 31 января."
+      },
+      "new": {
+        "value": "Экзамены по английскому языку настоятельно рекомендуются для определенных кандидатов, для которых английский не является родным",
+        "quote": "English proficiency exams\nare strongly recommended for certain non-native English speakers.",
+        "source_url": "https://mitadmissions.org/apply/firstyear/deadlines-requirements/"
+      },
+      "quote": "English proficiency exams\nare strongly recommended for certain non-native English speakers.",
+      "status": "pending",
+      "resolved": null
+    },
+    {
+      "id": "2026-10-19-024",
+      "created": "2026-10-19T12:24:43+00:00",
+      "kind": "field",
+      "program_id": "mit",
+      "source_id": "mit-deadlines",
+      "source_url": "https://mitadmissions.org/apply/firstyear/deadlines-requirements/",
+      "field": "requirements.documents",
+      "old": {
+        "value": "Собственная анкета MIT (не Common App): эссе, активности, 2 рекомендации, тесты."
+      },
+      "new": {
+        "value": "Школьный отчет (SSR) и транскрипты из каждой посещенной старшей школы и колледжа, два рекомендательных письма от учителей",
+        "quote": "We require transcripts from each high school and college attended.",
+        "source_url": "https://mitadmissions.org/apply/firstyear/deadlines-requirements/"
+      },
+      "quote": "We require transcripts from each high school and college attended.",
+      "status": "pending",
+      "resolved": null
+    },
+    {
+      "id": "2026-10-19-025",
+      "created": "2026-10-19T12:24:59+00:00",
+      "kind": "page",
+      "program_id": "mit",
+      "source_id": "mit-aid",
+      "source_url": "https://sfs.mit.edu/undergraduate-students/apply-for-aid/deadlines-requirements",
+      "status": "info",
+      "summary": "Первый снимок страницы",
+      "diff": null
+    },
+    {
+      "id": "2026-10-19-026",
+      "created": "2026-10-19T12:24:59+00:00",
+      "kind": "field",
+      "program_id": "mit",
+      "source_id": "mit-aid",
+      "source_url": "https://sfs.mit.edu/undergraduate-students/apply-for-aid/deadlines-requirements",
+      "field": "requirements.documents",
+      "old": {
+        "value": "Собственная анкета MIT (не Common App): эссе, активности, 2 рекомендации, тесты."
+      },
+      "new": {
+        "value": "CSS Profile и налоговые декларации родителей или подтверждение доходов через IDOC (для финансовой помощи)",
+        "quote": "all students must submit the CSS Profile and parental tax returns or income documentation through IDOC",
+        "source_url": "https://sfs.mit.edu/undergraduate-students/apply-for-aid/deadlines-requirements"
+      },
+      "quote": "all students must submit the CSS Profile and parental tax returns or income documentation through IDOC",
+      "status": "pending",
+      "resolved": null
+    },
+    {
+      "id": "2026-10-19-027",
+      "created": "2026-10-19T12:25:12+00:00",
+      "kind": "page",
+      "program_id": "bowdoin",
+      "source_id": "bowdoin-apply",
+      "source_url": "https://www.bowdoin.edu/admissions/apply/index.html",
+      "status": "info",
+      "summary": "Первый снимок страницы",
+      "diff": null
+    },
+    {
+      "id": "2026-10-19-028",
+      "created": "2026-10-19T12:25:12+00:00",
+      "kind": "field",
+      "program_id": "bowdoin",
+      "source_id": "bowdoin-apply",
+      "source_url": "https://www.bowdoin.edu/admissions/apply/index.html",
+      "field": "requirements.language",
+      "old": {
+        "value": "Английский тест — по желанию."
+      },
+      "new": {
+        "value": "Тесты на знание английского языка опциональны",
+        "quote": "It is optional for international students to submit English proficiency test scores; we will review your scores if you choose to send them or include them with your application.",
+        "source_url": "https://www.bowdoin.edu/admissions/apply/index.html"
+      },
+      "quote": "It is optional for international students to submit English proficiency test scores; we will review your scores if you choose to send them or include them with your application.",
+      "status": "pending",
+      "resolved": null
+    },
+    {
+      "id": "2026-10-19-029",
+      "created": "2026-10-19T12:25:12+00:00",
+      "kind": "field",
+      "program_id": "bowdoin",
+      "source_id": "bowdoin-apply",
+      "source_url": "https://www.bowdoin.edu/admissions/apply/index.html",
+      "field": "requirements.exams",
+      "old": {
+        "value": "Test-optional: SAT/ACT не обязательны."
+      },
+      "new": {
+        "value": "Тест-опционально (баллы SAT/ACT не требуются)",
+        "quote": "Bowdoin has been test optional for more than 50 years. ACT or SAT scores are not required for the purpose of admission.",
+        "source_url": "https://www.bowdoin.edu/admissions/apply/index.html"
+      },
+      "quote": "Bowdoin has been test optional for more than 50 years. ACT or SAT scores are not required for the purpose of admission.",
+      "status": "pending",
+      "resolved": null
+    },
+    {
+      "id": "2026-10-19-030",
+      "created": "2026-10-19T12:25:25+00:00",
+      "kind": "page",
+      "program_id": "bowdoin",
+      "source_id": "bowdoin-aid",
+      "source_url": "https://www.bowdoin.edu/student-aid/apply-for-aid/international-students.html",
+      "status": "info",
+      "summary": "Первый снимок страницы",
+      "diff": null
+    },
+    {
+      "id": "2026-10-19-031",
+      "created": "2026-10-19T12:25:36+00:00",
+      "kind": "page",
+      "program_id": null,
+      "source_id": "sat-dates",
+      "source_url": "https://satsuite.collegeboard.org/sat/dates-deadlines",
+      "status": "info",
+      "summary": "Первый снимок страницы",
+      "diff": null
     }
   ]
 }
