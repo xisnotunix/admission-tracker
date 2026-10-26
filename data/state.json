@@ -2,18 +2,18 @@
   "sources": {
     "kg-ministry-contests": {
       "url": "https://student.edu.gov.kg/",
-      "last_checked": "2026-10-19T12:21:58+00:00",
+      "last_checked": "2026-10-26T12:23:43+00:00",
       "error": null,
       "errors_in_row": 0,
-      "hash": "105f2a769d3798233302c41228e92d20245b12914e09b20fa19df6dc07faafa1",
-      "last_changed": "2026-10-15T13:14:14+00:00",
+      "hash": "018e475ceb5831a310303b42832c1c224bd298c3e8e15f236285da6e5d8b20fb",
+      "last_changed": "2026-10-26T12:23:43+00:00",
       "last_error_at": "2026-10-15T13:14:16+00:00",
-      "llm_pending": false,
-      "llm_error": null
+      "llm_pending": true,
+      "llm_error": "HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=120)"
     },
     "sh-apply": {
       "url": "https://stipendiumhungaricum.hu/apply/",
-      "last_checked": "2026-10-19T12:22:00+00:00",
+      "last_checked": "2026-10-26T12:26:49+00:00",
       "error": null,
       "errors_in_row": 0,
       "hash": "e60ce0b8dd29e9962130d801ca0376bfd59127a91bb1186c1859a46465d6eddf",
@@ -24,7 +24,7 @@
     },
     "sh-main": {
       "url": "https://stipendiumhungaricum.hu/",
-      "last_checked": "2026-10-19T12:22:01+00:00",
+      "last_checked": "2026-10-26T12:26:50+00:00",
       "error": null,
       "errors_in_row": 0,
       "hash": "8a2fa5a973b1d148ca155717c4065c000aad0c8bbd789e7c97e546d093a85ff9",
@@ -35,7 +35,7 @@
     },
     "sh-portal": {
       "url": "https://apply.stipendiumhungaricum.hu/",
-      "last_checked": "2026-10-19T12:22:02+00:00",
+      "last_checked": "2026-10-26T12:26:51+00:00",
       "error": null,
       "errors_in_row": 0,
       "hash": "bb44f0ed078608eb991c117efc2e1055d5753971cd811cf74f7eda5a4dc2e3b1",
@@ -46,7 +46,7 @@
     },
     "mext-undergrad": {
       "url": "https://www.studyinjapan.go.jp/en/smap-stopj-applications-undergraduate.html",
-      "last_checked": "2026-10-19T12:22:04+00:00",
+      "last_checked": "2026-10-26T12:26:52+00:00",
       "error": null,
       "errors_in_row": 0,
       "hash": "65da06cc534ecdc0c12bf490819846d0c34747ed893630ce20daa0bc362ff2b7",
@@ -57,7 +57,7 @@
     },
     "tb-announcement": {
       "url": "https://turkiyeburslari.gov.tr/duyurular/turkiye-burslari-2026-basvurulari-121",
-      "last_checked": "2026-10-19T12:22:05+00:00",
+      "last_checked": "2026-10-26T12:26:53+00:00",
       "error": null,
       "errors_in_row": 0,
       "hash": "ccaa2fa4e8cd3402e0203b5bf86cc177d99a5897000cc4472539bd495515c4ce",
@@ -68,7 +68,7 @@
     },
     "tb-main": {
       "url": "https://turkiyeburslari.gov.tr/",
-      "last_checked": "2026-10-19T12:22:06+00:00",
+      "last_checked": "2026-10-26T12:26:54+00:00",
       "error": null,
       "errors_in_row": 0,
       "hash": "93b330a1f834bf48d82915c9cddca442ed75206c464dcdfcb9db49c0aaf9ef80",
@@ -82,7 +82,7 @@
       "last_error_at": "2026-10-15T13:15:08+00:00",
       "error": null,
       "errors_in_row": 0,
-      "last_checked": "2026-10-19T12:22:07+00:00",
+      "last_checked": "2026-10-26T12:26:55+00:00",
       "hash": "a59a56a84af257f4d44d2f555024daa153c20d816ce8b93c5fd659e5ef11a350",
       "last_changed": "2026-10-15T13:19:50+00:00",
       "llm_pending": false,
@@ -90,18 +90,18 @@
     },
     "gks-main": {
       "url": "https://www.studyinkorea.go.kr/",
-      "last_checked": "2026-10-19T12:22:39+00:00",
+      "last_checked": "2026-10-26T12:26:57+00:00",
       "error": null,
       "errors_in_row": 0,
-      "hash": "b0aa82301eda9dd032dcacfa2ff88e6b37c83c720123255d8589ac9e9dc556d3",
-      "last_changed": "2026-10-19T12:22:39+00:00",
+      "hash": "5d5ec2cdf93002375ab5cd5b82217d0d616b6052f146ee66789cb67950f19e52",
+      "last_changed": "2026-10-26T12:26:57+00:00",
       "last_error_at": "2026-10-15T13:15:11+00:00",
-      "llm_pending": false,
-      "llm_error": null
+      "llm_pending": true,
+      "llm_error": "HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=120)"
     },
     "uca-overview": {
       "url": "https://admissions.ucentralasia.org/?p=42",
-      "last_checked": "2026-10-19T12:22:48+00:00",
+      "last_checked": "2026-10-26T12:30:40+00:00",
       "error": null,
       "errors_in_row": 0,
       "hash": "ba360571e9e488ae3b76b031e9dd17b077662b617a698eb572ae285397704f8f",
@@ -112,7 +112,7 @@
     },
     "uca-stage1": {
       "url": "https://admissions.ucentralasia.org/apply/stage-1/",
-      "last_checked": "2026-10-19T12:22:56+00:00",
+      "last_checked": "2026-10-26T12:30:41+00:00",
       "error": null,
       "errors_in_row": 0,
       "hash": "9931e4ab9d1a44ba3411747ce4817b3cbe5343a82e36b3cbadb2de2a31056392",
@@ -123,7 +123,7 @@
     },
     "auca-freshman": {
       "url": "https://auca.kg/en/freshman_applicants/",
-      "last_checked": "2026-10-19T12:22:56+00:00",
+      "last_checked": "2026-10-26T12:30:41+00:00",
       "error": null,
       "errors_in_row": 0,
       "hash": "2aa23171c3fd2db820cd4ceb9a1d4ff30c09a93c23370edec29a03053ede94d6",
@@ -134,7 +134,7 @@
     },
     "auca-exams": {
       "url": "https://auca.kg/en/auca_exams_view/",
-      "last_checked": "2026-10-19T12:23:10+00:00",
+      "last_checked": "2026-10-26T12:30:47+00:00",
       "error": null,
       "errors_in_row": 0,
       "hash": "e3dfc773ea5f4b5c261786cc5b4c3fde3eb8ec32aa1726a0795bd5b5a16de708",
@@ -145,7 +145,7 @@
     },
     "auca-scoring": {
       "url": "https://auca.kg/en/auca_exams_scoring/",
-      "last_checked": "2026-10-19T12:23:28+00:00",
+      "last_checked": "2026-10-26T12:30:47+00:00",
       "error": null,
       "errors_in_row": 0,
       "hash": "8ba1b8a13d6dcba6ec1d8666ce2900022176e3b9970ee105c0cf3dca119c1ec0",
@@ -156,7 +156,7 @@
     },
     "harvard-firstyear": {
       "url": "https://college.harvard.edu/admissions/apply/first-year-applicants",
-      "last_checked": "2026-10-19T12:23:38+00:00",
+      "last_checked": "2026-10-26T12:30:48+00:00",
       "error": null,
       "errors_in_row": 0,
       "hash": "fe2aec379cd050ecd83f8f6b25928755c62514c1b0689f796f45e57f586af111",
@@ -166,7 +166,7 @@
     },
     "harvard-aid": {
       "url": "https://college.harvard.edu/financial-aid/how-aid-works",
-      "last_checked": "2026-10-19T12:24:01+00:00",
+      "last_checked": "2026-10-26T12:30:48+00:00",
       "error": null,
       "errors_in_row": 0,
       "hash": "2defdfbfb73d21052660653723e076369bf59ce8323ae99349246766e5f4c315",
@@ -176,7 +176,7 @@
     },
     "yale-deadlines": {
       "url": "https://admissions.yale.edu/application-deadlines",
-      "last_checked": "2026-10-19T12:24:22+00:00",
+      "last_checked": "2026-10-26T12:30:50+00:00",
       "error": null,
       "errors_in_row": 0,
       "hash": "88726adde4f71aa5d5bf5e099b4384cc7d38f8e13006ae622918e9f2a801a61a",
@@ -186,7 +186,7 @@
     },
     "yale-international": {
       "url": "https://admissions.yale.edu/applying-yale-international-student",
-      "last_checked": "2026-10-19T12:24:32+00:00",
+      "last_checked": "2026-10-26T12:30:50+00:00",
       "error": null,
       "errors_in_row": 0,
       "hash": "8eb0b1058be583048355175f3aa12ddb61c3e75afc6d64bc8f2e6ac08eb915e0",
@@ -197,12 +197,17 @@
     "princeton-dates": {
       "url": "https://admission.princeton.edu/apply/first-year-application-dates-deadlines",
       "last_error_at": "2026-10-19T12:24:43+00:00",
-      "error": "HTTPSConnectionPool(host='admission.princeton.edu', port=443): Max retries exceeded with url: /apply/first-year-application-dates-deadlines (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.",
-      "errors_in_row": 1
+      "error": null,
+      "errors_in_row": 0,
+      "last_checked": "2026-10-26T12:30:50+00:00",
+      "hash": "39a92b13e4310f46e6affc1cb2dd1afd7664f724e22f143cf443f379eeba2870",
+      "last_changed": "2026-10-26T12:30:50+00:00",
+      "llm_pending": true,
+      "llm_error": "HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=120)"
     },
     "mit-deadlines": {
       "url": "https://mitadmissions.org/apply/firstyear/deadlines-requirements/",
-      "last_checked": "2026-10-19T12:24:43+00:00",
+      "last_checked": "2026-10-26T12:32:51+00:00",
       "error": null,
       "errors_in_row": 0,
       "hash": "1e796c2f6fd059affec79088dae4e7662f6b001035d3d7337b37f2cae90807df",
@@ -212,7 +217,7 @@
     },
     "mit-aid": {
       "url": "https://sfs.mit.edu/undergraduate-students/apply-for-aid/deadlines-requirements",
-      "last_checked": "2026-10-19T12:24:59+00:00",
+      "last_checked": "2026-10-26T12:32:51+00:00",
       "error": null,
       "errors_in_row": 0,
       "hash": "90733a7d7cd37c1e6a4d58a0e92208eaf2c683ac1b0f2e55c4e17e17617ae736",
@@ -223,12 +228,17 @@
     "dartmouth-apply": {
       "url": "https://admissions.dartmouth.edu/apply-dartmouth",
       "last_error_at": "2026-10-19T12:25:12+00:00",
-      "error": "HTTPSConnectionPool(host='admissions.dartmouth.edu', port=443): Max retries exceeded with url: /apply-dartmouth (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))",
-      "errors_in_row": 1
+      "error": null,
+      "errors_in_row": 0,
+      "last_checked": "2026-10-26T12:32:52+00:00",
+      "hash": "906d94e494aecafef93bfab1a0e755f975399856fdc4c3bda62643ed2abcefaa",
+      "last_changed": "2026-10-26T12:32:52+00:00",
+      "llm_pending": true,
+      "llm_error": "HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=120)"
     },
     "bowdoin-apply": {
       "url": "https://www.bowdoin.edu/admissions/apply/index.html",
-      "last_checked": "2026-10-19T12:25:12+00:00",
+      "last_checked": "2026-10-26T12:35:13+00:00",
       "error": null,
       "errors_in_row": 0,
       "hash": "f778daac685234ba13782c796e45666520f0118cd0b203c38ebb0b6ee40d5de7",
@@ -238,7 +248,7 @@
     },
     "bowdoin-aid": {
       "url": "https://www.bowdoin.edu/student-aid/apply-for-aid/international-students.html",
-      "last_checked": "2026-10-19T12:25:25+00:00",
+      "last_checked": "2026-10-26T12:35:14+00:00",
       "error": null,
       "errors_in_row": 0,
       "hash": "9b2a70e865c2b7db43260bef6ebc44e2d44cf11b018b7acd06a411b467617577",
@@ -249,23 +259,33 @@
     "nyuad-dates": {
       "url": "https://nyuad.nyu.edu/en/apply/undergraduate/apply/key-dates-and-deadlines.html",
       "last_error_at": "2026-10-19T12:25:35+00:00",
-      "error": "HTTPSConnectionPool(host='nyuad.nyu.edu', port=443): Max retries exceeded with url: /en/apply/undergraduate/apply/key-dates-and-deadlines.html (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_s",
-      "errors_in_row": 1
+      "error": null,
+      "errors_in_row": 0,
+      "last_checked": "2026-10-26T12:35:14+00:00",
+      "hash": "59acca2f7aaa634db59e614cada2083e7e309423b27ec619bf3b40dda35c5c21",
+      "last_changed": "2026-10-26T12:35:14+00:00",
+      "llm_pending": true,
+      "llm_error": "HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=120)"
     },
     "nyuad-aid": {
       "url": "https://nyuad.nyu.edu/en/apply/undergraduate/scholarships-and-financial-aid.html",
       "last_error_at": "2026-10-19T12:25:36+00:00",
-      "error": "HTTPSConnectionPool(host='nyuad.nyu.edu', port=443): Max retries exceeded with url: /en/apply/undergraduate/scholarships-and-financial-aid.html (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_",
-      "errors_in_row": 1
+      "error": null,
+      "errors_in_row": 0,
+      "last_checked": "2026-10-26T12:37:30+00:00",
+      "hash": "e940c25c54688de7c327065cfc4adff274ee0164039f9a850735d154f493a05f",
+      "last_changed": "2026-10-26T12:37:30+00:00",
+      "llm_pending": true,
+      "llm_error": "HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=120)"
     },
     "sat-dates": {
       "url": "https://satsuite.collegeboard.org/sat/dates-deadlines",
-      "last_checked": "2026-10-19T12:25:36+00:00",
+      "last_checked": "2026-10-26T12:39:31+00:00",
       "error": null,
       "errors_in_row": 0,
-      "hash": "1715c25a9987afd7b594421fc6ee304ea9efa28d66a2a8701c54d8d2e4f32699",
-      "last_changed": "2026-10-19T12:25:36+00:00"
+      "hash": "df8625518aed7ad284e65eeecc6469c51ec5c27122e5a45640355a1d530a1a03",
+      "last_changed": "2026-10-26T12:39:31+00:00"
     }
   },
-  "llm_ok": true
+  "llm_ok": false
 }

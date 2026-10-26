@@ -64,24 +64,6 @@ Pause
 Play
 Close
 Don't show this popup again today.
-STUDY IN KOREA COLLEGE FAIR IN USA(LA)
-2026.10.19.~2026.10.19.
-Web Tour
-STUDY IN KOREA COLLEGE FAIR IN USA(LA)
-2026.10.19.~2026.10.19.
-Web Tour
-STUDY IN KOREA Education Fair in Uzbekistan
-2026.10.23.~2026.10.24.
-Web Tour
-STUDY IN KOREA Education Fair in Uzbekistan
-2026.10.23.~2026.10.24.
-Web Tour
-STUDY IN KOREA Education Fair in Kazakhstan
-2026.10.25.~2026.10.25.
-Web Tour
-STUDY IN KOREA Education Fair in Kazakhstan
-2026.10.25.~2026.10.25.
-Web Tour
 STUDY IN KOREA Education Fair in Vietnam
 2026.10.31.~2026.11.1.
 Web Tour
@@ -166,18 +148,6 @@ For Those Who Have Completed Their Studies in Korea
 Online Education Fair
 Special
 Online Education Fair
-STUDY IN KOREA COLLEGE FAIR IN USA(LA)
-Education Fair
-STUDY IN KOREA COLLEGE FAIR IN USA(LA)
-2026-10-19 ~ 2026-10-19
-STUDY IN KOREA Education Fair in Uzbekistan
-Education Fair
-STUDY IN KOREA Education Fair in Uzbekistan
-2026-10-23 ~ 2026-10-24
-STUDY IN KOREA Education Fair in Kazakhstan
-Education Fair
-STUDY IN KOREA Education Fair in Kazakhstan
-2026-10-25 ~ 2026-10-25
 STUDY IN KOREA Education Fair in Vietnam
 Education Fair
 STUDY IN KOREA Education Fair in Vietnam
@@ -196,7 +166,7 @@ STUDY IN KOREA Education Fair in Chile
 2026-11-14 ~ 2026-11-15
 Application for University
 View more
-Gyeonggi University of Science and Technology
+GYEONGSANG NATIONAL UNIVERSITY
 KYUNG HEE UNIVERSITY
 KWANGWOON UNIVERSITY
 DAEJIN UNIVERSITY
@@ -210,6 +180,8 @@ Ajou University
 Ulsan National Institute of Science and Technology (UNIST)
 UNIVERSITY OF ULSAN
 INHA UNIVERSITY
+CHA UNIVERSITY
+CHANGWON NATIONAL UNIVERSITY
 HANYANG WOMEN`S UNIVERSITY
 Bachelor`s
 1
@@ -254,6 +226,9 @@ KOWORK Job Information
 Notice & News
 View more
 Notice
+2026 경남 글로벌 혁신 페스타(G-NEX) 외국인 유학생 채용박람회 안내 [Notice on 2026 Gyeongnam Global Innovation Festa (G-NEX) – Job Fair for International Students]
+2026-10-23
+Notice
 2026년 한국유학 홍보 숏폼 영상 공모전 결과 발표 / 2026 Study in Korea Promotion Short-form Video Contest Announcement
 2026-10-08
 Notice
@@ -265,20 +240,21 @@ Notice
 Notice
 2026 Global Talent Fair for International Students with Promising Middle-market Enterprises
 2026-09-14
-Notice
-[2026 산학연협력 EXPO] 외국인 유학생 취업 컨설팅 안내
-2026-08-31
 Online Inquiry
 FAQ
 Study Abroad Stories
 International Student Association Community
 Connect with Your Country’s Student Association in Korea!
 SNS (
-11
+12
 )
 Posts (
-254
+258
 )
+Ghana
+가나 유학생 및 동문 협회 (가스카)
+가나 유학생 및 동문 협회(GHASKA)는 회원 복지, 학업·진로 지원, 문화교류 및 한-가나 우호 증진을 위해 활동하는 단체입니다
+https://www.instagram.com/ghaska_official/
 Democratic Republic of the Congo
 DECOC (Congolese Elite Community in South Korea)
 DECOC seeks to strengthen ties among congolese Elites, and promote intellectual and cultural values.
@@ -315,51 +291,47 @@ Indonesia
 PERPIKA
 PERPIKA (Persatuan Pelajar Indonesia di Korea Selatan) / Indonesian Students Association in Korea
 https://www.instagram.com/perpika/
-Philippines
-PIKO (주한필리핀유학생협회, Pinoy Iskolars sa Korea)
-Established in 2006, the official Filipino student organization in South Korea.
-https://www.instagram.com/piko.kr/
 View All Social Media
+Philippines
+PIKO at the ASEAN Youth Leadership & Cultural Exchange Camp 2026
+2026-10-19
+13
+India
+ISRK Autumn Trip – Seoraksan, Sokcho beach and Goseong DMZ
+2026-10-18
+6
+Philippines
+PIKO Sportsfest 2026 Brings Filipino Students Together in Busan
+2026-10-16
+1
+Philippines
+PIKO Welcomes New Faces at the 2026 Fall Welcome Assembly
+2026-10-16
+6
 Philippines
 Affordable Pathways: Undergraduate Programs in Japan and Korea
 2026-10-13
-20
+28
 Philippines
 [EVENT] K-Career Connect 2026: Company Tour & Career Seminar
 2026-10-12
-15
+19
 India
 Indian Cultural Event – Garba Mahotsav 2026, Daejeon
 2026-10-12
-8
+18
 India
 ISRK at 2nd Seoul Together Harmony Festival
 2026-10-12
-3
+5
 India
 India–Korea Business & Innovation Networking Forum
 2026-10-12
-3
+7
 India
 ISRK at Rajasthan (India) Festival 2026 at Nami Island
 2026-10-12
-3
-Democratic Republic of the Congo
-DECOC SEMINAR : Sexual Offenses and Drug-Related Cases
-2026-10-09
-3
-Democratic Republic of the Congo
-International Women’s Day 2026
-2026-10-09
-2
-Ghana
-GHASKA May 2026 Cultural Exchange & Community Festival
-2026-10-08
-15
-Ghana
-GHASKA Innovative Conference (GIC 2026)
-2026-10-08
-13
+4
 View All Posts
 Why Korea
 Well-established Government Support
