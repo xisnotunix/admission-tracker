@@ -64,12 +64,6 @@ Pause
 Play
 Close
 Don't show this popup again today.
-STUDY IN KOREA Education Fair in Vietnam
-2026.10.31.~2026.11.1.
-Web Tour
-STUDY IN KOREA Education Fair in Vietnam
-2026.10.31.~2026.11.1.
-Web Tour
 STUDY IN KOREA Education Fair in Mexico(Mexico City)
 2026.11.6.~2026.11.7.
 Web Tour
@@ -154,10 +148,6 @@ For Those Who Have Completed Their Studies in Korea
 Online Education Fair
 Special
 Online Education Fair
-STUDY IN KOREA Education Fair in Vietnam
-Education Fair
-STUDY IN KOREA Education Fair in Vietnam
-2026-10-31 ~ 2026-11-01
 STUDY IN KOREA Education Fair in Mexico(Mexico City)
 Education Fair
 STUDY IN KOREA Education Fair in Mexico(Mexico City)
@@ -179,6 +169,7 @@ View more
 GYEONGSANG NATIONAL UNIVERSITY
 KWANGWOON UNIVERSITY
 DAEJIN UNIVERSITY
+DONG-EUI UNIVERSITY
 MOKWON UNIVERSITY
 PAI CHAI UNIVERSITY
 PUKYONG NATIONAL UNIVERSITY
@@ -306,23 +297,23 @@ View All Social Media
 Peru
 ASAPEC Organizes Career Seminar for Foreign Students and Professionals
 2026-10-28
-5
+6
 Peru
 ASAPEC Participates in the Global Career Fast-Track Seminar
 2026-10-28
-0
+1
 Peru
 ASAPEC Promotes Peruvian Culture at Omok Park Autumn Cultural Festival
 2026-10-28
-0
+1
 Peru
 ASAPEC Participates in IWIK 2026 Diplomacy and International Law
 2026-10-28
-0
+1
 India
 ISRK @ Konnected – Advancing Global Partnerships Forum
 2026-10-26
-0
+1
 Philippines
 PIKO at the ASEAN Youth Leadership & Cultural Exchange Camp 2026
 2026-10-19
