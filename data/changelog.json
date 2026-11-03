@@ -1383,6 +1383,69 @@
         "added_total": 2,
         "removed_total": 1
       }
+    },
+    {
+      "id": "2026-11-03-001",
+      "created": "2026-11-03T13:20:13+00:00",
+      "kind": "page",
+      "program_id": "stipendium-hungaricum",
+      "source_id": "sh-apply",
+      "source_url": "https://stipendiumhungaricum.hu/apply/",
+      "status": "info",
+      "summary": "Текст страницы изменился",
+      "diff": {
+        "added": [],
+        "removed": [
+          "Where can applicants get help for the online application system?",
+          "It depends on the requirements of the responsible authority of the Sending Partner. Each Sending Partner might have different deadlines and requirements for submitting the application materials. There",
+          "responsible partner office",
+          "in your country/region."
+        ],
+        "added_total": 0,
+        "removed_total": 4
+      }
+    },
+    {
+      "id": "2026-11-03-002",
+      "created": "2026-11-03T13:22:53+00:00",
+      "kind": "page",
+      "program_id": "stipendium-hungaricum",
+      "source_id": "sh-main",
+      "source_url": "https://stipendiumhungaricum.hu/",
+      "status": "info",
+      "summary": "Текст страницы изменился",
+      "diff": {
+        "added": [
+          "You can choose from an ever-growing number of programmes taught in English, covering all higher education fields at all degrees offered by the most renowned Hungarian universities."
+        ],
+        "removed": [
+          "You can choose from an ever-growing number of programmes taught in English, covering all higher education fields at all degrees offered by the most renowned Hungarian universitie"
+        ],
+        "added_total": 1,
+        "removed_total": 1
+      }
+    },
+    {
+      "id": "2026-11-03-003",
+      "created": "2026-11-03T13:25:39+00:00",
+      "kind": "page",
+      "program_id": "gks-undergraduate",
+      "source_id": "gks-main",
+      "source_url": "https://www.studyinkorea.go.kr/",
+      "status": "info",
+      "summary": "Текст страницы изменился",
+      "diff": {
+        "added": [
+          "21",
+          "10"
+        ],
+        "removed": [
+          "20",
+          "7"
+        ],
+        "added_total": 2,
+        "removed_total": 2
+      }
     }
   ]
 }
