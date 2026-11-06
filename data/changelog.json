@@ -1446,6 +1446,217 @@
         "added_total": 2,
         "removed_total": 2
       }
+    },
+    {
+      "id": "2026-11-06-001",
+      "created": "2026-11-06T13:28:33+00:00",
+      "kind": "page",
+      "program_id": null,
+      "source_id": "kg-ministry-contests",
+      "source_url": "https://student.edu.gov.kg/",
+      "status": "info",
+      "summary": "Текст страницы изменился",
+      "diff": {
+        "added": [
+          "Сейчас приём заявок не идёт. Конкурсы проводятся каждый год примерно в одни и те же месяцы — ниже видно, какие конкурсы бывают и когда они открывались раньше. Подготовьте документы заранее.",
+          "Какие конкурсы бывают и когда открывается приём",
+          "По данным прошлых лет. Точные даты — в объявлении конкурса, когда он откроется. Время — Бишкек, UTC+6.",
+          "Страна обучения",
+          "Уровень",
+          "Обычно открывается",
+          "Приём в прошлые годы",
+          "Азербайджан",
+          "Бакалавриат",
+          "июль",
+          "2026:",
+          "27.07 – 07.08"
+        ],
+        "removed": [
+          "Актуальных конкурсов пока нет"
+        ],
+        "added_total": 251,
+        "removed_total": 1
+      }
+    },
+    {
+      "id": "2026-11-06-002",
+      "created": "2026-11-06T13:30:42+00:00",
+      "kind": "page",
+      "program_id": "stipendium-hungaricum",
+      "source_id": "sh-apply",
+      "source_url": "https://stipendiumhungaricum.hu/apply/",
+      "status": "info",
+      "summary": "Текст страницы изменился",
+      "diff": {
+        "added": [
+          "Operational Regulations",
+          "Operational Regulations",
+          "Stipendium Hungaricum Programme Operational Regulations (effective: 31 August 2026)",
+          "Működési szabályzat",
+          "Stipendium Hungaricum Program működési szabályzata (hatályos: 2026.08.31.)",
+          "Végrehajtási útmutató",
+          "Stipendium Hungaricum Program végrehajtási útmutató (hatályos: 2026.09.01.)",
+          "How do I apply to the Sending Partner?",
+          "It depends on the requirements of the responsible authority of the Sending Partner. Each Sending Partner might have different deadlines and requirements for submitting the application materials. There",
+          "responsible partner office",
+          "in your country/region.",
+          "Signing the contract with the institution must be arranged between the scholarship holder and the university. Contact your"
+        ],
+        "removed": [
+          "Where can applicants get help for the online application system?",
+          "Here you can find our written",
+          "Application Guide for the Stipendium Hungaricum Programme",
+          "And here you can access our video guide.",
+          "Please do not forget that you need to submit your Stipendium Hungaricum application on this online platform, starting with a registration:",
+          "https://apply.stipendiumhungaricum.hu",
+          ". If you get stuck at any point of the process, contact our office via email or telephone.",
+          "Signing the contract with the institution must be arranged between the scholarship holder and the university.",
+          "Contact your",
+          "A am applying for a PhD programme, do I have to study Hungarian as a foreign language?"
+        ],
+        "added_total": 13,
+        "removed_total": 10
+      }
+    },
+    {
+      "id": "2026-11-06-003",
+      "created": "2026-11-06T13:35:16+00:00",
+      "kind": "page",
+      "program_id": "gks-undergraduate",
+      "source_id": "gks-main",
+      "source_url": "https://www.studyinkorea.go.kr/",
+      "status": "info",
+      "summary": "Текст страницы изменился",
+      "diff": {
+        "added": [
+          "SUNCHON NATIONAL UNIVERSITY",
+          "15",
+          "2",
+          "2",
+          "2",
+          "32"
+        ],
+        "removed": [
+          "MOKWON UNIVERSITY",
+          "6",
+          "1",
+          "1",
+          "1",
+          "31"
+        ],
+        "added_total": 6,
+        "removed_total": 6
+      }
+    },
+    {
+      "id": "2026-11-06-004",
+      "created": "2026-11-06T13:37:27+00:00",
+      "kind": "page",
+      "program_id": "dartmouth",
+      "source_id": "dartmouth-apply",
+      "source_url": "https://admissions.dartmouth.edu/apply-dartmouth",
+      "status": "info",
+      "summary": "Текст страницы изменился",
+      "diff": {
+        "added": [
+          "Last date for testing.",
+          ".",
+          "due.",
+          "due.",
+          "application materials due.",
+          "March and April",
+          "to determine transferable credits in time for admission notification in mid-May (required for all enrolling students).",
+          "Mid-May",
+          "Transfer admission notification. Financial aid award notification for admitted financial aid applicants.",
+          "May",
+          "Admitted financial aid applicants review and appeal (if necessary) financial aid packages.",
+          "Late May"
+        ],
+        "removed": [
+          "Last date for testing",
+          "due",
+          "due",
+          "application materials due",
+          "Mid-May",
+          "Transfer admission notification. Financial aid award notification for admitted financial aid applicants",
+          "May",
+          "Admitted financial aid applicants review and appeal (if necessary) financial aid packages.",
+          "Late May",
+          "Intent to enroll deadline",
+          "May and June",
+          "Final spring term college transcript, including end-of-year grades, due (required for all admitted students and applicants on the Wait List)"
+        ],
+        "added_total": 15,
+        "removed_total": 13
+      }
+    },
+    {
+      "id": "2026-11-06-005",
+      "created": "2026-11-06T13:39:30+00:00",
+      "kind": "page",
+      "program_id": "bowdoin",
+      "source_id": "bowdoin-aid",
+      "source_url": "https://www.bowdoin.edu/student-aid/apply-for-aid/international-students.html",
+      "status": "info",
+      "summary": "Текст страницы изменился",
+      "diff": {
+        "added": [
+          "*Questbridge Match applicants ONLY - Please refer to your admission portal and financial aid checklist for further instructions."
+        ],
+        "removed": [
+          "*Quesbridge Match applicants ONLY - Please refer to your admission portal and financial aid checklist for further instructions."
+        ],
+        "added_total": 1,
+        "removed_total": 1
+      }
+    },
+    {
+      "id": "2026-11-06-006",
+      "created": "2026-11-06T13:44:33+00:00",
+      "kind": "page",
+      "program_id": "nyuad",
+      "source_id": "nyuad-aid",
+      "source_url": "https://nyuad.nyu.edu/en/apply/undergraduate/scholarships-and-financial-aid.html",
+      "status": "info",
+      "summary": "Текст страницы изменился",
+      "diff": {
+        "added": [
+          "Visit How to Apply for more information on the CSS Profile.",
+          "All financial aid grants offered by NYUAD (for non-Emirati citizens) are based on financial need. To be considered, students should file the CSS Profile by the required deadline,"
+        ],
+        "removed": [
+          "Visit",
+          "How to Apply",
+          "for more information on the CSS Profile.",
+          "All financial aid grants offered by NYUAD (for non-Emirati citizens) are based on financial need. To be considered, students should file the CSS Profile by the required",
+          "deadline",
+          ","
+        ],
+        "added_total": 2,
+        "removed_total": 6
+      }
+    },
+    {
+      "id": "2026-11-06-007",
+      "created": "2026-11-06T13:47:43+00:00",
+      "kind": "page",
+      "program_id": null,
+      "source_id": "sat-dates",
+      "source_url": "https://satsuite.collegeboard.org/sat/dates-deadlines",
+      "status": "info",
+      "summary": "Текст страницы изменился",
+      "diff": {
+        "added": [
+          "Before going to your test center, remember to",
+          "download Bluebook™",
+          "and complete",
+          "exam setup",
+          "on your testing device. When you finish, you'll get an admission ticket that you need to bring on test day."
+        ],
+        "removed": [],
+        "added_total": 5,
+        "removed_total": 0
+      }
     }
   ]
 }

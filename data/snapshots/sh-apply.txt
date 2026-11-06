@@ -80,6 +80,13 @@ Dissertation Scholarship Agreement – English and Hungarian version
 Dissertation Scholarship Agreement
 Dissertation Scholarship Agreement – Annexes
 Dissertation Scholarship General Conditions
+Operational Regulations
+Operational Regulations
+Stipendium Hungaricum Programme Operational Regulations (effective: 31 August 2026)
+Működési szabályzat
+Stipendium Hungaricum Program működési szabályzata (hatályos: 2026.08.31.)
+Végrehajtási útmutató
+Stipendium Hungaricum Program végrehajtási útmutató (hatályos: 2026.09.01.)
 PREVIOUS VERSIONS OF OPERATIONAL REGULATIONS
 ENGLISH – PREVIOUS VERSIONS
 Stipendium Hungaricum Programme – Operational Regulations, 11 February, 2026
@@ -138,13 +145,10 @@ Frequently Asked Questions
 APPLICATION PROCEDURE
 Do Stipendium Hungaricum applicants have to pay for their application?
 No, the online application (registration) and the participation in the admission examinations is free of charge. Do not apply through any agencies unknown by the selected Host Institutions and do not pay for their services regarding the application because the programme is implemented by direct cooperation with the responsible authorities of the Sending Partners, not agencies.
-Where can applicants get help for the online application system?
-Here you can find our written
-Application Guide for the Stipendium Hungaricum Programme
-And here you can access our video guide.
-Please do not forget that you need to submit your Stipendium Hungaricum application on this online platform, starting with a registration:
-https://apply.stipendiumhungaricum.hu
-. If you get stuck at any point of the process, contact our office via email or telephone.
+How do I apply to the Sending Partner?
+It depends on the requirements of the responsible authority of the Sending Partner. Each Sending Partner might have different deadlines and requirements for submitting the application materials. There are also Partners that do not require any materials from the applicants. Please find out about these details by contacting the
+responsible partner office
+in your country/region.
 Which study programmes can an applicant apply for?
 Only for those programmes that are supported by the cooperation agreement between Hungary and your country/region. You will find all the information about the available study types and study fields
 here
@@ -193,8 +197,7 @@ here
 .
 ALREADY A SCHOLARSHIP HOLDER
 How do I sign my scholarship contract?
-Signing the contract with the institution must be arranged between the scholarship holder and the university.
-Contact your
+Signing the contract with the institution must be arranged between the scholarship holder and the university. Contact your
 institutional SH coordinator
 regarding the agreement and its content.
 Do I have to stay in Hungary in case my university provides online education?
@@ -266,7 +269,7 @@ If you do not speak any Hungarian yet, you can apply for a preparatory course fi
 If you have at least an intermediate (B2) level of Hungarian language knowledge, you can also apply for a study programme in Hungarian on all the available study levels that are listed
 here
 .
-A am applying for a PhD programme, do I have to study Hungarian as a foreign language?
+I am applying for a PhD programme, do I have to study Hungarian as a foreign language?
 No, only full-time undergraduate and postgraduate students will be required to complete two semesters.
 Do I have to look for an institution where I can learn Hungarian as a foreign language?
 No, language classes are provided by the Host Institution.
