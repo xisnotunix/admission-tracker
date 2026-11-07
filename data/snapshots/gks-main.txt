@@ -179,7 +179,6 @@ SOOKMYUNG WOMEN`S UNIVERSITY
 SUNCHON NATIONAL UNIVERSITY
 Ajou University
 Ulsan National Institute of Science and Technology (UNIST)
-UNIVERSITY OF ULSAN
 INJE UNIVERSITY
 INHA UNIVERSITY
 CHA UNIVERSITY
@@ -297,7 +296,7 @@ View All Social Media
 Peru
 ASAPEC Organizes Career Seminar for Foreign Students and Professionals
 2026-10-28
-15
+17
 Peru
 ASAPEC Participates in the Global Career Fast-Track Seminar
 2026-10-28

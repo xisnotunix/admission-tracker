@@ -2,7 +2,7 @@
   "sources": {
     "kg-ministry-contests": {
       "url": "https://student.edu.gov.kg/",
-      "last_checked": "2026-11-06T13:28:33+00:00",
+      "last_checked": "2026-11-07T12:07:48+00:00",
       "error": null,
       "errors_in_row": 0,
       "hash": "0ce2e298d18c83a5d22db1c8a2117a355d1acae204dce0ac05b95e899c78bd17",
@@ -13,7 +13,7 @@
     },
     "sh-apply": {
       "url": "https://stipendiumhungaricum.hu/apply/",
-      "last_checked": "2026-11-06T13:30:42+00:00",
+      "last_checked": "2026-11-07T12:09:56+00:00",
       "error": null,
       "errors_in_row": 0,
       "hash": "09696c289573b09f51f4ce5462006409aa46818e5abe633e9c646c2a9ff8d234",
@@ -24,18 +24,18 @@
     },
     "sh-main": {
       "url": "https://stipendiumhungaricum.hu/",
-      "last_checked": "2026-11-06T13:32:44+00:00",
+      "last_checked": "2026-11-07T12:11:57+00:00",
       "error": null,
       "errors_in_row": 0,
       "hash": "9573569d4d145b91b542570b5a9b2dd8e3bcb736a932047b846d663e1eb7a18f",
       "last_changed": "2026-11-03T13:22:53+00:00",
       "last_error_at": "2026-10-15T13:14:18+00:00",
       "llm_pending": true,
-      "llm_error": "HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=120)"
+      "llm_error": "503 Server Error: Service Unavailable for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent"
     },
     "sh-portal": {
       "url": "https://apply.stipendiumhungaricum.hu/",
-      "last_checked": "2026-11-06T13:35:11+00:00",
+      "last_checked": "2026-11-07T12:15:18+00:00",
       "error": null,
       "errors_in_row": 0,
       "hash": "bb44f0ed078608eb991c117efc2e1055d5753971cd811cf74f7eda5a4dc2e3b1",
@@ -46,7 +46,7 @@
     },
     "mext-undergrad": {
       "url": "https://www.studyinjapan.go.jp/en/smap-stopj-applications-undergraduate.html",
-      "last_checked": "2026-11-06T13:35:12+00:00",
+      "last_checked": "2026-11-07T12:15:19+00:00",
       "error": null,
       "errors_in_row": 0,
       "hash": "65da06cc534ecdc0c12bf490819846d0c34747ed893630ce20daa0bc362ff2b7",
@@ -57,7 +57,7 @@
     },
     "tb-announcement": {
       "url": "https://turkiyeburslari.gov.tr/duyurular/turkiye-burslari-2026-basvurulari-121",
-      "last_checked": "2026-11-06T13:35:13+00:00",
+      "last_checked": "2026-11-07T12:15:20+00:00",
       "error": null,
       "errors_in_row": 0,
       "hash": "ccaa2fa4e8cd3402e0203b5bf86cc177d99a5897000cc4472539bd495515c4ce",
@@ -68,7 +68,7 @@
     },
     "tb-main": {
       "url": "https://turkiyeburslari.gov.tr/",
-      "last_checked": "2026-11-06T13:35:14+00:00",
+      "last_checked": "2026-11-07T12:15:21+00:00",
       "error": null,
       "errors_in_row": 0,
       "hash": "93b330a1f834bf48d82915c9cddca442ed75206c464dcdfcb9db49c0aaf9ef80",
@@ -82,7 +82,7 @@
       "last_error_at": "2026-10-15T13:15:08+00:00",
       "error": null,
       "errors_in_row": 0,
-      "last_checked": "2026-11-06T13:35:15+00:00",
+      "last_checked": "2026-11-07T12:15:22+00:00",
       "hash": "a59a56a84af257f4d44d2f555024daa153c20d816ce8b93c5fd659e5ef11a350",
       "last_changed": "2026-10-15T13:19:50+00:00",
       "llm_pending": false,
@@ -90,18 +90,18 @@
     },
     "gks-main": {
       "url": "https://www.studyinkorea.go.kr/",
-      "last_checked": "2026-11-06T13:35:16+00:00",
+      "last_checked": "2026-11-07T12:15:23+00:00",
       "error": null,
       "errors_in_row": 0,
-      "hash": "c2a62b184f650988c1bf1fda3b77027a76f7e59d184ac760c46bde559ae73bd4",
-      "last_changed": "2026-11-06T13:35:16+00:00",
+      "hash": "c2a017e699395e7839f3f751e6418c415787df4b170e84ba385d1dbe11797b01",
+      "last_changed": "2026-11-07T12:15:23+00:00",
       "last_error_at": "2026-10-15T13:15:11+00:00",
       "llm_pending": true,
-      "llm_error": "HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=120)"
+      "llm_error": "503 Server Error: Service Unavailable for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent"
     },
     "uca-overview": {
       "url": "https://admissions.ucentralasia.org/?p=42",
-      "last_checked": "2026-11-06T13:37:20+00:00",
+      "last_checked": "2026-11-07T12:18:15+00:00",
       "error": null,
       "errors_in_row": 0,
       "hash": "ba360571e9e488ae3b76b031e9dd17b077662b617a698eb572ae285397704f8f",
@@ -112,7 +112,7 @@
     },
     "uca-stage1": {
       "url": "https://admissions.ucentralasia.org/apply/stage-1/",
-      "last_checked": "2026-11-06T13:37:21+00:00",
+      "last_checked": "2026-11-07T12:18:16+00:00",
       "error": null,
       "errors_in_row": 0,
       "hash": "9931e4ab9d1a44ba3411747ce4817b3cbe5343a82e36b3cbadb2de2a31056392",
@@ -123,7 +123,7 @@
     },
     "auca-freshman": {
       "url": "https://auca.kg/en/freshman_applicants/",
-      "last_checked": "2026-11-06T13:37:21+00:00",
+      "last_checked": "2026-11-07T12:18:17+00:00",
       "error": null,
       "errors_in_row": 0,
       "hash": "2aa23171c3fd2db820cd4ceb9a1d4ff30c09a93c23370edec29a03053ede94d6",
@@ -134,7 +134,7 @@
     },
     "auca-exams": {
       "url": "https://auca.kg/en/auca_exams_view/",
-      "last_checked": "2026-11-06T13:37:22+00:00",
+      "last_checked": "2026-11-07T12:18:17+00:00",
       "error": null,
       "errors_in_row": 0,
       "hash": "80cccd3b2427099397f68eebc91ee0748b331e28515dd5038264efa87b1e9fb9",
@@ -145,7 +145,7 @@
     },
     "auca-scoring": {
       "url": "https://auca.kg/en/auca_exams_scoring/",
-      "last_checked": "2026-11-06T13:37:25+00:00",
+      "last_checked": "2026-11-07T12:18:18+00:00",
       "error": null,
       "errors_in_row": 0,
       "hash": "8ba1b8a13d6dcba6ec1d8666ce2900022176e3b9970ee105c0cf3dca119c1ec0",
@@ -156,7 +156,7 @@
     },
     "harvard-firstyear": {
       "url": "https://college.harvard.edu/admissions/apply/first-year-applicants",
-      "last_checked": "2026-11-06T13:37:25+00:00",
+      "last_checked": "2026-11-07T12:18:19+00:00",
       "error": null,
       "errors_in_row": 0,
       "hash": "fe2aec379cd050ecd83f8f6b25928755c62514c1b0689f796f45e57f586af111",
@@ -166,7 +166,7 @@
     },
     "harvard-aid": {
       "url": "https://college.harvard.edu/financial-aid/how-aid-works",
-      "last_checked": "2026-11-06T13:37:26+00:00",
+      "last_checked": "2026-11-07T12:18:19+00:00",
       "error": null,
       "errors_in_row": 0,
       "hash": "2defdfbfb73d21052660653723e076369bf59ce8323ae99349246766e5f4c315",
@@ -176,7 +176,7 @@
     },
     "yale-deadlines": {
       "url": "https://admissions.yale.edu/application-deadlines",
-      "last_checked": "2026-11-06T13:37:26+00:00",
+      "last_checked": "2026-11-07T12:18:20+00:00",
       "error": null,
       "errors_in_row": 0,
       "hash": "88726adde4f71aa5d5bf5e099b4384cc7d38f8e13006ae622918e9f2a801a61a",
@@ -186,7 +186,7 @@
     },
     "yale-international": {
       "url": "https://admissions.yale.edu/applying-yale-international-student",
-      "last_checked": "2026-11-06T13:37:26+00:00",
+      "last_checked": "2026-11-07T12:18:20+00:00",
       "error": null,
       "errors_in_row": 0,
       "hash": "8eb0b1058be583048355175f3aa12ddb61c3e75afc6d64bc8f2e6ac08eb915e0",
@@ -199,7 +199,7 @@
       "last_error_at": "2026-10-19T12:24:43+00:00",
       "error": null,
       "errors_in_row": 0,
-      "last_checked": "2026-11-06T13:37:26+00:00",
+      "last_checked": "2026-11-07T12:18:20+00:00",
       "hash": "39a92b13e4310f46e6affc1cb2dd1afd7664f724e22f143cf443f379eeba2870",
       "last_changed": "2026-10-26T12:30:50+00:00",
       "llm_pending": false,
@@ -207,7 +207,7 @@
     },
     "mit-deadlines": {
       "url": "https://mitadmissions.org/apply/firstyear/deadlines-requirements/",
-      "last_checked": "2026-11-06T13:37:26+00:00",
+      "last_checked": "2026-11-07T12:18:21+00:00",
       "error": null,
       "errors_in_row": 0,
       "hash": "1e796c2f6fd059affec79088dae4e7662f6b001035d3d7337b37f2cae90807df",
@@ -217,28 +217,28 @@
     },
     "mit-aid": {
       "url": "https://sfs.mit.edu/undergraduate-students/apply-for-aid/deadlines-requirements",
-      "last_checked": "2026-11-06T13:37:26+00:00",
+      "last_checked": "2026-11-07T12:18:21+00:00",
       "error": null,
       "errors_in_row": 0,
-      "hash": "90733a7d7cd37c1e6a4d58a0e92208eaf2c683ac1b0f2e55c4e17e17617ae736",
-      "last_changed": "2026-10-19T12:24:59+00:00",
-      "llm_pending": false,
-      "llm_error": null
+      "hash": "ccb72bd10bb285ca7ef64d2a99055e4110d4e1da498cdf4cc05d6cd57f423d2b",
+      "last_changed": "2026-11-07T12:18:21+00:00",
+      "llm_pending": true,
+      "llm_error": "HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=120)"
     },
     "dartmouth-apply": {
       "url": "https://admissions.dartmouth.edu/apply-dartmouth",
       "last_error_at": "2026-10-19T12:25:12+00:00",
       "error": null,
       "errors_in_row": 0,
-      "last_checked": "2026-11-06T13:37:27+00:00",
+      "last_checked": "2026-11-07T12:20:21+00:00",
       "hash": "18774b4b584d7ca9e3cb6062dd4d3c63596f4be7186360472aed0eccd7f6d160",
       "last_changed": "2026-11-06T13:37:27+00:00",
-      "llm_pending": true,
-      "llm_error": "HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=120)"
+      "llm_pending": false,
+      "llm_error": null
     },
     "bowdoin-apply": {
       "url": "https://www.bowdoin.edu/admissions/apply/index.html",
-      "last_checked": "2026-11-06T13:39:30+00:00",
+      "last_checked": "2026-11-07T12:21:39+00:00",
       "error": null,
       "errors_in_row": 0,
       "hash": "90e9703ce58308be8925c4d4135fae7b3fcf474f65b07425e9f548222c03a2d3",
@@ -248,7 +248,7 @@
     },
     "bowdoin-aid": {
       "url": "https://www.bowdoin.edu/student-aid/apply-for-aid/international-students.html",
-      "last_checked": "2026-11-06T13:39:30+00:00",
+      "last_checked": "2026-11-07T12:21:39+00:00",
       "error": null,
       "errors_in_row": 0,
       "hash": "2f001ee769d3ecc64a327b012042d8585c7245e27e649c46835f693e2a8be8b4",
@@ -261,7 +261,7 @@
       "last_error_at": "2026-10-19T12:25:35+00:00",
       "error": null,
       "errors_in_row": 0,
-      "last_checked": "2026-11-06T13:44:32+00:00",
+      "last_checked": "2026-11-07T12:23:39+00:00",
       "hash": "59acca2f7aaa634db59e614cada2083e7e309423b27ec619bf3b40dda35c5c21",
       "last_changed": "2026-10-26T12:35:14+00:00",
       "llm_pending": false,
@@ -272,15 +272,15 @@
       "last_error_at": "2026-10-19T12:25:36+00:00",
       "error": null,
       "errors_in_row": 0,
-      "last_checked": "2026-11-06T13:44:33+00:00",
+      "last_checked": "2026-11-07T12:23:39+00:00",
       "hash": "8d33bff1444077f8282575eaa401648d9f587623a6195ece808a4de2cb5beaca",
       "last_changed": "2026-11-06T13:44:33+00:00",
       "llm_pending": true,
-      "llm_error": "HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=120)"
+      "llm_error": "503 Server Error: Service Unavailable for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent"
     },
     "sat-dates": {
       "url": "https://satsuite.collegeboard.org/sat/dates-deadlines",
-      "last_checked": "2026-11-06T13:47:43+00:00",
+      "last_checked": "2026-11-07T12:27:20+00:00",
       "error": null,
       "errors_in_row": 0,
       "hash": "62adcfe1a3c6c9f4097326808e5f22126d8b00662ba8fca8ecbe065c4eabbf52",

@@ -1657,6 +1657,49 @@
         "added_total": 5,
         "removed_total": 0
       }
+    },
+    {
+      "id": "2026-11-07-001",
+      "created": "2026-11-07T12:15:23+00:00",
+      "kind": "page",
+      "program_id": "gks-undergraduate",
+      "source_id": "gks-main",
+      "source_url": "https://www.studyinkorea.go.kr/",
+      "status": "info",
+      "summary": "Текст страницы изменился",
+      "diff": {
+        "added": [
+          "17"
+        ],
+        "removed": [
+          "UNIVERSITY OF ULSAN",
+          "15"
+        ],
+        "added_total": 1,
+        "removed_total": 2
+      }
+    },
+    {
+      "id": "2026-11-07-002",
+      "created": "2026-11-07T12:18:21+00:00",
+      "kind": "page",
+      "program_id": "mit",
+      "source_id": "mit-aid",
+      "source_url": "https://sfs.mit.edu/undergraduate-students/apply-for-aid/deadlines-requirements",
+      "status": "info",
+      "summary": "Текст страницы изменился",
+      "diff": {
+        "added": [
+          "MIT Financial Aid Portal",
+          "MIT Financial Aid Portal"
+        ],
+        "removed": [
+          "MIT Online Financial Aid System",
+          "MIT Online Financial Aid System"
+        ],
+        "added_total": 2,
+        "removed_total": 2
+      }
     }
   ]
 }
