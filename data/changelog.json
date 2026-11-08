@@ -1700,6 +1700,39 @@
         "added_total": 2,
         "removed_total": 2
       }
+    },
+    {
+      "id": "2026-11-08-001",
+      "created": "2026-11-08T12:35:04+00:00",
+      "kind": "page",
+      "program_id": "gks-undergraduate",
+      "source_id": "gks-main",
+      "source_url": "https://www.studyinkorea.go.kr/",
+      "status": "info",
+      "summary": "Текст страницы изменился",
+      "diff": {
+        "added": [
+          "19",
+          "3",
+          "3"
+        ],
+        "removed": [
+          "STUDY IN KOREA Education Fair in Mexico(Mexico City)",
+          "2026.11.6.~2026.11.7.",
+          "Web Tour",
+          "STUDY IN KOREA Education Fair in Mexico(Mexico City)",
+          "2026.11.6.~2026.11.7.",
+          "Web Tour",
+          "STUDY IN KOREA Education Fair in Mexico(Mexico City)",
+          "Education Fair",
+          "STUDY IN KOREA Education Fair in Mexico(Mexico City)",
+          "2026-11-06 ~ 2026-11-07",
+          "17",
+          "2"
+        ],
+        "added_total": 3,
+        "removed_total": 13
+      }
     }
   ]
 }

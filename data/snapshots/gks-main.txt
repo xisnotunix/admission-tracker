@@ -64,12 +64,6 @@ Pause
 Play
 Close
 Don't show this popup again today.
-STUDY IN KOREA Education Fair in Mexico(Mexico City)
-2026.11.6.~2026.11.7.
-Web Tour
-STUDY IN KOREA Education Fair in Mexico(Mexico City)
-2026.11.6.~2026.11.7.
-Web Tour
 STUDY IN KOREA Education Fair in Mexico(Monterrey)
 2026.11.9.~2026.11.10.
 Web Tour
@@ -148,10 +142,6 @@ For Those Who Have Completed Their Studies in Korea
 Online Education Fair
 Special
 Online Education Fair
-STUDY IN KOREA Education Fair in Mexico(Mexico City)
-Education Fair
-STUDY IN KOREA Education Fair in Mexico(Mexico City)
-2026-11-06 ~ 2026-11-07
 STUDY IN KOREA Education Fair in Mexico(Monterrey)
 Education Fair
 STUDY IN KOREA Education Fair in Mexico(Monterrey)
@@ -296,7 +286,7 @@ View All Social Media
 Peru
 ASAPEC Organizes Career Seminar for Foreign Students and Professionals
 2026-10-28
-17
+19
 Peru
 ASAPEC Participates in the Global Career Fast-Track Seminar
 2026-10-28
@@ -308,11 +298,11 @@ ASAPEC Promotes Peruvian Culture at Omok Park Autumn Cultural Festival
 Peru
 ASAPEC Participates in IWIK 2026 Diplomacy and International Law
 2026-10-28
-2
+3
 India
 ISRK @ Konnected – Advancing Global Partnerships Forum
 2026-10-26
-2
+3
 Philippines
 PIKO at the ASEAN Youth Leadership & Cultural Exchange Camp 2026
 2026-10-19
