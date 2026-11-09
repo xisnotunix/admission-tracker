@@ -1733,6 +1733,74 @@
         "added_total": 3,
         "removed_total": 13
       }
+    },
+    {
+      "id": "2026-11-09-001",
+      "created": "2026-11-09T14:45:52+00:00",
+      "kind": "page",
+      "program_id": "gks-undergraduate",
+      "source_id": "gks-main",
+      "source_url": "https://www.studyinkorea.go.kr/",
+      "status": "info",
+      "summary": "Текст страницы изменился",
+      "diff": {
+        "added": [
+          "Find more information and services to help you prepare for studying in Korea.",
+          "KOREA NAZARENE UNIVERSITY",
+          "20",
+          "11",
+          "33"
+        ],
+        "removed": [
+          "INHA UNIVERSITY",
+          "19",
+          "10",
+          "32"
+        ],
+        "added_total": 5,
+        "removed_total": 4
+      }
+    },
+    {
+      "id": "2026-11-09-002",
+      "created": "2026-11-09T14:48:07+00:00",
+      "kind": "page",
+      "program_id": "mit",
+      "source_id": "mit-deadlines",
+      "source_url": "https://mitadmissions.org/apply/firstyear/deadlines-requirements/",
+      "status": "info",
+      "summary": "Текст страницы изменился",
+      "diff": {
+        "added": [
+          "Please note:",
+          "The MIT Welcome Center and Admissions Office will be closed on Wednesday, November 11, in observance of Veterans Day."
+        ],
+        "removed": [],
+        "added_total": 2,
+        "removed_total": 0
+      }
+    },
+    {
+      "id": "2026-11-09-003",
+      "created": "2026-11-09T14:56:33+00:00",
+      "kind": "page",
+      "program_id": null,
+      "source_id": "sat-dates",
+      "source_url": "https://satsuite.collegeboard.org/sat/dates-deadlines",
+      "status": "info",
+      "summary": "Текст страницы изменился",
+      "diff": {
+        "added": [],
+        "removed": [
+          "Before going to your test center, remember to",
+          "download Bluebook™",
+          "and complete",
+          "exam setup",
+          "on your testing device. When you finish, you'll get an admission ticket that you need to bring on test day."
+        ],
+        "added_total": 0,
+        "removed_total": 5
+      }
     }
   ]
 }
