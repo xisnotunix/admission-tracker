@@ -1801,6 +1801,186 @@
         "added_total": 0,
         "removed_total": 5
       }
+    },
+    {
+      "id": "2026-11-15-001",
+      "created": "2026-11-15T13:18:24+00:00",
+      "kind": "page",
+      "program_id": "stipendium-hungaricum",
+      "source_id": "sh-main",
+      "source_url": "https://stipendiumhungaricum.hu/",
+      "status": "info",
+      "summary": "Текст страницы изменился",
+      "diff": {
+        "added": [
+          "November 11, 2026",
+          "Where Discipline Meets Dreams: A Ballerina’s Journey to Hungary",
+          "Every pirouette begins with a single step… From the ballet studios of Japan to the stages of Europe, one young dancer…",
+          "Read more",
+          "Read More"
+        ],
+        "removed": [
+          "Read more",
+          "Read More",
+          "January 7, 2025",
+          "Where Passion Meets Opportunity: Interview with Eleonora Savic, Excellence awardee",
+          "With a strong passion for dancing and a deep connection to Hungary, Eleonora found the Stipendium Hungaricum Scholarship…"
+        ],
+        "added_total": 5,
+        "removed_total": 5
+      }
+    },
+    {
+      "id": "2026-11-15-002",
+      "created": "2026-11-15T13:20:30+00:00",
+      "kind": "page",
+      "program_id": "gks-undergraduate",
+      "source_id": "gks-main",
+      "source_url": "https://www.studyinkorea.go.kr/",
+      "status": "info",
+      "summary": "Текст страницы изменился",
+      "diff": {
+        "added": [
+          "INCHEON NATIONAL UNIVERSITY",
+          "무료 라이브 특강 안내「한국 유학 성공 가이드: GKS와 어학연수」[Live Special Free Online Lecture「Your Guide to Studying in Korea: GKS & Language Training」]",
+          "2026-11-13",
+          "Notice",
+          "23",
+          "5",
+          "2",
+          "4",
+          "22",
+          "4",
+          "12"
+        ],
+        "removed": [
+          "STUDY IN KOREA Education Fair in Mexico(Monterrey)",
+          "2026.11.9.~2026.11.10.",
+          "Web Tour",
+          "STUDY IN KOREA Education Fair in Mexico(Monterrey)",
+          "2026.11.9.~2026.11.10.",
+          "Web Tour",
+          "STUDY IN KOREA Education Fair in Mexico(Monterrey)",
+          "Education Fair",
+          "STUDY IN KOREA Education Fair in Mexico(Monterrey)",
+          "2026-11-09 ~ 2026-11-10",
+          "PUKYONG NATIONAL UNIVERSITY",
+          "SOOKMYUNG WOMEN`S UNIVERSITY"
+        ],
+        "added_total": 11,
+        "removed_total": 23
+      }
+    },
+    {
+      "id": "2026-11-15-003",
+      "created": "2026-11-15T13:23:00+00:00",
+      "kind": "page",
+      "program_id": "mit",
+      "source_id": "mit-deadlines",
+      "source_url": "https://mitadmissions.org/apply/firstyear/deadlines-requirements/",
+      "status": "info",
+      "summary": "Текст страницы изменился",
+      "diff": {
+        "added": [],
+        "removed": [
+          "Please note:",
+          "The MIT Welcome Center and Admissions Office will be closed on Wednesday, November 11, in observance of Veterans Day."
+        ],
+        "added_total": 0,
+        "removed_total": 2
+      }
+    },
+    {
+      "id": "2026-11-15-004",
+      "created": "2026-11-15T13:23:00+00:00",
+      "kind": "field",
+      "program_id": "mit",
+      "source_id": "mit-deadlines",
+      "source_url": "https://mitadmissions.org/apply/firstyear/deadlines-requirements/",
+      "field": "requirements.language",
+      "old": {
+        "value": "TOEFL/IELTS/Duolingo настоятельно рекомендуются неносителям; для RA — сдать до 31 января."
+      },
+      "new": {
+        "value": "Настоятельно рекомендуются тесты на знание английского языка для кандидатов, для которых английский не является родным",
+        "quote": "English proficiency exams\nare strongly recommended for certain non-native English speakers.",
+        "source_url": "https://mitadmissions.org/apply/firstyear/deadlines-requirements/"
+      },
+      "quote": "English proficiency exams\nare strongly recommended for certain non-native English speakers.",
+      "status": "pending",
+      "resolved": null
+    },
+    {
+      "id": "2026-11-15-005",
+      "created": "2026-11-15T13:23:00+00:00",
+      "kind": "field",
+      "program_id": "mit",
+      "source_id": "mit-deadlines",
+      "source_url": "https://mitadmissions.org/apply/firstyear/deadlines-requirements/",
+      "field": "requirements.documents",
+      "old": {
+        "value": "Собственная анкета MIT (не Common App): эссе, активности, 2 рекомендации, тесты."
+      },
+      "new": {
+        "value": "Анкета, школьный отчет (SSR) с транскриптами, 2 рекомендации от учителей, сбор $75",
+        "quote": "Secondary School Report (SSR) with transcript\n:\nWe require transcripts from each high school and college attended.",
+        "source_url": "https://mitadmissions.org/apply/firstyear/deadlines-requirements/"
+      },
+      "quote": "Secondary School Report (SSR) with transcript\n:\nWe require transcripts from each high school and college attended.",
+      "status": "pending",
+      "resolved": null
+    },
+    {
+      "id": "2026-11-15-006",
+      "created": "2026-11-15T13:26:49+00:00",
+      "kind": "page",
+      "program_id": "dartmouth",
+      "source_id": "dartmouth-apply",
+      "source_url": "https://admissions.dartmouth.edu/apply-dartmouth",
+      "status": "info",
+      "summary": "Текст страницы изменился",
+      "diff": {
+        "added": [
+          "with",
+          "Transcript",
+          "College Report",
+          "with College",
+          "Transcript",
+          ", updated in May/June with final",
+          "Transcript",
+          "and end-of-year grades",
+          "If admitted, year-end",
+          "College Transcript",
+          "and",
+          "Course Syllabi"
+        ],
+        "removed": [
+          "with Transcript",
+          "College Report with College Transcript, updated in May/June with final Transcript and end-of-year grades",
+          "If admitted, year-end college transcript and",
+          "course syllabi"
+        ],
+        "added_total": 12,
+        "removed_total": 4
+      }
+    },
+    {
+      "id": "2026-11-15-007",
+      "created": "2026-11-15T13:29:19+00:00",
+      "kind": "page",
+      "program_id": null,
+      "source_id": "sat-dates",
+      "source_url": "https://satsuite.collegeboard.org/sat/dates-deadlines",
+      "status": "info",
+      "summary": "Текст страницы изменился",
+      "diff": {
+        "added": [
+          "A global service degradation has been reported across services such as Microsoft, AWS, Gmail, and Google. All College Board applications and services are currently online. The outage may affect studen"
+        ],
+        "removed": [],
+        "added_total": 1,
+        "removed_total": 0
+      }
     }
   ]
 }

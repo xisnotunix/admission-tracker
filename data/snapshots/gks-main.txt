@@ -64,12 +64,6 @@ Pause
 Play
 Close
 Don't show this popup again today.
-STUDY IN KOREA Education Fair in Mexico(Monterrey)
-2026.11.9.~2026.11.10.
-Web Tour
-STUDY IN KOREA Education Fair in Mexico(Monterrey)
-2026.11.9.~2026.11.10.
-Web Tour
 STUDY IN KOREA Education Fair in Chile
 2026.11.14.~2026.11.15.
 Web Tour
@@ -143,10 +137,6 @@ For Those Who Have Completed Their Studies in Korea
 Online Education Fair
 Special
 Online Education Fair
-STUDY IN KOREA Education Fair in Mexico(Monterrey)
-Education Fair
-STUDY IN KOREA Education Fair in Mexico(Monterrey)
-2026-11-09 ~ 2026-11-10
 STUDY IN KOREA Education Fair in Chile
 Education Fair
 STUDY IN KOREA Education Fair in Chile
@@ -163,15 +153,13 @@ KOREA NAZARENE UNIVERSITY
 DAEJIN UNIVERSITY
 DONG-EUI UNIVERSITY
 PAI CHAI UNIVERSITY
-PUKYONG NATIONAL UNIVERSITY
 Catholic University of Pusan
 BUSAN UNIVERSITY OF FOREIGN STUDIES
 SAHMYOOK HEALTH UNIVERSITY
-SOOKMYUNG WOMEN`S UNIVERSITY
-SUNCHON NATIONAL UNIVERSITY
 Ajou University
 Ulsan National Institute of Science and Technology (UNIST)
 INJE UNIVERSITY
+INCHEON NATIONAL UNIVERSITY
 CHA UNIVERSITY
 CHANGWON NATIONAL UNIVERSITY
 HANYANG WOMEN`S UNIVERSITY
@@ -218,6 +206,9 @@ KOWORK Job Information
 Notice & News
 View more
 Notice
+무료 라이브 특강 안내「한국 유학 성공 가이드: GKS와 어학연수」[Live Special Free Online Lecture「Your Guide to Studying in Korea: GKS & Language Training」]
+2026-11-13
+Notice
 부산유학설명회in이스탄불 안내 [Study in Busan: Education day in Istanbul]
 2026-10-29
 Notice
@@ -229,9 +220,6 @@ Notice
 Notice
 2026 Seoul Global Job Fair [2026 서울 외국인 취업채용박람회]
 2026-10-07
-Notice
-2026 이프위(IFWY) 은평 컨퍼런스 참가자 모집 안내 [Notice for 2026 Eunpyeong Internatoinal Forum: We, the Youth]
-2026-09-16
 Online Inquiry
 FAQ
 Study Abroad Stories
@@ -287,15 +275,15 @@ View All Social Media
 Peru
 ASAPEC Organizes Career Seminar for Foreign Students and Professionals
 2026-10-28
-20
+23
 Peru
 ASAPEC Participates in the Global Career Fast-Track Seminar
 2026-10-28
-2
+5
 Peru
 ASAPEC Promotes Peruvian Culture at Omok Park Autumn Cultural Festival
 2026-10-28
-1
+2
 Peru
 ASAPEC Participates in IWIK 2026 Diplomacy and International Law
 2026-10-28
@@ -303,11 +291,11 @@ ASAPEC Participates in IWIK 2026 Diplomacy and International Law
 India
 ISRK @ Konnected – Advancing Global Partnerships Forum
 2026-10-26
-3
+4
 Philippines
 PIKO at the ASEAN Youth Leadership & Cultural Exchange Camp 2026
 2026-10-19
-21
+22
 India
 ISRK Autumn Trip – Seoraksan, Sokcho beach and Goseong DMZ
 2026-10-18
@@ -315,11 +303,11 @@ ISRK Autumn Trip – Seoraksan, Sokcho beach and Goseong DMZ
 Philippines
 PIKO Sportsfest 2026 Brings Filipino Students Together in Busan
 2026-10-16
-3
+4
 Philippines
 PIKO Welcomes New Faces at the 2026 Fall Welcome Assembly
 2026-10-16
-11
+12
 Philippines
 Affordable Pathways: Undergraduate Programs in Japan and Korea
 2026-10-13
