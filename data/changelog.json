@@ -1981,6 +1981,74 @@
         "added_total": 1,
         "removed_total": 0
       }
+    },
+    {
+      "id": "2026-11-16-001",
+      "created": "2026-11-16T14:27:21+00:00",
+      "kind": "page",
+      "program_id": "gks-undergraduate",
+      "source_id": "gks-main",
+      "source_url": "https://www.studyinkorea.go.kr/",
+      "status": "info",
+      "summary": "Текст страницы изменился",
+      "diff": {
+        "added": [
+          "DGIST (Daegu Gyeongbuk Institute of Science and Technology​)",
+          "266",
+          "Thailand",
+          "2026 태국 유학생 체육대회 개최",
+          "2026-11-14",
+          "3",
+          "Philippines",
+          "Celebrating Community: PIKO 2026 Summer General Assembly",
+          "2026-11-10",
+          "0",
+          "Democratic Republic of the Congo",
+          "Congolese community in Korea elects new leadership"
+        ],
+        "removed": [
+          "STUDY IN KOREA Education Fair in Chile",
+          "2026.11.14.~2026.11.15.",
+          "Web Tour",
+          "STUDY IN KOREA Education Fair in Chile",
+          "2026.11.14.~2026.11.15.",
+          "Web Tour",
+          "STUDY IN KOREA Education Fair in Chile",
+          "Education Fair",
+          "STUDY IN KOREA Education Fair in Chile",
+          "2026-11-14 ~ 2026-11-15",
+          "Catholic University of Pusan",
+          "263"
+        ],
+        "added_total": 16,
+        "removed_total": 26
+      }
+    },
+    {
+      "id": "2026-11-16-002",
+      "created": "2026-11-16T14:32:30+00:00",
+      "kind": "page",
+      "program_id": "nyuad",
+      "source_id": "nyuad-aid",
+      "source_url": "https://nyuad.nyu.edu/en/apply/undergraduate/scholarships-and-financial-aid.html",
+      "status": "info",
+      "summary": "Текст страницы изменился",
+      "diff": {
+        "added": [
+          "Visit",
+          "How to Apply",
+          "for more information on the CSS Profile.",
+          "All financial aid grants offered by NYUAD (for non-Emirati citizens) are based on financial need. To be considered, students should file the CSS Profile by the required",
+          "deadline",
+          ","
+        ],
+        "removed": [
+          "Visit How to Apply for more information on the CSS Profile.",
+          "All financial aid grants offered by NYUAD (for non-Emirati citizens) are based on financial need. To be considered, students should file the CSS Profile by the required deadline,"
+        ],
+        "added_total": 6,
+        "removed_total": 2
+      }
     }
   ]
 }
